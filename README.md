@@ -21,9 +21,9 @@ which fields to read.
 ## Publishing a change
 
 1. Edit `sources.json` and raise `version` (every publish must be higher than the live one).
-2. `cargo test -p akidev-core` checks the built-in copy parses and that each indexer reads a
-   sample response correctly. `cargo run -p akidev-core --bin akidev-sources -- check sources.json`
-   validates a copy on its own.
+2. Copy your edit to `<code repo>/desktop/sources/sources.json` (the build only downloads when it is missing), then
+   `cargo test -p akidev-core` checks it parses and that each indexer reads a sample response correctly.
+   `cargo run -p akidev-core --bin akidev-sources -- check "$SOURCES_DIR/sources.json"` validates it on its own.
 3. `SOURCES_DIR=<this checkout> ./scripts/publish-sources.sh` signs it and uploads it. Running apps pick it up within six
    hours, and anyone who opens the app after that gets it at start.
 
