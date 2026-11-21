@@ -301,6 +301,15 @@ the document above, and only the desktop app loads it: the server uses the signe
 
 - `indexers`, `subtitles` and `providers` have the same shape as in the document. A plugin has at least one of
   them, at most 16 indexers, 4 subtitle sources and 4 catalogues (providers).
+- `module` (`{ "file": "name.wasm", "sha256": "<64 hex digits>" }`) brings code, for what JSON cannot say: signing a
+  request, a login, reading an HTML page. An indexer, a catalogue (provider) or a mapper's provider names an export
+  of it in `code`, and the module then makes that source's requests and answers with the JSON its `response` (or
+  `card`, `list`, `detail`) reads, so every check after it is the same. The file sits next to the plugin JSON on
+  the same host, is at most 4 MB, and is refused if its hash differs. It runs in a sandbox with no files and no clock;
+  its only network is `akidev.http`, to the hosts the source declares, over public https, at most 8 requests a call,
+  and it stops after 300 million instructions, 64 MB or 20 seconds. Only the desktop app runs it, and a signed
+  document can never carry `code`. The example and the interface are in `desktop/plugins/code-indexer` in the code
+  repo.
 - `mappers` has the same shape as in the document (at most 2). A plugin's indexer names one in `map`, and its
   holes are `{<id>}` and `{<id>_kind}`. A mapper cannot take the id of one that is already there, and its address
   follows the same public https rules.
