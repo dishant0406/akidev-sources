@@ -310,6 +310,14 @@ the document above, and only the desktop app loads it: the server uses the signe
   and it stops after 300 million instructions, 64 MB or 20 seconds. Only the desktop app runs it, and a signed
   document can never carry `code`. The example and the interface are in `desktop/plugins/code-indexer` in the code
   repo.
+- `services` (at most 2) are stream services: they turn a release into a playable https link, the way a debrid
+  service does, and need the `module`. `{ "id", "name", "export": "resolve", "base": "<https address of the API>",
+  "hosts": ["<hosts the module may call>"], "media_hosts": ["<hosts the link may be on>"],
+  "key_label": "<what Settings calls the key>" }`. The `base` must be on one of the `hosts`. The viewer types the key
+  in Settings, under Stream services. The module lists the files of the release, the app picks the episode's file with
+  its own code, and the module returns the link. Enabled services are asked first, for the best few releases; when
+  none has one, the torrent engine runs as before. Only the desktop app. The protocol is in
+  `pipeline/WASM_PLUGINS.md` of the code repo, and an example is `desktop/plugins/torbox`.
 - `mappers` has the same shape as in the document (at most 2). A plugin's indexer names one in `map`, and its
   holes are `{<id>}` and `{<id>_kind}`. A mapper cannot take the id of one that is already there, and its address
   follows the same public https rules.
