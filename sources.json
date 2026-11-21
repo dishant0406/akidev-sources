@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 41,
+  "version": 42,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -242,7 +242,6 @@
     {
       "id": "torrentio",
       "name": "Torrentio (IMDb and mapped Anime Kitsu)",
-      "anime_kitsu": true,
       "map": "kitsu",
       "kinds": [
         "anime",
@@ -1691,17 +1690,20 @@
       {
         "kind": "anime",
         "slug": "anime",
-        "label": "Anime"
+        "label": "Anime",
+        "tag": "ANIME"
       },
       {
         "kind": "series",
         "slug": "series",
-        "label": "Series"
+        "label": "Series",
+        "tag": "SERIES"
       },
       {
         "kind": "movie",
         "slug": "films",
-        "label": "Films"
+        "label": "Films",
+        "tag": "FILM"
       }
     ],
     "sorts": [
@@ -1856,6 +1858,18 @@
         "sort": "popularity",
         "genre": "Romance"
       }
-    ]
+    ],
+    "about": {
+      "attribution": "Metadata from AniList, Cinemeta and TVMaze (CC BY-SA). Akidev stores no media: playback links are resolved from public sources when you press play.",
+      "catalogues": [
+        "AniList",
+        "Cinemeta",
+        "TVMaze",
+        "YTS"
+      ],
+      "subtitles": [
+        "OpenSubtitles"
+      ]
+    }
   }
 }

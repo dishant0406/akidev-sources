@@ -134,8 +134,7 @@ it again, publish a document without the field (or with a lower one) and a highe
   request fills the holes `{kitsu}` and `{kitsu_kind}`, wherever they are: in the path, a query value or the
   body. The mapper accepts only an exact same-number episode (`kitsu:7442:1`); a film instead uses its exact
   unsuffixed title id (`kitsu:50192`) and the `movie` route. A missing or mismatched mapping skips that indexer
-  instead of falling back to IMDb or playing another episode. `anime_kitsu: true` is the old way to say
-  `"map": "kitsu"`: it is still read, and the signed document still carries it for the apps that use it.
+  instead of falling back to IMDb or playing another episode.
 - `seeders` is optional observation data: missing, malformed, negative, fractional or out-of-range
   values stay unknown (`null` in API output); an explicit valid `0` remains observed zero. Do not
   define a default zero for providers that omit health. Counts are upstream reports, not live
@@ -264,20 +263,23 @@ for it. `mappers` is a list of them, and an indexer names one with `map`.
 ### Screens
 
 `screens` says what the apps draw, so the desktop app and the website show the same things from one
-place. Absent in a document from before there were any: the copy built into the app is used.
+place.
 
 ```json
-{ "tabs":   [{ "kind": "anime", "slug": "anime", "label": "Anime" }],
+{ "tabs":   [{ "kind": "anime", "slug": "anime", "label": "Anime", "tag": "ANIME" }],
   "sorts":  [{ "sort": "popularity", "label": "Popular" }],
   "genres": { "anime": ["Action"], "series": [], "movie": [], "all": [] },
-  "home":   [{ "title": "Trending Anime", "kind": "anime", "sort": "trending", "genre": "Action" }] }
+  "home":   [{ "title": "Trending Anime", "kind": "anime", "sort": "trending", "genre": "Action" }],
+  "about":  { "attribution": "Metadata from AniList (CC BY-SA).", "catalogues": ["AniList"], "subtitles": ["OpenSubtitles"] } }
 ```
 
-- `tabs` are the catalogues, in the order of the top bar. `slug` is the address on the website (`/films`).
+- `tabs` are the catalogues, in the order of the top bar. `slug` is the address on the website (`/films`). `tag` is the small label over a title of that kind (`FILM`).
 - `sorts` are the ways a catalogue can be ordered. The first is the one it opens on.
 - `genres` are offered for one catalogue, by kind name, in the providers' own spellings. `all` is for the page
   that shows every catalogue.
 - `home` are the rows of the home page, in order. `genre` is optional. A row's `kind` must have a tab.
+- `about` is the credit the website shows: `attribution` is the footer line, and `catalogues` and `subtitles` are the
+  names the privacy page lists. Adding or dropping a source means changing these too: the site has no list of its own.
 - The server sends it at `GET /v1/screens`.
 
 ### Plugins
