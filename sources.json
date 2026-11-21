@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 42,
+  "version": 43,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -738,7 +738,8 @@
           "size": "size",
           "seeders": "seeders"
         }
-      }
+      },
+      "server_only": true
     }
   ],
   "providers": [

@@ -107,6 +107,9 @@ it again, publish a document without the field (or with a lower one) and a highe
   ([pipeline/PROWLARR_FALLBACK.md](../../pipeline/PROWLARR_FALLBACK.md)). That entry sets the request header
   `x-akidev-fallback` (see `headers` below). An app that predates the flag asks it like any other indexer,
   without the header, and the server's route turns that away at once.
+- `server_only: true` makes an indexer one that only the server that serves the website asks. The desktop app
+  skips it, so the app never calls the server for it (the Prowlarr entry uses it, because it needs the server's
+  own key).
 - `request.headers` is a map of headers sent with every request, for a service that wants a key or a marker
   in a header.
 - In `path`, `query` and `json`, `{term}`, `{imdb}` (`tt0903747`), `{imdb_digits}` (`0903747`), `{imdb_or_term}` (the id when the search has
@@ -298,6 +301,9 @@ the document above, and only the desktop app loads it: the server uses the signe
 
 - `indexers`, `subtitles` and `providers` have the same shape as in the document. A plugin has at least one of
   them, at most 16 indexers, 4 subtitle sources and 4 catalogues (providers).
+- `mappers` has the same shape as in the document (at most 2). A plugin's indexer names one in `map`, and its
+  holes are `{<id>}` and `{<id>_kind}`. A mapper cannot take the id of one that is already there, and its address
+  follows the same public https rules.
 - `id` is 1 to 40 lower case letters, digits or dashes, and it is the name of the file the plugin is kept in.
 - Every address must be `https`, on a public name, with no login and no port. No IP address, no `localhost`,
   no `.local` or `.internal` name. A public name that points at a private address is not caught.
