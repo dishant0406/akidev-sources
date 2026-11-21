@@ -1,0 +1,30 @@
+{
+  "id": "my-site",
+  "name": "My Site",
+  "kinds": ["anime", "series", "movie"],
+  "hosts": ["https://api.example.com/v1"],
+  "request": {
+    "method": "POST",
+    "json": {
+      "query": "{term}",
+      "size": 50,
+      "categories": {
+        "$kind": {
+          "anime": [6000000],
+          "series": [2000000],
+          "movie": [3000000]
+        }
+      }
+    }
+  },
+  "response": {
+    "format": "json",
+    "rows": "hits",
+    "fields": {
+      "title": "title",
+      "hash": "hash",
+      "size": "bytes",
+      "seeders": "seeders"
+    }
+  }
+}

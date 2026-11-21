@@ -1,0 +1,25 @@
+{
+  "plugin": 1,
+  "id": "my-site",
+  "name": "My Site",
+  "version": 1,
+  "module": {
+    "file": "my-site.wasm",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "indexers": [
+    {
+      "id": "my-site",
+      "name": "My Site",
+      "kinds": ["series", "movie"],
+      "hosts": ["https://torrents.example.com"],
+      "code": "search",
+      "request": { "path": "/search", "query": { "q": "{term}" } },
+      "response": {
+        "format": "json",
+        "rows": "items",
+        "fields": { "title": "title", "hash": "hash", "size": "size", "seeders": "seeders" }
+      }
+    }
+  ]
+}

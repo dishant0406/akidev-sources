@@ -1,0 +1,20 @@
+{
+  "plugin": 1,
+  "id": "my-site",
+  "name": "My Site",
+  "version": 1,
+  "indexers": [
+    {
+      "id": "my-site",
+      "name": "My Site",
+      "kinds": ["series", "movie"],
+      "hosts": ["https://api.example.com"],
+      "request": { "path": "/search", "query": { "q": "{term}" } },
+      "response": {
+        "format": "json",
+        "rows": "results",
+        "fields": { "title": "name", "hash": "info_hash", "size": "size_bytes", "seeders": "seeders" }
+      }
+    }
+  ]
+}

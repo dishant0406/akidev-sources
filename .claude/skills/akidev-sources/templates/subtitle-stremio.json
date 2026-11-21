@@ -1,0 +1,25 @@
+{
+  "id": "my-subtitles",
+  "name": "My Subtitles",
+  "kinds": ["series", "movie"],
+  "hosts": ["https://subtitles.example.com"],
+  "file_hosts": ["example.com"],
+  "request": {
+    "path": {
+      "$kind": {
+        "movie": "/subtitles/movie/{imdb}.json",
+        "series": "/subtitles/series/{imdb}:{season}:{episode}.json"
+      }
+    }
+  },
+  "response": {
+    "rows": "subtitles",
+    "fields": {
+      "id": "id",
+      "url": "url",
+      "lang": "lang",
+      "label": "subtitleFileName",
+      "format": { "const": "srt" }
+    }
+  }
+}

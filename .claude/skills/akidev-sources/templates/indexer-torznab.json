@@ -1,0 +1,29 @@
+{
+  "id": "my-torznab",
+  "name": "My Torznab site",
+  "kinds": ["series", "movie"],
+  "hosts": ["https://jackett.example.com/api/v2.0/indexers/all/results/torznab"],
+  "request": {
+    "path": "/api",
+    "query": {
+      "t": { "$kind": { "series": "tvsearch", "movie": "movie" } },
+      "q": "{term}",
+      "apikey": "PUT-THE-KEY-HERE-IN-A-PLUGIN-ONLY"
+    }
+  },
+  "response": {
+    "format": "rss",
+    "fields": {
+      "title": "title",
+      "hash": {
+        "coalesce": [
+          "torznab:attr@infohash",
+          { "magnet_hash": "torznab:attr@magneturl" }
+        ]
+      },
+      "magnet": "torznab:attr@magneturl",
+      "size": "size",
+      "seeders": "torznab:attr@seeders"
+    }
+  }
+}

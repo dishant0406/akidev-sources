@@ -1,0 +1,21 @@
+{
+  "id": "mymap",
+  "kinds": ["anime"],
+  "provider": {
+    "id": "my-mapper",
+    "kinds": ["anime"],
+    "base_url": "https://mapper.example.com",
+    "card": { "id": "id", "title": "name" },
+    "detail": {
+      "request": { "url": "{base}/meta/anime/anilist:{id}.json" },
+      "id_pattern": "^[0-9]+$",
+      "root": "meta",
+      "episodes": {
+        "rows": "videos",
+        "id": "id",
+        "season": "season",
+        "number": "episode"
+      }
+    }
+  }
+}

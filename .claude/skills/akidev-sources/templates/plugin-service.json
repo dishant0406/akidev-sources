@@ -1,0 +1,21 @@
+{
+  "plugin": 1,
+  "id": "my-service",
+  "name": "My service",
+  "version": 1,
+  "module": {
+    "file": "my-service.wasm",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "services": [
+    {
+      "id": "my-service",
+      "name": "My service",
+      "export": "resolve",
+      "base": "https://api.example.com/v1",
+      "hosts": ["api.example.com"],
+      "media_hosts": ["cdn.example.com"],
+      "key_label": "My service API key"
+    }
+  ]
+}

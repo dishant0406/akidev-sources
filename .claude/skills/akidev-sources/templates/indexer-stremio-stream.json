@@ -1,0 +1,36 @@
+{
+  "id": "my-addon",
+  "name": "My Stremio addon",
+  "kinds": ["series", "movie"],
+  "fanout": "once",
+  "hosts": ["https://addon.example.com"],
+  "request": {
+    "path": {
+      "$kind": {
+        "movie": "/stream/movie/{imdb}.json",
+        "series": "/stream/series/{imdb}:{season}:{episode}.json"
+      }
+    }
+  },
+  "response": {
+    "format": "json",
+    "rows": "streams",
+    "fields": {
+      "title": {
+        "coalesce": [
+          "behaviorHints.filename",
+          { "line": { "from": { "coalesce": ["title", "description"] }, "index": 0 } }
+        ]
+      },
+      "hash": "infoHash",
+      "file_idx": "fileIdx",
+      "size": "behaviorHints.videoSize",
+      "seeders": {
+        "regex": {
+          "from": { "coalesce": ["title", "description"] },
+          "pattern": "👤\\s*([0-9]+)"
+        }
+      }
+    }
+  }
+}

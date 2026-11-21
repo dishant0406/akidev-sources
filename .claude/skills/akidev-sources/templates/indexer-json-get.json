@@ -1,0 +1,20 @@
+{
+  "id": "my-site",
+  "name": "My Site",
+  "kinds": ["series", "movie"],
+  "hosts": ["https://api.example.com"],
+  "request": {
+    "path": "/search",
+    "query": { "q": "{term}", "limit": "50" }
+  },
+  "response": {
+    "format": "json",
+    "rows": "results",
+    "fields": {
+      "title": "name",
+      "hash": "info_hash",
+      "size": "size_bytes",
+      "seeders": "seeders"
+    }
+  }
+}

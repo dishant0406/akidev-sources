@@ -1,6 +1,6 @@
 ---
 name: akidev-sources
-description: Work on anything about Akidev's sources, catalogues and plugins. Use when adding, changing, removing, testing, debugging or publishing sources.json: indexers (torrent sites), providers (catalogues such as AniList, Cinemeta, TVMaze, YTS), chains, id mappers, subtitle sources, screens (tabs, sorts, genres, home rows, credits), trackers, min_version, and plugins (JSON plugins, WebAssembly code plugins, stream services). Also use for questions about how the website, server and desktop app read the sources, how a source change reaches users, the signing and publishing flow, and what data can and cannot do.
+description: "Write, change, test, debug and publish anything about Akidev's sources: give it a website, an API or a plugin idea and it writes the complete JSON (an indexer for a torrent site, a provider for a catalogue, a subtitle source, a mapper, screens, or a whole plugin, including WebAssembly code and stream services), then validates and tests it. Covers sources.json (indexers, providers, chains, mappers, subtitles, screens, trackers, min_version), plugins, the signing and publishing flow, how the website, server and desktop app read the sources, and what data can and cannot do."
 ---
 
 # Akidev sources
@@ -31,6 +31,7 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 
 | The user wants | It is | Read |
 | --- | --- | --- |
+| **"Add this website / API / feed"**, or "write me a plugin for X" | The whole job: investigate, write, test, deliver | **`references/from-a-website.md`** (start here) |
 | A new torrent site, a new mirror, a fix to how releases are read | An **indexer** change | `references/format.md` (indexers), `references/recipes.md` |
 | A new catalogue, a catalogue that stopped working, new genres or sorts | A **provider** change (and maybe `chains`, `screens`) | `references/format.md` (providers, chains), `references/recipes.md` |
 | Anime episodes found by another service's id | A **mapper** | `references/format.md` (mappers) |
@@ -45,6 +46,23 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 | Ship it | Publishing | `references/publishing.md` |
 
 If the request needs something data cannot say, tell the user plainly that it needs a code change in `<code repo>/desktop/core`, and say which module (see `references/engine.md`). Do not bend the JSON to fake it.
+
+## When the user gives you a website, an API or an idea
+
+This is the main job. **Read `references/from-a-website.md` and follow it.** In short:
+
+1. **Investigate** the site with `curl` (save the answers): is it JSON, RSS, Torznab, a Stremio addon, GraphQL, or only HTML? Find the search request and look at one real row. If it shows a challenge page, a captcha or a login wall, stop and tell the user. Never get around protections.
+2. **Decide** what to build: an indexer, a provider, a subtitle source, a mapper, a code plugin (HTML only, signing, a login) or a stream service plugin (a debrid-style service). Decide where it goes: `sources.json` (for everyone, the user publishes) or a plugin (for one user, desktop only).
+3. **Write it from a template** in `templates/` (indexers for JSON, POST, RSS, Torznab and Stremio; providers for REST and GraphQL; subtitles; mappers; plugins; and two code modules). Do not write from nothing.
+4. **Test it** with the scripts, all of them:
+   - `scripts/check-source.sh <file>`: the real rules, for a whole document, one entry, or a plugin (with its module).
+   - `jq` on your saved real answer: every path gives a value.
+   - `scripts/try-local.sh <sources.json> <title ids>`: a real local server and a real release search; shows how many releases each source found.
+   - `scripts/build-plugin.sh <crate> <plugin.json> <out>` and `scripts/try-module.sh <module.wasm> <export> '<input>' <hosts>`: build a code plugin, hash it, and run it against the real site.
+5. **Deliver it**: the JSON (and `.wasm`), where it goes, how to install it (a plugin: the app's plugins folder, or host it side by side and add a link in Settings), and **publish only if the user asks**.
+6. **Report** what you built, what you tested, and what you could not verify.
+
+Never put a key in `sources.json`, never ask for a password in chat, and never echo a key the user gives you.
 
 ## The standard workflow for a change
 
@@ -82,6 +100,13 @@ If the request needs something data cannot say, tell the user plainly that it ne
 - Cache: parsed answers are cached 10 minutes (60 seconds when empty). Errors are never cached as healthy empty answers.
 - Where the live copy is: `https://sources.akidev.live/sources.json` (schema 1) and `https://sources.akidev.live/v2/sources.json` (schema 2).
 - Where the code is: `desktop/core/src/definition.rs` (the format), `sources.rs` (the document and its checks), `screens.rs`, `plugin.rs`, `code.rs` (WebAssembly sandbox), `services.rs` (stream services), `indexers/`, `providers/`.
+
+## Files in this skill
+
+- `references/from-a-website.md`: the playbook from a website to a finished source (read this first for any "add this site").
+- `references/format.md`, `recipes.md`, `plugins.md`, `publishing.md`, `debugging.md`, `engine.md`: the details.
+- `templates/`: ready-to-edit entries and two code modules (all pass the real checker).
+- `scripts/`: `check-source.sh`, `try-local.sh`, `build-plugin.sh`, `try-module.sh`. They need the code repo (`CODE_REPO`, or `../akidev` next to this repo).
 
 ## What to tell the user when you finish
 

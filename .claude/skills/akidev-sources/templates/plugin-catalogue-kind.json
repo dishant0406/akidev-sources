@@ -1,0 +1,38 @@
+{
+  "plugin": 1,
+  "id": "my-catalogue",
+  "name": "My catalogue",
+  "version": 1,
+  "kinds": [
+    { "id": "documentary", "label": "Documentaries", "singular": "Documentary", "shape": "series" }
+  ],
+  "providers": [
+    {
+      "id": "mycatalogue",
+      "kinds": ["documentary"],
+      "base_url": "https://api.example.com",
+      "card": { "id": "id", "title": "name", "poster": "image" },
+      "list": {
+        "request": { "url": "{base}/list" },
+        "rows": "items",
+        "paging": { "style": "pool" }
+      },
+      "search": { "request": { "url": "{base}/search?q={term}" }, "rows": "items" },
+      "detail": {
+        "request": { "url": "{base}/title/{id}" },
+        "root": "",
+        "episodes": {
+          "rows": "episodes",
+          "id": "id",
+          "season": "season",
+          "number": "number",
+          "name": "name"
+        }
+      },
+      "image_hosts": ["images.example.com"]
+    }
+  ],
+  "home": [
+    { "title": "Documentaries", "kind": "documentary", "sort": "popularity", "provider": "mycatalogue" }
+  ]
+}

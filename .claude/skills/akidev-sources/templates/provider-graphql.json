@@ -1,0 +1,70 @@
+{
+  "id": "my-graphql",
+  "kinds": ["series"],
+  "base_url": "https://api.example.com/graphql",
+  "sorts": {
+    "default": "POPULARITY_DESC",
+    "popularity": "POPULARITY_DESC",
+    "recent": "START_DATE_DESC"
+  },
+  "card": { "id": "id", "title": "title", "poster": "cover" },
+  "list": {
+    "request": {
+      "method": "POST",
+      "url": "{base}",
+      "json": {
+        "query": {
+          "$text": "query ($page: Int, $perPage: Int, $sort: String) { shows(page: $page, perPage: $perPage, sort: $sort) { id title cover } }"
+        },
+        "variables": {
+          "page": { "$number": "{page}" },
+          "perPage": { "$number": "{per_page}" },
+          "sort": "{sort}"
+        }
+      }
+    },
+    "rows": "data.shows",
+    "paging": {
+      "per_page": 24,
+      "max": 50,
+      "style": "page",
+      "next": { "flag": "data.hasNext" }
+    }
+  },
+  "search": {
+    "request": {
+      "method": "POST",
+      "url": "{base}",
+      "json": {
+        "query": {
+          "$text": "query ($search: String) { shows(search: $search) { id title cover } }"
+        },
+        "variables": { "search": "{term}" }
+      }
+    },
+    "rows": "data.shows"
+  },
+  "detail": {
+    "request": {
+      "method": "POST",
+      "url": "{base}",
+      "json": {
+        "query": {
+          "$text": "query ($id: Int) { show(id: $id) { id title cover description episodes { number title } } }"
+        },
+        "variables": { "id": { "$number": "{id}" } }
+      }
+    },
+    "id_pattern": "^[0-9]+$",
+    "root": "data.show",
+    "description": "description",
+    "episodes": {
+      "rows": "episodes",
+      "id": { "template": "series-{^.id}-s1e{number}" },
+      "season": { "const": "1" },
+      "number": "number",
+      "name": "title"
+    }
+  },
+  "image_hosts": ["images.example.com"]
+}

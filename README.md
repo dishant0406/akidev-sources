@@ -28,9 +28,10 @@ Nothing in the file is code. It only says "make this request, read these fields"
 11. [Screens](#screens)
 12. [Plugins](#plugins)
 13. [Recipes](#recipes)
-14. [Troubleshooting](#troubleshooting)
-15. [What the file cannot do](#what-the-file-cannot-do)
-16. [All the limits in one place](#all-the-limits-in-one-place)
+14. [Let an agent write a source for you](#let-an-agent-write-a-source-for-you)
+15. [Troubleshooting](#troubleshooting)
+16. [What the file cannot do](#what-the-file-cannot-do)
+17. [All the limits in one place](#all-the-limits-in-one-place)
 
 ---
 
@@ -1346,6 +1347,31 @@ You cannot go back to a lower version. Fix the file (or restore the old one) and
 ### Make an indexer server-only
 
 Add `"server_only": true`. Use it for a source that needs a key only your server has.
+
+---
+
+## Let an agent write a source for you
+
+This repo has a Claude skill, `akidev-sources`, in `.claude/skills/akidev-sources/`. When you work in this repo with Claude Code, you can give it a website, an API, a feed or an idea, and it writes the whole thing.
+
+Just say what you want, for example:
+
+- "Add https://example.com as a torrent source."
+- "Add this catalogue API: https://api.example.com/docs."
+- "Write me a plugin for this site. It is only HTML."
+- "I have a debrid service with this API. Make a stream service plugin."
+
+What it does:
+
+1. Looks at the site with `curl`: is it JSON, RSS, Torznab, a Stremio addon, GraphQL, or only HTML? It saves real answers.
+2. Decides what to build (an indexer, a provider, a subtitle source, a mapper, a code plugin, or a stream service) and where it goes: here in `sources.json` for everyone, or as a plugin for one app.
+3. Writes it from a template in `.claude/skills/akidev-sources/templates/`.
+4. Tests it with the scripts in `.claude/skills/akidev-sources/scripts/`: the real rules (`check-source.sh`), a real local search (`try-local.sh`), and, for a code plugin, building and hashing the module (`build-plugin.sh`) and running it against the real site (`try-module.sh`).
+5. Hands you the files, how to install them, and what it could not verify. It does **not** publish unless you ask.
+
+The scripts need a checkout of the code repo, [dishant0406/akidev](https://github.com/dishant0406/akidev), next to this one (as `../akidev`), or set `CODE_REPO` to where it is.
+
+It will not try to get around a site's protections (a challenge page, a captcha, a login wall), and it will not put a key in `sources.json`.
 
 ---
 

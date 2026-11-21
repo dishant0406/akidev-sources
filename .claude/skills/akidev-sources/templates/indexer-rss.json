@@ -1,0 +1,19 @@
+{
+  "id": "my-site",
+  "name": "My Site",
+  "kinds": ["anime"],
+  "hosts": ["https://example.com", "https://mirror.example.com"],
+  "request": {
+    "path": "/",
+    "query": { "page": "rss", "q": "{term}" }
+  },
+  "response": {
+    "format": "rss",
+    "fields": {
+      "title": "title",
+      "hash": "infoHash",
+      "size": "size",
+      "seeders": "seeders"
+    }
+  }
+}

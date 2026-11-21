@@ -1,0 +1,42 @@
+{
+  "id": "my-catalogue",
+  "kinds": ["series"],
+  "base_url": "https://api.example.com",
+  "card": {
+    "id": "id",
+    "title": "name",
+    "poster": "image",
+    "year": { "year": "premiered" },
+    "score": { "scale": { "from": "rating", "by": 10 } },
+    "genres": "genres"
+  },
+  "list": {
+    "request": { "url": "{base}/shows?page={page}" },
+    "rows": "shows",
+    "paging": {
+      "per_page": 24,
+      "max": 50,
+      "style": "page",
+      "next": { "flag": "has_next" }
+    }
+  },
+  "search": {
+    "request": { "url": "{base}/search?q={term}" },
+    "rows": "shows"
+  },
+  "detail": {
+    "request": { "url": "{base}/shows/{id}" },
+    "id_pattern": "^[0-9]+$",
+    "root": "",
+    "description": { "plain_text": "summary" },
+    "imdb_id": "imdb_id",
+    "episodes": {
+      "rows": "episodes",
+      "id": { "template": "series-{^.id}-s{season}e{number}" },
+      "season": "season",
+      "number": "number",
+      "name": "name"
+    }
+  },
+  "image_hosts": ["images.example.com"]
+}
