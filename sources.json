@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 43,
+  "version": 44,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -236,6 +236,131 @@
           "hash": "infohash",
           "size": "size_bytes",
           "seeders": "seeders"
+        }
+      }
+    },
+    {
+      "id": "aniscraper",
+      "name": "AniScraper",
+      "map": "kitsu",
+      "kinds": [
+        "anime",
+        "series",
+        "movie"
+      ],
+      "fanout": "once",
+      "cooldown_secs": 300,
+      "hosts": [
+        "https://c5541ffce7d3-aniscraper.baby-beamup.club"
+      ],
+      "request": {
+        "path": {
+          "$kind": {
+            "movie": "/stream/movie/{imdb}.json",
+            "series": "/stream/series/{imdb}:{season}:{episode}.json",
+            "anime": "/stream/anime/{kitsu}.json"
+          }
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "streams",
+        "fields": {
+          "title": {
+            "coalesce": [
+              "behaviorHints.filename",
+              {
+                "line": {
+                  "from": {
+                    "coalesce": [
+                      "description",
+                      "title"
+                    ]
+                  },
+                  "index": 0
+                }
+              },
+              "title"
+            ]
+          },
+          "hash": "infoHash",
+          "file_idx": "fileIdx",
+          "size": "behaviorHints.videoSize",
+          "seeders": {
+            "regex": {
+              "from": {
+                "coalesce": [
+                  "description",
+                  "title"
+                ]
+              },
+              "pattern": "🌱\\s*([0-9]+)"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "aniscraper-anirena",
+      "name": "AniScraper (AniRena)",
+      "map": "kitsu",
+      "kinds": [
+        "anime",
+        "series",
+        "movie"
+      ],
+      "fanout": "once",
+      "cooldown_secs": 300,
+      "hosts": [
+        "https://c5541ffce7d3-aniscraper.baby-beamup.club"
+      ],
+      "request": {
+        "path": {
+          "$kind": {
+            "movie": "/source=anirena&p2p=true&v=2.6.7/stream/movie/{imdb}.json",
+            "series": "/source=anirena&p2p=true&v=2.6.7/stream/series/{imdb}:{season}:{episode}.json",
+            "anime": "/source=anirena&p2p=true&v=2.6.7/stream/anime/{kitsu}.json"
+          }
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "streams",
+        "drop": [
+          { "path": "name", "equals": "⚠️ AniScraper" }
+        ],
+        "fields": {
+          "title": {
+            "coalesce": [
+              "behaviorHints.filename",
+              {
+                "line": {
+                  "from": {
+                    "coalesce": [
+                      "description",
+                      "title"
+                    ]
+                  },
+                  "index": 0
+                }
+              },
+              "title"
+            ]
+          },
+          "hash": "infoHash",
+          "file_idx": "fileIdx",
+          "size": "behaviorHints.videoSize",
+          "seeders": {
+            "regex": {
+              "from": {
+                "coalesce": [
+                  "description",
+                  "title"
+                ]
+              },
+              "pattern": "🌱\\s*([0-9]+)"
+            }
+          }
         }
       }
     },
