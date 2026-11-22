@@ -1,0 +1,11 @@
+{
+  "plugin": 1, "id": "torbox", "name": "TorBox", "version": 1,
+  "module": { "file": "torbox.wasm", "sha256": "c302247a7e4666241941712a2c8d01f825774bafae7a8c0461314ab2ce0f64c6" },
+  "services": [{
+    "id": "torbox", "name": "TorBox", "export": "resolve",
+    "base": "https://api.torbox.app/v1/api/torrents",
+    "hosts": ["api.torbox.app"],
+    "media_hosts": ["tb-cdn.pw", "tb-cdn.io"],
+    "key_label": "TorBox API key"
+  }]
+}
