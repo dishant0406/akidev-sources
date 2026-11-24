@@ -1,39 +1,39 @@
 {
   "schema": 1,
-  "version": 44,
+  "version": 48,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
     "udp://open.stealth.si:80/announce",
     "udp://tracker.torrent.eu.org:451/announce",
     "udp://open.demonii.com:1337/announce",
-    "http://tracker.qu.ax:6969/announce",
-    "udp://tracker.skynetcloud.site:6969/announce",
+    "udp://open.tracker.cl:1337/announce",
+    "udp://exodus.desync.com:6969/announce",
+    "http://open.tracker.cl:1337/announce",
     "udp://tracker.qu.ax:6969/announce",
-    "udp://tracker.ducks.party:1984/announce",
+    "http://tracker.qu.ax:6969/announce",
     "udp://tracker-udp.gbitt.info:80/announce",
-    "udp://tracker.tryhackx.org:6969/announce",
-    "udp://tracker.nyaa.vc:6969/announce",
-    "udp://tracker.corpscorp.online:80/announce",
-    "udp://explodie.org:6969/announce",
     "udp://tracker.bittor.pw:1337/announce",
-    "udp://tracker.gmi.gd:6969/announce",
+    "udp://tracker.corpscorp.online:80/announce",
+    "udp://tracker.ducks.party:1984/announce",
+    "udp://tracker.theoks.net:6969/announce",
+    "udp://tracker.nyaa.vc:6969/announce",
+    "http://tracker.dler.org:6969/announce",
     "udp://tracker.dler.org:6969/announce",
     "udp://tracker2.dler.org:80/announce",
     "http://tracker2.dler.org:80/announce",
-    "http://tracker.dler.org:6969/announce",
     "http://tracker.dler.com:6969/announce",
+    "udp://retracker01-msk-virt.corbina.net:80/announce",
+    "udp://tracker.gmi.gd:6969/announce",
+    "udp://explodie.org:6969/announce",
     "http://tracker.renfei.net:8080/announce",
-    "udp://tracker.farted.net:6969/announce",
+    "udp://tracker.t-rb.org:6969/announce",
+    "udp://tracker.ixuexi.click:6969/announce",
+    "udp://tracker.edkj.club:6969/announce",
     "udp://tracker.peerfect.org:6969/announce",
     "udp://tracker.opentrackr.com:6969/announce",
     "udp://tracker.ilibr.org:6969/announce",
-    "udp://mail.segso.net:6969/announce",
-    "udp://retracker01-msk-virt.corbina.net:80/announce",
-    "https://tracker.pmman.tech:443/announce",
-    "https://ht.therarbg.to:443/announce",
-    "udp://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce",
-    "http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce"
+    "udp://tracker.farted.net:6969/announce"
   ],
   "indexers": [
     {
@@ -80,7 +80,8 @@
       "hosts": [
         "https://nyaa.si",
         "https://nyaa.land",
-        "https://nyaa.iss.ink"
+        "https://nyaa.iss.ink",
+        "https://nyaa.net"
       ],
       "request": {
         "path": "/",
@@ -129,6 +130,102 @@
       }
     },
     {
+      "id": "anibt",
+      "name": "AniBT",
+      "kinds": [
+        "anime"
+      ],
+      "min_interval_secs": 1,
+      "hosts": [
+        "https://anibt.net/torznab"
+      ],
+      "request": {
+        "path": "/api",
+        "query": {
+          "t": "search",
+          "q": "{term}",
+          "cat": "5070",
+          "limit": "100",
+          "offset": "0"
+        }
+      },
+      "response": {
+        "format": "rss",
+        "fields": {
+          "title": "title",
+          "hash": "torznab:attr@infohash",
+          "size": "torznab:attr@size"
+        }
+      }
+    },
+    {
+      "id": "tsukihime",
+      "name": "Tsukihime",
+      "kinds": [
+        "anime"
+      ],
+      "hosts": [
+        "https://api.tsukihime.org"
+      ],
+      "request": {
+        "path": "/v1/search/torrents",
+        "query": {
+          "q": "{term}",
+          "limit": "100",
+          "offset": "0"
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "results",
+        "must_contain_term": true,
+        "fields": {
+          "title": "name",
+          "hash": "btih",
+          "size": "totalsize"
+        }
+      }
+    },
+    {
+      "id": "aniraws",
+      "name": "Aniraws",
+      "kinds": [
+        "anime"
+      ],
+      "min_interval_secs": 1,
+      "hosts": [
+        "https://aniraws.org"
+      ],
+      "request": {
+        "path": "/rss2",
+        "query": {
+          "q": "{term}",
+          "cat": "5070",
+          "limit": "200",
+          "offset": "0"
+        }
+      },
+      "response": {
+        "format": "rss",
+        "must_contain_term": true,
+        "fields": {
+          "title": "title",
+          "hash": {
+            "regex": {
+              "from": "guid",
+              "pattern": "(?i)btih:([0-9a-f]{40})"
+            }
+          },
+          "size": {
+            "regex": {
+              "from": "description",
+              "pattern": "Total size: ([0-9]+) bytes"
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "tokyotosho",
       "name": "Tokyo Toshokan",
       "kinds": [
@@ -163,32 +260,26 @@
         "series",
         "movie"
       ],
+      "min_interval_secs": 2,
       "hosts": [
-        "https://api.knaben.org/v1"
+        "https://api.knaben.org/v2"
       ],
       "request": {
-        "method": "POST",
-        "json": {
-          "search_type": "100%",
-          "search_field": "title",
-          "query": "{term}",
-          "size": 50,
-          "categories": {
+        "path": "/search",
+        "query": {
+          "q": "{term}",
+          "sf": "title",
+          "c": {
             "$kind": {
-              "anime": [
-                6000000
-              ],
-              "series": [
-                2000000
-              ],
-              "movie": [
-                3000000,
-                2000000
-              ]
+              "anime": "6000000",
+              "series": "2000000",
+              "movie": "3000000,2000000"
             }
           },
-          "order_by": "seeders",
-          "order_direction": "desc"
+          "o": "seeders",
+          "d": "desc",
+          "s": "50",
+          "f": "0"
         }
       },
       "response": {
@@ -204,7 +295,7 @@
           "title": "title",
           "hash": "hash",
           "size": "bytes",
-          "seeders": "liveSeeders"
+          "seeders": "seeders"
         }
       }
     },
@@ -310,6 +401,7 @@
         "movie"
       ],
       "fanout": "once",
+      "fallback": true,
       "cooldown_secs": 300,
       "hosts": [
         "https://c5541ffce7d3-aniscraper.baby-beamup.club"
@@ -327,7 +419,10 @@
         "format": "json",
         "rows": "streams",
         "drop": [
-          { "path": "name", "equals": "⚠️ AniScraper" }
+          {
+            "path": "name",
+            "equals": "⚠️ AniScraper"
+          }
         ],
         "fields": {
           "title": {
@@ -516,32 +611,53 @@
       }
     },
     {
-      "id": "eztv",
-      "name": "EZTV",
+      "id": "rss-ftp-eztv",
+      "name": "RSS-FTP EZTV",
       "kinds": [
         "series"
       ],
       "fanout": "per-title",
       "hosts": [
-        "https://eztv.yt/api",
-        "https://eztv1.xyz/api",
-        "https://eztv.wf/api"
+        "https://rss.ftp.sh"
       ],
       "request": {
-        "path": "/get-torrents",
-        "query": {
-          "imdb_id": "{imdb_digits}",
-          "limit": "100"
-        }
+        "path": "/eztv-1080p-x265-rss.xml"
       },
       "response": {
-        "format": "json",
-        "rows": "torrents",
+        "format": "rss",
+        "must_contain_term": true,
         "fields": {
-          "title": "filename",
-          "hash": "hash",
-          "size": "size_bytes",
-          "seeders": "seeds"
+          "title": "title",
+          "hash": {
+            "magnet_hash": "link"
+          },
+          "magnet": "link"
+        }
+      }
+    },
+    {
+      "id": "rss-ftp-ettv",
+      "name": "RSS-FTP ETTV",
+      "kinds": [
+        "series"
+      ],
+      "fanout": "per-title",
+      "fallback": true,
+      "hosts": [
+        "https://rss.ftp.sh"
+      ],
+      "request": {
+        "path": "/ettv-rss.xml"
+      },
+      "response": {
+        "format": "rss",
+        "must_contain_term": true,
+        "fields": {
+          "title": "title",
+          "hash": {
+            "magnet_hash": "link"
+          },
+          "magnet": "link"
         }
       }
     },
@@ -818,6 +934,78 @@
       }
     },
     {
+      "id": "archive-public-domain",
+      "name": "Internet Archive Public Domain",
+      "kinds": [
+        "movie"
+      ],
+      "hosts": [
+        "https://archive.org"
+      ],
+      "request": {
+        "path": "/advancedsearch.php",
+        "query": {
+          "q": "mediatype:movies AND licenseurl:*publicdomain* AND btih:* AND title:(\"{term}\")",
+          "fl": "identifier,title,btih,licenseurl,item_size",
+          "rows": "50",
+          "page": "1",
+          "output": "json"
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "response.docs",
+        "must_contain_term": true,
+        "fields": {
+          "title": "title",
+          "hash": "btih",
+          "size": "item_size"
+        }
+      }
+    },
+    {
+      "id": "bitsearch",
+      "name": "Bitsearch",
+      "kinds": [
+        "anime",
+        "series",
+        "movie"
+      ],
+      "fallback": true,
+      "max_requests_per_day": 200,
+      "hosts": [
+        "https://bitsearch.eu"
+      ],
+      "request": {
+        "path": "/api/v1/search",
+        "query": {
+          "q": "{term}",
+          "category": {
+            "$kind": {
+              "anime": "4",
+              "series": "3",
+              "movie": "2"
+            }
+          },
+          "sort": "seeders",
+          "order": "desc",
+          "page": "1",
+          "limit": "100"
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "results",
+        "must_contain_term": true,
+        "fields": {
+          "title": "title",
+          "hash": "infohash",
+          "size": "size",
+          "seeders": "seeders"
+        }
+      }
+    },
+    {
       "id": "prowlarr",
       "name": "Prowlarr",
       "kinds": [
@@ -834,6 +1022,13 @@
         "path": "/v1/fallback/search",
         "query": {
           "q": "{term}",
+          "kind": {
+            "$kind": {
+              "anime": "anime",
+              "series": "series",
+              "movie": "movie"
+            }
+          },
           "season": {
             "$kind": {
               "anime": "",

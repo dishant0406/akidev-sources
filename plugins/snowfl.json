@@ -1,0 +1,43 @@
+{
+  "plugin": 1,
+  "id": "snowfl",
+  "name": "Snowfl",
+  "version": 1,
+  "module": {
+    "file": "snowfl.wasm",
+    "sha256": "2672db14e9784b96f44315f5416677d36a1b184d903aa29a49b5204b06ba9bb6"
+  },
+  "indexers": [
+    {
+      "id": "snowfl",
+      "name": "Snowfl",
+      "kinds": [
+        "anime",
+        "series",
+        "movie"
+      ],
+      "fallback": true,
+      "hosts": [
+        "https://snowfl.com"
+      ],
+      "code": "search",
+      "request": {
+        "path": "/",
+        "query": {
+          "q": "{term}"
+        }
+      },
+      "response": {
+        "format": "json",
+        "rows": "items",
+        "must_contain_term": true,
+        "fields": {
+          "title": "title",
+          "hash": "hash",
+          "size": "size",
+          "seeders": "seeders"
+        }
+      }
+    }
+  ]
+}

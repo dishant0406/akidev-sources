@@ -9,7 +9,7 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 
 ## What this repo is
 
-- It holds **one file**, `sources.json`, plus `README.md`. It is data only: no code, no keys.
+- It holds `sources.json`, `README.md`, optional plugins, and research tools. It contains no secrets.
 - The code that reads, checks, signs and publishes the file is in the other repo, `dishant0406/akidev`, under `desktop/`. In this skill `<code repo>` means a checkout of it and `SOURCES_DIR` means a checkout of this repo. The usual layout is two folders side by side: `.../akidev` and `.../akidev-sources`.
 - The document says where Akidev looks for titles, releases and subtitles, and what the screens show. Nothing in it is code. It says which requests to make and which fields to read.
 - Every build of the app and the server has a built-in copy (`desktop/core/build.rs` downloads it from this repo's `main` branch when `desktop/sources/sources.json` is missing). Running apps also fetch newer signed copies from `sources.akidev.live` about every 6 hours.
@@ -66,7 +66,7 @@ Never put a key in `sources.json`, never ask for a password in chat, and never e
 
 ## The standard workflow for a change
 
-1. **Read the current entry** you are changing (or the closest existing one to copy). Real entries are the best templates: `nyaa` (RSS), `knaben` (JSON POST), `yts` (nested rows, `empty_when`), `torrentio` (Stremio addon, mapper), `tvmaze` (catalogue), `anilist` (GraphQL), `opensubtitles` (subtitles).
+1. **Read the current entry** you are changing (or the closest existing one to copy). Real entries are the best templates: `nyaa` (RSS), `knaben` (JSON GET), `yts` (nested rows, `empty_when`), `torrentio` (Stremio addon, mapper), `tvmaze` (catalogue), `anilist` (GraphQL), `opensubtitles` (subtitles).
 2. **Try the real request first.** For an indexer or provider, run the request with `curl`, look at the real answer, and pick the `rows` path and the field paths from it. Keep a saved copy of a real answer: you will use it as a test fixture.
 3. **Make the edit.** Keep the JSON formatted. Keep ids unique. Raise `version`.
 4. **Validate the file on its own:**

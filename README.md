@@ -1,6 +1,6 @@
 # Akidev sources
 
-This repo is one file: `sources.json`. It is the list of everywhere Akidev looks for stuff: which catalogues have the titles, which torrent sites have the releases, which sites have the subtitles, and what the screens look like.
+This repository contains `sources.json`, this README, optional plugins, and research tools. It is the list of everywhere Akidev looks for stuff: which catalogues have the titles, which torrent sites have the releases, which sites have the subtitles, and what the screens look like.
 
 The point of it: you can add a source, move one, or remove one **without building or shipping a new app**. You edit this file, publish it, and every running app and the server picks it up.
 
@@ -8,7 +8,7 @@ Nothing in the file is code. It only says "make this request, read these fields"
 
 ## Read this first: how the two repos fit
 
-- **This repo (akidev-sources)** holds the data: `sources.json` and this README. Nothing else. No code, no keys.
+- This repository holds the data, plugin modules, and verification tools. It contains no secrets.
 - **The code repo (akidev)** reads the data, checks it, signs it and publishes it. In the commands below, `<code repo>` means a checkout of that repo, and `SOURCES_DIR` means a checkout of this one.
 - Every build of the app and the server has a copy of `sources.json` inside it. `desktop/core/build.rs` downloads it from this repo's `main` branch when `desktop/sources/sources.json` is missing. So a build needs the network once.
 - Running apps also download newer copies from `sources.akidev.live`, in the background.
@@ -297,7 +297,7 @@ An indexer is one torrent site. Here is a small real one, Nyaa, which answers wi
   "id": "nyaa",
   "name": "Nyaa",
   "kinds": ["anime"],
-  "hosts": ["https://nyaa.si", "https://nyaa.land", "https://nyaa.iss.ink"],
+  "hosts": ["https://nyaa.si", "https://nyaa.land", "https://nyaa.iss.ink", "https://nyaa.net"],
   "request": {
     "path": "/",
     "query": {
@@ -328,6 +328,8 @@ An indexer is one torrent site. Here is a small real one, Nyaa, which answers wi
 | `kinds` | yes | The kinds it serves (`anime`, `series`, `movie`, or a plugin's). |
 | `hosts` | yes | 1 to 8 mirrors of the same service. Tried in order. Every one must start with `http://` or `https://`. |
 | `cooldown_secs` | no | How long a host that failed rests. Default 60. At most 3600. |
+| `min_interval_secs` | no | Minimum space between indexer requests on this service host. Default 0. At most 3600. |
+| `max_requests_per_day` | no | Indexer-request limit for one UTC day in the current process. IDs on the same host share it. A code module call consumes one unit. |
 | `fanout` | no | `per-term` (default), `per-title` or `once`. See below. |
 | `request` | yes | What to ask. See below. |
 | `response` | yes | How to read the answer. See below. |
@@ -427,30 +429,31 @@ Each is an [expression](#expressions).
 
 About `seeders`: it is optional observation data. Missing, malformed, negative, fractional or out-of-range values stay unknown (`null` in the API's output). A valid `0` stays an observed zero. **Do not** set a default zero for a provider that leaves health out. The count is what the upstream site said, not something Akidev measured.
 
-### Real example: a JSON POST (Knaben)
+### Real example: a JSON GET (Knaben)
 
 ```json
 {
   "id": "knaben",
   "name": "Knaben",
   "kinds": ["anime", "series", "movie"],
-  "hosts": ["https://api.knaben.org/v1"],
+  "hosts": ["https://api.knaben.org/v2"],
+  "min_interval_secs": 2,
   "request": {
-    "method": "POST",
-    "json": {
-      "search_type": "100%",
-      "search_field": "title",
-      "query": "{term}",
-      "size": 50,
-      "categories": {
+    "path": "/search",
+    "query": {
+      "q": "{term}",
+      "sf": "title",
+      "c": {
         "$kind": {
-          "anime": [6000000],
-          "series": [2000000],
-          "movie": [3000000, 2000000]
+          "anime": "6000000",
+          "series": "2000000",
+          "movie": "3000000,2000000"
         }
       },
-      "order_by": "seeders",
-      "order_direction": "desc"
+      "o": "seeders",
+      "d": "desc",
+      "s": "50",
+      "f": "0"
     }
   },
   "response": {
@@ -461,7 +464,7 @@ About `seeders`: it is optional observation data. Missing, malformed, negative, 
       "title": "title",
       "hash": "hash",
       "size": "bytes",
-      "seeders": "liveSeeders"
+      "seeders": "seeders"
     }
   }
 }
@@ -1247,7 +1250,7 @@ The interface (JSON in, JSON out over the module's memory):
 - Exports: `memory`, `alloc(len) -> ptr`, and one function per job that takes `(ptr, len)` and returns `(ptr << 32) | len` of the JSON it wrote.
 - Imports: `akidev.http(ptr, len)` (one request: `{method, url, headers, body}` in, `{status, body}` or `{error}` out) and `akidev.log(ptr, len)`.
 
-A working example is `desktop/plugins/code-indexer` in the code repo. A **signed** `sources.json` can never carry `code`.
+Working examples are `desktop/plugins/code-indexer` and `desktop/plugins/snowfl` in the code repo. A **signed** `sources.json` can never carry `code`.
 
 ### Stream services in a plugin
 
@@ -1307,7 +1310,7 @@ A working example is `desktop/plugins/torbox` in the code repo. The full protoco
 ### Add a torrent site
 
 1. Find a request that returns the list you want (try it with `curl`).
-2. Write an indexer: `id`, `name`, `kinds`, `hosts`, `request`, `response`. Start from [Nyaa](#indexers) for RSS or [Knaben](#real-example-a-json-post-knaben) for JSON.
+2. Write an indexer: `id`, `name`, `kinds`, `hosts`, `request`, `response`. Start from [Nyaa](#indexers) for RSS or [Knaben](#real-example-a-json-get-knaben) for JSON.
 3. Pick the right `fanout`.
 4. Add `empty_when` if a successful empty answer leaves the list out.
 5. Raise `version`, check, test against the real site, publish.
@@ -1415,6 +1418,8 @@ A service that needs something these cannot say needs a change to the engine in 
 | `file_hosts` per subtitle source | 1 to 16 |
 | `image_hosts` per provider | 16 |
 | `cooldown_secs` | at most 3600 |
+| `min_interval_secs` | at most 3600 |
+| `max_requests_per_day` | greater than 0 when present |
 | `ttl_secs` | at most 86400 |
 | Providers in one chain | 1 to 8, no repeats |
 | `min_version_message` | 300 characters |

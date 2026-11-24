@@ -25,7 +25,7 @@ id="$(jq -r '.id' "$plugin")"
 [ -n "$name" ] && [ "$file" != "null" ] && [ "$id" != "null" ] || { echo "The crate needs a name, and the plugin a module.file and an id." >&2; exit 2; }
 
 echo "Building $name ..."
-(cd "$crate" && cargo ${TOOLCHAIN:+"+$TOOLCHAIN"} build --release --target wasm32-unknown-unknown) || {
+(cd "$crate" && RUSTFLAGS="${RUSTFLAGS:+$RUSTFLAGS }--remap-path-prefix=$HOME=/builder" cargo ${TOOLCHAIN:+"+$TOOLCHAIN"} build --release --target wasm32-unknown-unknown) || {
   echo "The build failed. If it says the wasm32 target is missing, run: rustup target add wasm32-unknown-unknown" >&2
   exit 1
 }

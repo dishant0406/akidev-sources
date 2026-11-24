@@ -1,0 +1,95 @@
+{
+  "latency": {
+    "anime-16498-ep1": {
+      "cold_ms": 6385.0,
+      "p50_ms": 875.9,
+      "p95_ms": 6385.0,
+      "warm_p50_ms": 185.0,
+      "warm_p95_ms": 5360.3
+    },
+    "movie-tt0111161": {
+      "cold_ms": 2758.5,
+      "p50_ms": 16.0,
+      "p95_ms": 2758.5,
+      "warm_p50_ms": 15.9,
+      "warm_p95_ms": 16.6
+    },
+    "series-tt0903747-s1e5": {
+      "cold_ms": 5052.4,
+      "p50_ms": 12.0,
+      "p95_ms": 5052.4,
+      "warm_p50_ms": 11.8,
+      "warm_p95_ms": 4851.2
+    },
+    "movie-tt1727587": {
+      "cold_ms": 5494.7,
+      "p50_ms": 1.7,
+      "p95_ms": 5494.7,
+      "warm_p50_ms": 1.5,
+      "warm_p95_ms": 2.8
+    }
+  },
+  "unique_selection_ids": {
+    "anime-16498-ep1": 95,
+    "movie-tt0111161": 215,
+    "series-tt0903747-s1e5": 85,
+    "movie-tt1727587": 27
+  },
+  "play": {
+    "available": true,
+    "byte_probe": {
+      "bytes": 1024,
+      "content_type": "video/mp4",
+      "status": 206
+    },
+    "duration": 888.0,
+    "release": "Sintel 2010 720p BluRay Sintel.2010.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+    "release_id": "a779fa758f2229586eebc2e5960eb32fe5659596:0",
+    "source": "torrent",
+    "stream_type": "file",
+    "subtitles": []
+  },
+  "production_fallback": {
+    "checked_at": "2026-11-24",
+    "health": {
+      "configured": true,
+      "failing": 1,
+      "indexers": 3,
+      "reachable": true
+    },
+    "searches": [
+      {
+        "query": "Sintel",
+        "kind": "movie",
+        "http_status": 200,
+        "seconds": 1.216279,
+        "results": 2,
+        "sources": {
+          "dmhy": 2
+        }
+      },
+      {
+        "query": "Frieren",
+        "kind": "anime",
+        "episode": 1,
+        "http_status": 200,
+        "seconds": 4.814673,
+        "results": 100,
+        "sources": {
+          "dmhy": 66,
+          "mikan": 34
+        }
+      },
+      {
+        "query": "Breaking Bad",
+        "kind": "series",
+        "season": 1,
+        "episode": 5,
+        "http_status": 200,
+        "seconds": 1.819477,
+        "results": 0,
+        "sources": {}
+      }
+    ]
+  }
+}

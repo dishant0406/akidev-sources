@@ -119,7 +119,8 @@ Also find out:
 - **Other domains** (mirrors) of the same service: list them for `hosts`.
 - **How does it treat a title with an IMDb id?** Some APIs take `imdb_id` (EZTV, YTS, Torrentio). Use `{imdb}` or `{imdb_digits}` there.
 - **Does a successful empty answer leave the list out?** Then you need `empty_when`.
-- **Does the site rate-limit or need a header** (a user agent, a key)? Put it in `request.headers`.
+- **Does the site rate-limit?** Use `min_interval_secs` or `max_requests_per_day`.
+- **Does the site need a header** (a user agent, a key)? Put it in `request.headers`.
 
 ## 3. Decide what to build
 

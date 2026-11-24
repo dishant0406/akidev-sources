@@ -140,6 +140,8 @@ Day and year numbers: 0 to 3650.
 | `kinds` | yes | Kinds served. Not empty. |
 | `hosts` | yes | 1 to 8 mirrors of one service, in order. Each starts `http://` or `https://`. |
 | `cooldown_secs` | no | Rest after a failure. Default 60, at most 3600. |
+| `min_interval_secs` | no | Minimum space between indexer requests on this service host. Default 0, at most 3600. |
+| `max_requests_per_day` | no | Indexer-request limit for one UTC day in the current process. IDs on the same host share it. A code module call consumes one unit. |
 | `fanout` | no | `per-term` (default), `per-title`, `once`. |
 | `map` | no | A mapper id. The mapper must exist and map one of the indexer's kinds. |
 | `fallback` | no | `true`: last resort, asked only when the others found nothing worth opening, with longer to answer. |
