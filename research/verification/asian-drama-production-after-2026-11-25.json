@@ -1,0 +1,81 @@
+{
+  "measured_at": "2026-11-25",
+  "health": {
+    "active_torrents": 1,
+    "cache_bytes": 0,
+    "debrid": {
+      "configured": true,
+      "reachable": true
+    },
+    "fallback": {
+      "configured": true,
+      "failing": 1,
+      "indexers": 3,
+      "reachable": true
+    },
+    "ffmpeg": true,
+    "hls_sessions": 6,
+    "playback_totals": {
+      "deadline_exceeded": 0,
+      "delivery_errors": 0,
+      "source_attempts": 12,
+      "source_errors": 4,
+      "source_successes": 8
+    },
+    "resolving": 0,
+    "sources": [
+      "debrid",
+      "torrent",
+      "archive-org"
+    ],
+    "status": "ok",
+    "streams": 8,
+    "version": "0.1.35",
+    "video_bytes_sent": 2752238
+  },
+  "checks": {
+    "series-tt11239552-s1e1": {
+      "status": 200,
+      "elapsed_ms": 2366,
+      "releases": 9,
+      "sources": {
+        "torrentio": 5,
+        "torrents-csv": 2,
+        "zilean": 1,
+        "torrentsdb": 1
+      },
+      "top_titles": [
+        "Itaewon Class - Season 1 (Hindi Korean) [1080p HD with Subtitles] Itaewon.Class.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ShiNobi.mkv",
+        "Itaewon.Class.S01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-ExREN[rartv] Itaewon.Class.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ExREN.mkv",
+        "Itaewon.Class.S01.KOREAN.720p.NF.WEBRip.DDP2.0.x264-ExREN[rartv] Itaewon.Class.S01E01.720p.NF.WEB-DL.DDP2.0.x264-ExREN.mkv",
+        "Itaewon Class",
+        "Itaewon Class S01 KOREAN WEBRip x264-ION10",
+        "Itaewon Class (2020) English subtitles 720p Itaewon Class 01.mp4",
+        "Itaewon Class (2020), English subtitles 720p",
+        "Itaewon.Class.S01.(2020).1080p.WEBRIP.HEVC.AAC2.0 Itaewon.Class.S01E01.(2020).1080p.WEBRIP.HEVC.AAC2.0.mkv",
+        "Itaewon Class (2020) [1080p AV1 WEB-DL NF] Itaewon_Class_2020_S01E01_1080p_AV1_EAC3_Multi-Subs_WEB-DL_NF.mkv"
+      ],
+      "error": null
+    },
+    "series-tt2942950-s1e1": {
+      "status": 200,
+      "elapsed_ms": 11404.5,
+      "releases": 1,
+      "sources": {
+        "nyaa-live-action": 1
+      },
+      "top_titles": [
+        "Shut Up Flower Boy Band (2012) (WEB-DL 1080p h264 AAC-AppleTor)"
+      ],
+      "error": null
+    },
+    "series-tt9136312-s1e1": {
+      "status": 404,
+      "elapsed_ms": 17402.6,
+      "releases": 0,
+      "sources": {},
+      "top_titles": [],
+      "error": "No matching source found in the providers that answered. Some providers are unavailable; try again shortly."
+    }
+  }
+}

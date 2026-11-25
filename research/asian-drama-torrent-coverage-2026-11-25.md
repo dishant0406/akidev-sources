@@ -347,9 +347,15 @@ Fact: The source validator for app `0.1.27` and app `0.1.34` accepts source vers
 
 Fact: The final local engine returns five Itaewon Class releases. It returns one Nyaa pack for Shut Up Flower Boy Band. It returns no release for the Thai The Gifted. Evidence: `research/verification/asian-drama-implementation-2026-11-25.json`.
 
+Fact: Production runs app `0.1.35`. Production returns nine Itaewon Class releases and one Nyaa pack for Shut Up Flower Boy Band. It returns no release for the Thai The Gifted. Evidence: `research/verification/asian-drama-production-after-2026-11-25.json`.
+
+Fact: macOS and Windows `0.1.35` releases are public. The Homebrew cask points to `0.1.35`.
+
+Gap: The production check covers one request per title. It is not an uptime promise. The Windows installer was not signed because the SignPath API token was absent.
+
 Inference: The HTTP 404 error for Shut Up Flower Boy Band is fixed at release discovery. Playback still needs a live seeder or a debrid copy.
 
-Gap: Nyaa returned HTTP 503 after rapid requests from the research host. Direct access worked again after a cooldown. Production reliability is not measured yet.
+Gap: Nyaa returned HTTP 503 after rapid requests from the research host. Direct access worked again after a cooldown. The final production request for Shut Up Flower Boy Band succeeded.
 
 Gap: Private Asian trackers remain untested because no authorized account was supplied. The exact title and app screen from the first user report remain unknown.
 
@@ -358,6 +364,8 @@ Gap: Private Asian trackers remain untested because no authorized account was su
 Production evidence:
 
 - `research/verification/asian-drama-production-2026-11-25.json`
+- `research/verification/asian-drama-production-after-2026-11-25.json`
+- `research/verification/asian-drama-implementation-2026-11-25.json`
 - `research/verification/asian-drama-evidence-2026-11-25/`
 - https://api.akidev.live/v1/search
 - https://api.akidev.live/v1/titles/{id}
