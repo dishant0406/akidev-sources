@@ -23,15 +23,17 @@ Nothing in the file is code. It only says "make this request, read these fields"
 6. [Indexers (torrent sites)](#indexers)
 7. [Providers (catalogues)](#providers)
 8. [Chains](#chains)
-9. [Mappers](#mappers)
-10. [Subtitles](#subtitles)
-11. [Screens](#screens)
-12. [Plugins](#plugins)
-13. [Recipes](#recipes)
-14. [Let an agent write a source for you](#let-an-agent-write-a-source-for-you)
-15. [Troubleshooting](#troubleshooting)
-16. [What the file cannot do](#what-the-file-cannot-do)
-17. [All the limits in one place](#all-the-limits-in-one-place)
+9. [Aliases](#aliases)
+10. [Languages](#languages)
+11. [Mappers](#mappers)
+12. [Subtitles](#subtitles)
+13. [Screens](#screens)
+14. [Plugins](#plugins)
+15. [Recipes](#recipes)
+16. [Let an agent write a source for you](#let-an-agent-write-a-source-for-you)
+17. [Troubleshooting](#troubleshooting)
+18. [What the file cannot do](#what-the-file-cannot-do)
+19. [All the limits in one place](#all-the-limits-in-one-place)
 
 ---
 
@@ -346,6 +348,8 @@ An indexer is one torrent site. Here is a small real one, Nyaa, which answers wi
 **`hosts`** are mirrors of one service, not different services. A host that fails rests for `cooldown_secs`, so a dead mirror is not asked again for every search term. The next mirror is tried after a failure, and also after a short delay if the first one is slow.
 
 **`fallback: true`** makes the indexer a last resort. It is asked only when the others found nothing worth opening, and it gets longer to answer (the `fallback_timeout_ms` setting). Use it for a slow service that should not be paid for on every search. The `prowlarr` entry uses it.
+
+**`prowlarr`** is only for the entry the server uses to search through Prowlarr: `sites` lists the Prowlarr sites to set up (the deploy reads it), and `categories` gives, for each kind, the first and last Prowlarr category its results may carry. The first one is also what Prowlarr is asked for. A kind that is not listed has no fallback search.
 
 **`server_only: true`** means only the server that serves the website asks this indexer. The desktop app skips it, so the app never calls your server for it. The `prowlarr` entry uses it, because it needs the server's own key.
 
@@ -916,6 +920,43 @@ An `order` is a list of keys. Rows are compared by the first key, then by the ne
 
 ---
 
+## Aliases
+
+Some titles are known by one name in a catalogue and by another at the torrent sites. `aliases` says which catalogue to ask for the other names, for each kind of title being played.
+
+```json
+"aliases": {
+  "identity": { "series": "tvmaze" },
+  "catalogue": { "series": "anime", "movie": "anime" }
+}
+```
+
+- `identity`: a provider of the same kind. When a title has only one name and an IMDb or TV database id, it is asked for the same show. It gives up to two more names, and the country and language, which the country filter uses when two shows share a name.
+- `catalogue`: a kind. When no release was found, the catalogue of that kind is searched for the title and its other names, and the search is made again with them.
+- A kind that is not listed does neither. The provider must exist and serve the kind, and the catalogue kind must have a chain.
+- A document without `aliases` uses the ones built into the app.
+
+---
+
+## Languages
+
+`languages` is the list of languages the engine knows. Three things read it: the subtitle sources, the release ranking, and the filter that tells two shows of one name apart by their country.
+
+```json
+{ "code": "ko", "name": "Korean", "codes": ["ko", "kor"],
+  "words": ["korean"], "tags": ["kor", "ko"], "countries": ["korea", "korean"] }
+```
+
+- `code` and `name`: what the viewer sees. `codes`: the spellings sources use, in lower case. A spelling belongs to one language only.
+- `words`: how a release title names the language (`korean`). Ranking accepts them after a title, as release information.
+- `tags`: short marks (`kor`) that are too short to count as a word. They only help to prove a country.
+- `countries`: parts of a country name, or of a language name, that mean this language. A catalogue says "South Korea" or "Korean". When a show's name is ambiguous, a release must carry a `word` or `tag` of the language that matches.
+- A country that no language claims is not filtered.
+- Words and tags are lower case letters and digits. At most 256 languages, 8 codes and 16 words, tags and countries each.
+- A document without `languages` uses the ones built into the app.
+
+---
+
 ## Mappers
 
 A mapper finds the id a title has in another service. An indexer that knows titles by *that* id can then be asked for it. The built-in mapper turns an AniList anime id into a Kitsu id, so Torrentio can be asked for the exact episode.
@@ -1402,7 +1443,7 @@ It will not try to get around a site's protections (a challenge page, a captcha,
 
 These are engine behaviour, so changing them needs a code change and a new build:
 
-- The ranking and filtering rules (what counts as the right title, episode, season or year; samples and extras; HEVC and AV1 treated as "extra").
+- The ranking and filtering rules (what counts as the right title, episode, season or year; samples and extras; HEVC and AV1 treated as "extra"). The words they use to name languages and countries are data: see [Languages](#languages).
 - The three shapes (`anime`, `series`, `movie`) and the id rules.
 - The music sources (YouTube Music and Audius) and, on the server, TorBox and the Internet Archive.
 - Anything that needs a key kept secret (the file is public).
@@ -1422,6 +1463,8 @@ A service that needs something these cannot say needs a change to the engine in 
 | `indexers`, `providers` | 1 to 64 each |
 | `mappers`, `services` (in use) | 8 |
 | `subtitles` | 16 |
+| `languages` | 256 |
+| Prowlarr `sites` | 32 |
 | Hosts per indexer or subtitle source | 1 to 8 |
 | `file_hosts` per subtitle source | 1 to 16 |
 | `image_hosts` per provider | 16 |

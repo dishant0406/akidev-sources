@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 49,
+  "version": 51,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -8,32 +8,32 @@
     "udp://tracker.torrent.eu.org:451/announce",
     "udp://open.demonii.com:1337/announce",
     "udp://open.tracker.cl:1337/announce",
-    "udp://exodus.desync.com:6969/announce",
     "http://open.tracker.cl:1337/announce",
     "udp://tracker.qu.ax:6969/announce",
     "http://tracker.qu.ax:6969/announce",
     "udp://tracker-udp.gbitt.info:80/announce",
-    "udp://tracker.bittor.pw:1337/announce",
     "udp://tracker.corpscorp.online:80/announce",
-    "udp://tracker.ducks.party:1984/announce",
-    "udp://tracker.theoks.net:6969/announce",
-    "udp://tracker.nyaa.vc:6969/announce",
-    "http://tracker.dler.org:6969/announce",
+    "udp://tracker.bittor.pw:1337/announce",
     "udp://tracker.dler.org:6969/announce",
+    "http://tracker.dler.org:6969/announce",
+    "http://tracker.dler.com:6969/announce",
     "udp://tracker2.dler.org:80/announce",
     "http://tracker2.dler.org:80/announce",
-    "http://tracker.dler.com:6969/announce",
     "udp://retracker01-msk-virt.corbina.net:80/announce",
-    "udp://tracker.gmi.gd:6969/announce",
     "udp://explodie.org:6969/announce",
-    "http://tracker.renfei.net:8080/announce",
+    "udp://tracker.tryhackx.org:6969/announce",
+    "udp://tracker.ducks.party:1984/announce",
+    "udp://tracker.nyaa.vc:6969/announce",
     "udp://tracker.t-rb.org:6969/announce",
-    "udp://tracker.ixuexi.click:6969/announce",
-    "udp://tracker.edkj.club:6969/announce",
     "udp://tracker.peerfect.org:6969/announce",
     "udp://tracker.opentrackr.com:6969/announce",
+    "udp://tracker.ixuexi.click:6969/announce",
     "udp://tracker.ilibr.org:6969/announce",
-    "udp://tracker.farted.net:6969/announce"
+    "udp://tracker.edkj.club:6969/announce",
+    "udp://mail.segso.net:6969/announce",
+    "https://tracker.aburaya.live:443/announce",
+    "https://track3r.site:443/announce",
+    "https://t1.hloli.org:443/announce"
   ],
   "indexers": [
     {
@@ -1083,6 +1083,27 @@
       ],
       "fanout": "per-title",
       "fallback": true,
+      "prowlarr": {
+        "sites": [
+          "dmhy",
+          "mikan",
+          "limetorrents"
+        ],
+        "categories": {
+          "anime": [
+            5070,
+            5070
+          ],
+          "series": [
+            5000,
+            5999
+          ],
+          "movie": [
+            2000,
+            2999
+          ]
+        }
+      },
       "hosts": [
         "https://api.akidev.live"
       ],
@@ -2073,6 +2094,480 @@
           }
         }
       }
+    }
+  ],
+  "aliases": {
+    "identity": {
+      "series": "tvmaze"
+    },
+    "catalogue": {
+      "series": "anime",
+      "movie": "anime"
+    }
+  },
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "codes": [
+        "en",
+        "eng"
+      ],
+      "words": [
+        "english"
+      ]
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "codes": [
+        "es",
+        "spa"
+      ]
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "codes": [
+        "fr",
+        "fre",
+        "fra"
+      ]
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "codes": [
+        "de",
+        "ger",
+        "deu"
+      ]
+    },
+    {
+      "code": "it",
+      "name": "Italian",
+      "codes": [
+        "it",
+        "ita"
+      ]
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "codes": [
+        "pt",
+        "por"
+      ]
+    },
+    {
+      "code": "pt-BR",
+      "name": "Portuguese (Brazil)",
+      "codes": [
+        "pob",
+        "pt-br",
+        "ptbr"
+      ]
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "codes": [
+        "ru",
+        "rus"
+      ]
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "codes": [
+        "ja",
+        "jpn"
+      ],
+      "words": [
+        "japanese"
+      ],
+      "tags": [
+        "jpn",
+        "jp"
+      ],
+      "countries": [
+        "japan",
+        "japanese"
+      ]
+    },
+    {
+      "code": "ko",
+      "name": "Korean",
+      "codes": [
+        "ko",
+        "kor"
+      ],
+      "words": [
+        "korean"
+      ],
+      "tags": [
+        "kor",
+        "ko"
+      ],
+      "countries": [
+        "korea",
+        "korean"
+      ]
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "codes": [
+        "zh",
+        "chi",
+        "zho",
+        "zhc"
+      ],
+      "words": [
+        "chinese",
+        "mandarin",
+        "cantonese",
+        "taiwanese"
+      ],
+      "tags": [
+        "chs",
+        "cht",
+        "cn",
+        "zh",
+        "hk"
+      ],
+      "countries": [
+        "china",
+        "taiwan",
+        "hong kong",
+        "chinese"
+      ]
+    },
+    {
+      "code": "zh-TW",
+      "name": "Chinese (Traditional)",
+      "codes": [
+        "zht",
+        "zh-tw",
+        "zh-hant"
+      ]
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "codes": [
+        "ar",
+        "ara"
+      ]
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "codes": [
+        "hi",
+        "hin"
+      ],
+      "words": [
+        "hindi"
+      ]
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "codes": [
+        "tr",
+        "tur"
+      ]
+    },
+    {
+      "code": "pl",
+      "name": "Polish",
+      "codes": [
+        "pl",
+        "pol"
+      ]
+    },
+    {
+      "code": "nl",
+      "name": "Dutch",
+      "codes": [
+        "nl",
+        "dut",
+        "nld"
+      ]
+    },
+    {
+      "code": "sv",
+      "name": "Swedish",
+      "codes": [
+        "sv",
+        "swe"
+      ]
+    },
+    {
+      "code": "no",
+      "name": "Norwegian",
+      "codes": [
+        "no",
+        "nor",
+        "nob"
+      ]
+    },
+    {
+      "code": "da",
+      "name": "Danish",
+      "codes": [
+        "da",
+        "dan"
+      ]
+    },
+    {
+      "code": "fi",
+      "name": "Finnish",
+      "codes": [
+        "fi",
+        "fin"
+      ]
+    },
+    {
+      "code": "el",
+      "name": "Greek",
+      "codes": [
+        "el",
+        "gre",
+        "ell"
+      ]
+    },
+    {
+      "code": "he",
+      "name": "Hebrew",
+      "codes": [
+        "he",
+        "heb"
+      ]
+    },
+    {
+      "code": "hu",
+      "name": "Hungarian",
+      "codes": [
+        "hu",
+        "hun"
+      ]
+    },
+    {
+      "code": "cs",
+      "name": "Czech",
+      "codes": [
+        "cs",
+        "cze",
+        "ces"
+      ]
+    },
+    {
+      "code": "ro",
+      "name": "Romanian",
+      "codes": [
+        "ro",
+        "rum",
+        "ron"
+      ]
+    },
+    {
+      "code": "bg",
+      "name": "Bulgarian",
+      "codes": [
+        "bg",
+        "bul"
+      ]
+    },
+    {
+      "code": "uk",
+      "name": "Ukrainian",
+      "codes": [
+        "uk",
+        "ukr"
+      ]
+    },
+    {
+      "code": "vi",
+      "name": "Vietnamese",
+      "codes": [
+        "vi",
+        "vie"
+      ]
+    },
+    {
+      "code": "th",
+      "name": "Thai",
+      "codes": [
+        "th",
+        "tha"
+      ],
+      "words": [
+        "thai"
+      ],
+      "tags": [
+        "th"
+      ],
+      "countries": [
+        "thailand",
+        "thai"
+      ]
+    },
+    {
+      "code": "id",
+      "name": "Indonesian",
+      "codes": [
+        "id",
+        "ind"
+      ]
+    },
+    {
+      "code": "ms",
+      "name": "Malay",
+      "codes": [
+        "ms",
+        "may",
+        "msa"
+      ]
+    },
+    {
+      "code": "bn",
+      "name": "Bengali",
+      "codes": [
+        "bn",
+        "ben"
+      ]
+    },
+    {
+      "code": "ta",
+      "name": "Tamil",
+      "codes": [
+        "ta",
+        "tam"
+      ],
+      "words": [
+        "tamil"
+      ]
+    },
+    {
+      "code": "te",
+      "name": "Telugu",
+      "codes": [
+        "te",
+        "tel"
+      ],
+      "words": [
+        "telugu"
+      ]
+    },
+    {
+      "code": "ur",
+      "name": "Urdu",
+      "codes": [
+        "ur",
+        "urd"
+      ]
+    },
+    {
+      "code": "fa",
+      "name": "Persian",
+      "codes": [
+        "fa",
+        "per",
+        "fas"
+      ]
+    },
+    {
+      "code": "hr",
+      "name": "Croatian",
+      "codes": [
+        "hr",
+        "hrv"
+      ]
+    },
+    {
+      "code": "sr",
+      "name": "Serbian",
+      "codes": [
+        "sr",
+        "srp"
+      ]
+    },
+    {
+      "code": "sl",
+      "name": "Slovenian",
+      "codes": [
+        "sl",
+        "slv"
+      ]
+    },
+    {
+      "code": "sk",
+      "name": "Slovak",
+      "codes": [
+        "sk",
+        "slo",
+        "slk"
+      ]
+    },
+    {
+      "code": "ca",
+      "name": "Catalan",
+      "codes": [
+        "ca",
+        "cat"
+      ]
+    },
+    {
+      "code": "eu",
+      "name": "Basque",
+      "codes": [
+        "eu",
+        "baq",
+        "eus"
+      ]
+    },
+    {
+      "code": "gl",
+      "name": "Galician",
+      "codes": [
+        "gl",
+        "glg"
+      ]
+    },
+    {
+      "code": "et",
+      "name": "Estonian",
+      "codes": [
+        "et",
+        "est"
+      ]
+    },
+    {
+      "code": "lv",
+      "name": "Latvian",
+      "codes": [
+        "lv",
+        "lav"
+      ]
+    },
+    {
+      "code": "lt",
+      "name": "Lithuanian",
+      "codes": [
+        "lt",
+        "lit"
+      ]
+    },
+    {
+      "code": "is",
+      "name": "Icelandic",
+      "codes": [
+        "is",
+        "ice",
+        "isl"
+      ]
     }
   ],
   "chains": {
