@@ -33,6 +33,28 @@
     "version": "0.1.35",
     "video_bytes_sent": 2752238
   },
+  "playback_checks": {
+    "itaewon": {
+      "status": 200,
+      "elapsed_ms": 2668.4,
+      "available": true,
+      "source": "debrid",
+      "stream_type": "hls",
+      "release": "Itaewon.Class.S01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-ExREN[rartv] Itaewon.Class.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ExREN.mkv",
+      "url_present": true,
+      "error": null
+    },
+    "gifted_wrong_release": {
+      "status": 200,
+      "elapsed_ms": 15765.2,
+      "available": false,
+      "source": null,
+      "stream_type": null,
+      "release": null,
+      "url_present": false,
+      "error": null
+    }
+  },
   "checks": {
     "series-tt11239552-s1e1": {
       "status": 200,

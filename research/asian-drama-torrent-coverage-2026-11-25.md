@@ -347,7 +347,7 @@ Fact: The source validator for app `0.1.27` and app `0.1.34` accepts source vers
 
 Fact: The final local engine returns five Itaewon Class releases. It returns one Nyaa pack for Shut Up Flower Boy Band. It returns no release for the Thai The Gifted. Evidence: `research/verification/asian-drama-implementation-2026-11-25.json`.
 
-Fact: Production runs app `0.1.35`. Production returns nine Itaewon Class releases and one Nyaa pack for Shut Up Flower Boy Band. It returns no release for the Thai The Gifted. Evidence: `research/verification/asian-drama-production-after-2026-11-25.json`.
+Fact: Production runs app `0.1.35`. Production returns nine Itaewon Class releases and one Nyaa pack for Shut Up Flower Boy Band. It returns no release for the Thai The Gifted. Production plays Itaewon Class through debrid. It refuses the old US Gifted release. Evidence: `research/verification/asian-drama-production-after-2026-11-25.json`.
 
 Fact: macOS and Windows `0.1.35` releases are public. The Homebrew cask points to `0.1.35`.
 
