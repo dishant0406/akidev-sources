@@ -1,0 +1,2115 @@
+{
+  "measured_at": "2026-11-25",
+  "tvmaze_aka_evidence": [
+    {
+      "url": "https://api.tvmaze.com/shows/45540?embed%5B%5D=episodes&embed%5B%5D=cast&embed%5B%5D=akas",
+      "file": "asian-drama-evidence-2026-11-25/tvmaze-itaewon-embedded.body",
+      "sha256": "2b0cd69f7ab6d6b3eb1d3658bb024ddff8add2e14ff4eb0f97a7e04ef1c8844b"
+    },
+    {
+      "url": "https://api.tvmaze.com/shows/45540/akas",
+      "file": "asian-drama-evidence-2026-11-25/tvmaze-itaewon-akas.body",
+      "sha256": "87e3d22cb9f8bef882f0c70aa408c1a11a2b87f0dfad7968ab5682d22e603bef"
+    },
+    {
+      "url": "https://api.tvmaze.com/shows/39022/akas",
+      "file": "asian-drama-evidence-2026-11-25/tvmaze-gifted-akas.body",
+      "sha256": "d5e5a8fa5efbf52169b8c3df887081a5971e887945ed38c02b4fac70c915efff"
+    }
+  ],
+  "production_base": "https://api.akidev.live",
+  "method": "One GET /v1/releases request per title for season 1 episode 1. Counts describe that request, not permanent availability.",
+  "titles": [
+    {
+      "title": "Crash Landing on You",
+      "country": "South Korea",
+      "imdb_id": "tt10850932",
+      "releases": 12,
+      "sources": {
+        "torrents-csv": 1,
+        "zilean": 7,
+        "torrentio": 4
+      },
+      "cached": 10,
+      "seeded": 5,
+      "language_markers": {
+        "korean": 5,
+        "hindi": 1,
+        "multi": 1,
+        "vostfr": 1
+      },
+      "top_release": "Crash Landing on You Season 1 Complete Hindi 720p HDRip ESubs - ExtraMovies"
+    },
+    {
+      "title": "Itaewon Class",
+      "country": "South Korea",
+      "imdb_id": "tt11239552",
+      "releases": 7,
+      "sources": {
+        "torrentio": 5,
+        "torrents-csv": 1,
+        "zilean": 1
+      },
+      "cached": 5,
+      "seeded": 6,
+      "language_markers": {
+        "korean": 4,
+        "hindi": 1
+      },
+      "top_release": "Itaewon Class - Season 1 (Hindi Korean) [1080p HD with Subtitles] Itaewon.Class.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ShiNobi.mkv"
+    },
+    {
+      "title": "Squid Game",
+      "country": "South Korea",
+      "imdb_id": "tt10919420",
+      "releases": 96,
+      "sources": {
+        "torrentio": 48,
+        "torrentsdb": 1,
+        "zilean": 44,
+        "torrents-csv": 3
+      },
+      "cached": 54,
+      "seeded": 46,
+      "language_markers": {
+        "korean": 20,
+        "hindi": 4,
+        "tamil": 2,
+        "telugu": 2,
+        "english": 4,
+        "dubbed": 9,
+        "multi": 21,
+        "vostfr": 2,
+        "italian": 1
+      },
+      "top_release": "Squid Game Season 1 S01 1080p Dual Audio NF WEBRip AAC5.1 x264-R ... Squid Game - S01E01 - Red Light, Green Light.mkv"
+    },
+    {
+      "title": "Hotel Del Luna",
+      "country": "South Korea",
+      "imdb_id": "tt10220588",
+      "releases": 9,
+      "sources": {
+        "torrentio": 7,
+        "torrents-csv": 1,
+        "zilean": 1
+      },
+      "cached": 6,
+      "seeded": 7,
+      "language_markers": {
+        "korean": 5,
+        "hindi": 1
+      },
+      "top_release": "Hotel.Del.Luna.S01.KOREAN.1080p.BluRay.x264.FLAC.2.0-WMD[rartv] Hotel.Del.Luna.S01E01.1080p.BluRay.FLAC.2.0.x264-WMD.mkv"
+    },
+    {
+      "title": "Mr. Queen",
+      "country": "South Korea",
+      "imdb_id": "tt13400006",
+      "releases": 8,
+      "sources": {
+        "torrentio": 6,
+        "zilean": 2
+      },
+      "cached": 4,
+      "seeded": 5,
+      "language_markers": {
+        "korean": 5
+      },
+      "top_release": "Mr.Queen.S01E01.1080p.WEB.H264-SKYFiRE mr.queen.s01e01.1080p.web.h264-skyfire.mkv"
+    },
+    {
+      "title": "Our Beloved Summer",
+      "country": "South Korea",
+      "imdb_id": "tt15026724",
+      "releases": 14,
+      "sources": {
+        "torrentio": 9,
+        "zilean": 3,
+        "torrents-csv": 2
+      },
+      "cached": 8,
+      "seeded": 7,
+      "language_markers": {
+        "korean": 14
+      },
+      "top_release": "Our Beloved Summer S01 KOREAN PROPER 1080p NF WEBRip DDP2 0 x264-MIXED Our.Beloved.Summer.S01E01.I.Know.What.You.Did.Last.Summer.1080p.NF.WEB-DL.DDP2.0.x264-Tartarus[eztv.re].mkv"
+    },
+    {
+      "title": "Moving",
+      "country": "South Korea",
+      "imdb_id": "tt24640580",
+      "releases": 24,
+      "sources": {
+        "torrentio": 13,
+        "knaben": 3,
+        "zilean": 8
+      },
+      "cached": 19,
+      "seeded": 15,
+      "language_markers": {
+        "korean": 9
+      },
+      "top_release": "Moving.S01.COMPLETE.KOREAN.720p.DSNP.WEBRip.x264-GalaxyTV Moving.S01E01.KOREAN.720p.DSNP.WEBRip.x264-GalaxyTV.mkv"
+    },
+    {
+      "title": "Queen of Tears",
+      "country": "South Korea",
+      "imdb_id": "tt27668559",
+      "releases": 17,
+      "sources": {
+        "torrents-csv": 2,
+        "torrentio": 11,
+        "zilean": 4
+      },
+      "cached": 13,
+      "seeded": 13,
+      "language_markers": {
+        "korean": 5,
+        "hindi": 2,
+        "english": 1,
+        "multi": 1
+      },
+      "top_release": "Queen of Tears S01E01 2024 1080p NF WEB-DL DDP2 0 H264-HHWEB[EZTVx to] mkv"
+    },
+    {
+      "title": "Vincenzo",
+      "country": "South Korea",
+      "imdb_id": "tt13433812",
+      "releases": 21,
+      "sources": {
+        "knaben": 1,
+        "torrentio": 14,
+        "torrents-csv": 1,
+        "zilean": 5
+      },
+      "cached": 14,
+      "seeded": 13,
+      "language_markers": {
+        "korean": 10,
+        "hindi": 3,
+        "english": 2,
+        "multi": 3,
+        "vostfr": 1
+      },
+      "top_release": "Vincenzo S01E01 Episode 1 1080p-NF WEB-DL DDP2 0 H 264-3cTWeB"
+    },
+    {
+      "title": "My Name",
+      "country": "South Korea",
+      "imdb_id": "tt12940504",
+      "releases": 42,
+      "sources": {
+        "torrentio": 20,
+        "zilean": 22
+      },
+      "cached": 19,
+      "seeded": 14,
+      "language_markers": {
+        "korean": 18,
+        "dubbed": 6,
+        "multi": 13
+      },
+      "top_release": "My.Name.S01.KOREAN.1080p.NF.WEBRip.DDP5.1.x264-AGLET[rartv] My.Name.S01E01.Episode.1.1080p.NF.WEB-DL.DDP5.1.x264-AGLET.mkv"
+    },
+    {
+      "title": "D.P.",
+      "country": "South Korea",
+      "imdb_id": "tt13024974",
+      "releases": 8,
+      "sources": {
+        "torrentio": 8
+      },
+      "cached": 3,
+      "seeded": 8,
+      "language_markers": {
+        "korean": 4,
+        "dubbed": 2
+      },
+      "top_release": "D.P. (S01)(2021)(Complete)(HD)(720p)(x264)(WebDL)(EN-DE-PL-KO)(MultiSUB) PHDTeam Dezertér_S01E01_MUŽ S KVĚTINAMI.mkv"
+    },
+    {
+      "title": "Navillera",
+      "country": "South Korea",
+      "imdb_id": "tt13885302",
+      "releases": 7,
+      "sources": {
+        "torrentio": 6,
+        "zilean": 1
+      },
+      "cached": 2,
+      "seeded": 4,
+      "language_markers": {
+        "korean": 7
+      },
+      "top_release": "Navillera.S01E01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-HG[rartv] Navillera.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-HG.mkv"
+    },
+    {
+      "title": "Hometown Cha-Cha-Cha",
+      "country": "South Korea",
+      "imdb_id": "tt14518756",
+      "releases": 11,
+      "sources": {
+        "torrentio": 8,
+        "torrents-csv": 1,
+        "zilean": 2
+      },
+      "cached": 6,
+      "seeded": 6,
+      "language_markers": {
+        "korean": 8
+      },
+      "top_release": "Hometown Cha-Cha-Cha S01 KOREAN 1080p NF WEBRip DDP2 0 x264-HBO Hometown.Cha-Cha-Cha.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-HBO[eztv.re].mkv"
+    },
+    {
+      "title": "Business Proposal",
+      "country": "South Korea",
+      "imdb_id": "tt14819828",
+      "releases": 11,
+      "sources": {
+        "torrentio": 7,
+        "torrents-csv": 4
+      },
+      "cached": 11,
+      "seeded": 10,
+      "language_markers": {
+        "korean": 6,
+        "multi": 1
+      },
+      "top_release": "Business Proposal S01 KOREAN 1080p NF WEBRip DDP2 0 x264-REVOLT Business.Proposal.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-REVOLT[eztv.re].mkv"
+    },
+    {
+      "title": "My Unfamiliar Family",
+      "country": "South Korea",
+      "imdb_id": "tt12458252",
+      "releases": 4,
+      "sources": {
+        "torrentio": 4
+      },
+      "cached": 1,
+      "seeded": 4,
+      "language_markers": {
+        "korean": 4
+      },
+      "top_release": "My Unfamiliar Family S01 KOREAN 1080p NF WEBRip AAC2 0 x264-KHN My.Unfamiliar.Family.S01E01.1080p.NF.WEB-DL.AAC2.0.x264-KHN[eztv.re].mkv"
+    },
+    {
+      "title": "Search: WWW",
+      "country": "South Korea",
+      "imdb_id": "tt10253244",
+      "releases": 2,
+      "sources": {
+        "torrentio": 2
+      },
+      "cached": 1,
+      "seeded": 2,
+      "language_markers": {
+        "korean": 2
+      },
+      "top_release": "Search.WWW.S01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-ExREN[rartv] Search.WWW.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ExREN.mkv"
+    },
+    {
+      "title": "The School Nurse Files",
+      "country": "South Korea",
+      "imdb_id": "tt12879522",
+      "releases": 5,
+      "sources": {
+        "torrentio": 4,
+        "torrents-csv": 1
+      },
+      "cached": 2,
+      "seeded": 4,
+      "language_markers": {
+        "korean": 1
+      },
+      "top_release": "The.School.Nurse.Files.S01.KOREAN.1080p.NF.WEBRip.DDP5.1.x264-BTN[rartv] The.School.Nurse.Files.S01E01.Episode.1.1080p.NF.WEB-DL.DDP5.1.x264-BTN.mkv"
+    },
+    {
+      "title": "Hellbound",
+      "country": "South Korea",
+      "imdb_id": "tt12235718",
+      "releases": 42,
+      "sources": {
+        "torrentio": 28,
+        "torrents-csv": 2,
+        "zilean": 12
+      },
+      "cached": 19,
+      "seeded": 22,
+      "language_markers": {
+        "korean": 16,
+        "english": 1,
+        "dubbed": 4,
+        "multi": 5,
+        "italian": 2
+      },
+      "top_release": "Hellbound.S01.COMPLETE.DUBBED.720p.NF.WEBRip.x264-GalaxyTV Hellbound.S01E01.DUBBED.720p.NF.WEBRip.x264-GalaxyTV.mkv"
+    },
+    {
+      "title": "Sweet Home",
+      "country": "South Korea",
+      "imdb_id": "tt11612120",
+      "releases": 8,
+      "sources": {
+        "torrentio": 8
+      },
+      "cached": 3,
+      "seeded": 6,
+      "language_markers": {
+        "korean": 2,
+        "hindi": 3,
+        "english": 2,
+        "multi": 2
+      },
+      "top_release": "Sweet Home S01E01 Episode 1 1080p NF WEB-DL DUAL DDP5 1 x264-TEPES.mkv"
+    },
+    {
+      "title": "The Greatest Love",
+      "country": "South Korea",
+      "imdb_id": "tt2304406",
+      "releases": 1,
+      "sources": {
+        "torrentio": 1
+      },
+      "cached": 1,
+      "seeded": 1,
+      "language_markers": {
+        "korean": 1
+      },
+      "top_release": "The.Greatest.Love.S01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-Ao The.Greatest.Love.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-Ao.mkv"
+    },
+    {
+      "title": "Reply 1997",
+      "country": "South Korea",
+      "imdb_id": "tt2782216",
+      "releases": 1,
+      "sources": {
+        "torrentio": 1
+      },
+      "cached": 0,
+      "seeded": 0,
+      "language_markers": {
+        "english": 1
+      },
+      "top_release": "Reply 1997 (2012) With English Sub Title Trainer-1 Reply 1997 episode 01.mp4"
+    },
+    {
+      "title": "Alice in Borderland",
+      "country": "Japan",
+      "imdb_id": "tt10795658",
+      "releases": 85,
+      "sources": {
+        "torrentio": 45,
+        "zilean": 37,
+        "torrents-csv": 3
+      },
+      "cached": 43,
+      "seeded": 35,
+      "language_markers": {
+        "japanese": 21,
+        "hindi": 7,
+        "tamil": 1,
+        "english": 6,
+        "dubbed": 6,
+        "multi": 12,
+        "vostfr": 1
+      },
+      "top_release": "Alice in Borderland S01E01 1080p NF WEB-DL DD5 1 x264-iKA.mkv"
+    },
+    {
+      "title": "The Untamed",
+      "country": "China",
+      "imdb_id": "tt10554898",
+      "releases": 9,
+      "sources": {
+        "torrentio": 3,
+        "knaben": 1,
+        "torrentsdb": 4,
+        "torrents-csv": 1
+      },
+      "cached": 4,
+      "seeded": 8,
+      "language_markers": {
+        "chinese": 3,
+        "hindi": 2,
+        "tamil": 2,
+        "dubbed": 4
+      },
+      "top_release": "The.Untamed.2019.S01.CHINESE.1080p.NF.WEBRip.DDP2.0.x264-Ddeplife[rartv] The.Untamed.2019.E01.1080p.NF.WEB-DL.DDP2.0.x264-ddeplife.mkv"
+    },
+    {
+      "title": "The Gifted",
+      "country": "Thailand",
+      "imdb_id": "tt9136312",
+      "releases": 19,
+      "sources": {
+        "torrentsdb": 2,
+        "zilean": 17
+      },
+      "cached": 6,
+      "seeded": 2,
+      "language_markers": {
+        "multi": 3
+      },
+      "top_release": "The Gifted Season 1 Complete 720p HDTV x264 [i_c] The Gifted S01E01 eXposed.mkv"
+    }
+  ],
+  "native_title_search": {
+    "사랑의 불시착": [
+      {
+        "id": "series-tt10850932",
+        "title": "Crash Landing on You",
+        "kind": "series",
+        "year": 2019
+      }
+    ],
+    "Sarangui bulsachak": [
+      {
+        "id": "series-tt10850932",
+        "title": "Crash Landing on You",
+        "kind": "series",
+        "year": 2019
+      }
+    ],
+    "이태원 클라쓰": [
+      {
+        "id": "series-45540",
+        "title": "Itaewon Class",
+        "kind": "series",
+        "year": 2020
+      }
+    ],
+    "Itaewon Keullasseu": [
+      {
+        "id": "series-tt11239552",
+        "title": "Itaewon Class",
+        "kind": "series",
+        "year": 2020
+      }
+    ],
+    "오징어 게임": [
+      {
+        "id": "series-tt10919420",
+        "title": "Squid Game",
+        "kind": "series",
+        "year": 2021
+      }
+    ],
+    "Ojing-eo geim": [
+      {
+        "id": "series-tt10919420",
+        "title": "Squid Game",
+        "kind": "series",
+        "year": 2021
+      }
+    ],
+    "今際の国のアリス": [
+      {
+        "id": "anime-20952",
+        "title": "Alice in Borderland",
+        "kind": "anime",
+        "year": 2014
+      },
+      {
+        "id": "series-tt10795658",
+        "title": "Alice in Borderland",
+        "kind": "series",
+        "year": 2020
+      },
+      {
+        "id": "movie-tt0043274",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1951
+      },
+      {
+        "id": "series-tt13056398",
+        "title": "Alice in Borderland",
+        "kind": "series",
+        "year": 2014
+      },
+      {
+        "id": "movie-tt0164993",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1999
+      },
+      {
+        "id": "series-tt0088693",
+        "title": "Alice in Wonderland",
+        "kind": "series",
+        "year": 1985
+      },
+      {
+        "id": "movie-tt0023753",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1933
+      },
+      {
+        "id": "series-tt0294084",
+        "title": "Alice in Wonderland",
+        "kind": "series",
+        "year": 1983
+      },
+      {
+        "id": "movie-tt0068190",
+        "title": "Alice's Adventures in Wonderland",
+        "kind": "movie",
+        "year": 1972
+      },
+      {
+        "id": "movie-tt0004873",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1915
+      },
+      {
+        "id": "movie-tt0042189",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1949
+      },
+      {
+        "id": "movie-tt0101294",
+        "title": "Alice Through the Looking Glass",
+        "kind": "movie",
+        "year": 1987
+      },
+      {
+        "id": "movie-tt0021599",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1931
+      },
+      {
+        "id": "movie-tt1999166",
+        "title": "Alice in the Country of Hearts: Wonderful Wonder World",
+        "kind": "movie",
+        "year": 2011
+      },
+      {
+        "id": "movie-tt38189477",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": null
+      }
+    ],
+    "Imawa no Kuni no Arisu": [
+      {
+        "id": "series-tt10795658",
+        "title": "Alice in Borderland",
+        "kind": "series",
+        "year": 2020
+      },
+      {
+        "id": "movie-tt35487769",
+        "title": "Dive in Wonderland",
+        "kind": "movie",
+        "year": 2025
+      },
+      {
+        "id": "series-tt7790776",
+        "title": "Land of the Lustrous",
+        "kind": "series",
+        "year": 2017
+      },
+      {
+        "id": "movie-tt9760504",
+        "title": "NiNoKuni",
+        "kind": "movie",
+        "year": 2019
+      },
+      {
+        "id": "series-tt13056398",
+        "title": "Alice in Borderland",
+        "kind": "series",
+        "year": 2014
+      },
+      {
+        "id": "movie-tt0043274",
+        "title": "Alice in Wonderland",
+        "kind": "movie",
+        "year": 1951
+      },
+      {
+        "id": "series-tt31014116",
+        "title": "Land of Tanabata",
+        "kind": "series",
+        "year": 2024
+      },
+      {
+        "id": "movie-tt5769414",
+        "title": "Mumon: The Land of Stealth",
+        "kind": "movie",
+        "year": 2017
+      },
+      {
+        "id": "series-tt0294084",
+        "title": "Alice in Wonderland",
+        "kind": "series",
+        "year": 1983
+      },
+      {
+        "id": "movie-tt5293604",
+        "title": "Teiichi: Battle of Supreme High",
+        "kind": "movie",
+        "year": 2017
+      },
+      {
+        "id": "series-tt6344982",
+        "title": "Poco's Udon World",
+        "kind": "series",
+        "year": 2016
+      },
+      {
+        "id": "movie-tt2283017",
+        "title": "The Land of Hope",
+        "kind": "movie",
+        "year": 2012
+      },
+      {
+        "id": "series-tt0113833",
+        "title": "Miyuki-chan in Wonderland",
+        "kind": "series",
+        "year": 1995
+      },
+      {
+        "id": "movie-tt4877122",
+        "title": "The Emoji Movie",
+        "kind": "movie",
+        "year": 2017
+      },
+      {
+        "id": "series-tt32449488",
+        "title": "Alice in Wonderful Kitchen",
+        "kind": "series",
+        "year": 2024
+      },
+      {
+        "id": "movie-tt21105546",
+        "title": "Gold Kingdom and Water Kingdom",
+        "kind": "movie",
+        "year": 2023
+      },
+      {
+        "id": "series-tt14443540",
+        "title": "Night World",
+        "kind": "series",
+        "year": 2021
+      },
+      {
+        "id": "movie-tt2567026",
+        "title": "Alice Through the Looking Glass",
+        "kind": "movie",
+        "year": 2016
+      },
+      {
+        "id": "series-tt0081889",
+        "title": "From the Northern Country",
+        "kind": "series",
+        "year": 1981
+      },
+      {
+        "id": "movie-tt0114689",
+        "title": "Catnapped! The Movie",
+        "kind": "movie",
+        "year": 1995
+      }
+    ],
+    "陈情令": [
+      {
+        "id": "series-tt10554898",
+        "title": "The Untamed",
+        "kind": "series",
+        "year": 2019
+      },
+      {
+        "id": "movie-tt12484916",
+        "title": "Fatal Journey",
+        "kind": "movie",
+        "year": 2020
+      },
+      {
+        "id": "series-tt31710822",
+        "title": "Untamed",
+        "kind": "series",
+        "year": 2025
+      },
+      {
+        "id": "movie-tt11274256",
+        "title": "The Living Dead",
+        "kind": "movie",
+        "year": 2019
+      },
+      {
+        "id": "movie-tt32252612",
+        "title": "When Morning Comes, I Feel Empty",
+        "kind": "movie",
+        "year": 2022
+      },
+      {
+        "id": "movie-tt3727544",
+        "title": "9 dney i odno utro",
+        "kind": "movie",
+        "year": 2014
+      }
+    ],
+    "Chen Qing Ling": [
+      {
+        "id": "series-tt10554898",
+        "title": "The Untamed",
+        "kind": "series",
+        "year": 2019
+      },
+      {
+        "id": "movie-tt12484916",
+        "title": "Fatal Journey",
+        "kind": "movie",
+        "year": 2020
+      },
+      {
+        "id": "series-tt31710822",
+        "title": "Untamed",
+        "kind": "series",
+        "year": 2025
+      },
+      {
+        "id": "movie-tt11274256",
+        "title": "The Living Dead",
+        "kind": "movie",
+        "year": 2019
+      },
+      {
+        "id": "series-tt37884717",
+        "title": "The Early Spring",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "movie-tt32252612",
+        "title": "When Morning Comes, I Feel Empty",
+        "kind": "movie",
+        "year": 2022
+      },
+      {
+        "id": "series-tt34959986",
+        "title": "Deep Affection Eyes",
+        "kind": "series",
+        "year": 2025
+      },
+      {
+        "id": "movie-tt3727544",
+        "title": "9 dney i odno utro",
+        "kind": "movie",
+        "year": 2014
+      },
+      {
+        "id": "series-tt36384225",
+        "title": "Love Story in the 1970s",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt6055498",
+        "title": "Love O2O",
+        "kind": "series",
+        "year": 2016
+      },
+      {
+        "id": "series-tt28182899",
+        "title": "Will Love in Spring",
+        "kind": "series",
+        "year": 2024
+      },
+      {
+        "id": "series-tt37357034",
+        "title": "Shadow Punisher",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt35351373",
+        "title": "Impression of Youth",
+        "kind": "series",
+        "year": 2025
+      },
+      {
+        "id": "series-tt43408130",
+        "title": "A Winter Sun Wakes the Wind in Spring Hills' Dream",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt15788086",
+        "title": "Stellar Transformation",
+        "kind": "series",
+        "year": 2018
+      },
+      {
+        "id": "series-tt32741625",
+        "title": "See Her Again",
+        "kind": "series",
+        "year": 2024
+      },
+      {
+        "id": "series-tt32740239",
+        "title": "Lady Liberty",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt40645702",
+        "title": "Turbulent Love",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt39496157",
+        "title": "Bloody Smart",
+        "kind": "series",
+        "year": 2026
+      },
+      {
+        "id": "series-tt27851626",
+        "title": "Please Be My Family",
+        "kind": "series",
+        "year": 2023
+      }
+    ],
+    "เด็กพิเศษ": [],
+    "Dek Phises": [
+      {
+        "id": "series-38687",
+        "title": "La Villa des Cœurs Brisés",
+        "kind": "series",
+        "year": 2015
+      },
+      {
+        "id": "series-83396",
+        "title": "Le Sens des Choses",
+        "kind": "series",
+        "year": 2025
+      },
+      {
+        "id": "series-6334",
+        "title": "El síndrome de Ulises",
+        "kind": "series",
+        "year": 2007
+      },
+      {
+        "id": "series-43782",
+        "title": "Le collège des cœurs brisés",
+        "kind": "series",
+        "year": 1992
+      },
+      {
+        "id": "series-77022",
+        "title": "De pies a Cabeza",
+        "kind": "series",
+        "year": 1993
+      }
+    ]
+  },
+  "prowlarr_fallback": {
+    "Crash Landing on You": {
+      "http_status": 200,
+      "count": 0,
+      "sources": {},
+      "sample": null
+    },
+    "Itaewon Class": {
+      "http_status": 200,
+      "count": 0,
+      "sources": {},
+      "sample": null
+    },
+    "The Gifted": {
+      "http_status": 200,
+      "count": 0,
+      "sources": {},
+      "sample": null
+    },
+    "Alice in Borderland": {
+      "http_status": 200,
+      "count": 0,
+      "sources": {},
+      "sample": null
+    },
+    "Shut Up Flower Boy Band": {
+      "http_status": 200,
+      "count": 0,
+      "sources": {},
+      "sample": null
+    }
+  },
+  "known_failure": {
+    "title": "Shut Up Flower Boy Band",
+    "imdb_id": "tt2942950",
+    "title_search": "found",
+    "episode_count": 16,
+    "release_http_status": 404,
+    "release_error": "No matching source found in the providers that answered. Some providers are unavailable; try again shortly.",
+    "direct_source_checks": {
+      "bitsearch": {
+        "http_status": 200,
+        "results": 0
+      },
+      "zilean": {
+        "http_status": 200,
+        "results": 0
+      },
+      "torrentsdb": {
+        "http_status": 200,
+        "results": 0
+      },
+      "knaben": {
+        "http_status": 503,
+        "note": "Web Page Blocked from the research host"
+      },
+      "torrentio": {
+        "http_status": 503,
+        "note": "Web Page Blocked from the research host"
+      }
+    }
+  },
+  "nyaa_live_action": {
+    "endpoint": "https://nyaa.net/?page=rss&q={term}&c=4_1&f=0",
+    "matrix": {
+      "Crash Landing on You": {
+        "http_status": 200,
+        "items": 2,
+        "first_title": "Crash.Landing.on.You.S01.2019.1080p.NF.WEBRip.DDP2.0.x265-RL [Korean Drama]"
+      },
+      "Itaewon Class": {
+        "http_status": 200,
+        "items": 2,
+        "first_title": "[KayRips] Itaewon Class 이태원 클라쓰 (2020) WEB-DL.x264 EAC3 Multi-Subs [1080p Batch]"
+      },
+      "Squid Game": {
+        "http_status": 200,
+        "items": 23,
+        "first_title": "Squid Game S03 Season 3 2025 1080p NF WEBRip Dual Audio AAC5.1 10bits x265-Rapta"
+      },
+      "Alice in Borderland": {
+        "http_status": 200,
+        "items": 3,
+        "first_title": "Alice in Borderland S03 Season 3 2025 1080p NF WEBRip Dual Audio AAC5.1 10bits x265-Rapta"
+      },
+      "The Untamed": {
+        "http_status": 200,
+        "items": 40,
+        "first_title": "[Suibian Subs] The Untamed CN Drama Ep 47-50 [END] English Subbed"
+      },
+      "The Gifted": {
+        "http_status": 200,
+        "items": 0,
+        "first_title": null
+      },
+      "Shut Up Flower Boy Band": {
+        "http_status": 200,
+        "items": 1,
+        "first_title": "Shut Up Flower Boy Band (2012) (WEB-DL 1080p h264 AAC-AppleTor)"
+      }
+    },
+    "episode_terms": {
+      "Crash Landing on You S01E01": {
+        "http_status": 200,
+        "items": 0
+      },
+      "Crash Landing on You 01": {
+        "http_status": 200,
+        "items": 1
+      },
+      "Crash Landing on You S01": {
+        "http_status": 200,
+        "items": 1
+      },
+      "Shut Up Flower Boy Band S01E01": {
+        "http_status": 200,
+        "items": 0
+      },
+      "Shut Up Flower Boy Band 01": {
+        "http_status": 200,
+        "items": 1
+      },
+      "Shut Up Flower Boy Band S01": {
+        "http_status": 200,
+        "items": 0
+      }
+    },
+    "native_itaewon": {
+      "http_status": 200,
+      "items": 1
+    },
+    "category_matrix": {
+      "Crash Landing on You|4_1": {
+        "http_status": 200,
+        "items": 2
+      },
+      "Crash Landing on You|4_3": {
+        "http_status": 200,
+        "items": 0
+      },
+      "Crash Landing on You|4_4": {
+        "http_status": 200,
+        "items": 1
+      },
+      "Itaewon Class|4_1": {
+        "http_status": 200,
+        "items": 2
+      },
+      "Itaewon Class|4_3": {
+        "http_status": 200,
+        "items": 0
+      },
+      "Itaewon Class|4_4": {
+        "http_status": 200,
+        "items": 17
+      }
+    }
+  },
+  "public_source_request_count": 62,
+  "nyaa_candidate_engine": {
+    "categories": [
+      "4_1",
+      "4_4"
+    ],
+    "request_headers": {
+      "user-agent": "Mozilla/5.0"
+    },
+    "itaewon_class": {
+      "releases": 4,
+      "nya_raw_releases": 2,
+      "episode_title": "Itaewon Class S01E01 720p HDTV AAC H.265-IXD.mp4"
+    },
+    "shut_up_flower_boy_band": {
+      "releases": 0,
+      "note": "Nyaa returned one unnumbered batch row. The engine did not map it to episode 1."
+    }
+  },
+  "public_source_requests": [
+    {
+      "name": "tvmaze-crash-landing-on-you",
+      "url": "https://api.tvmaze.com/singlesearch/shows?q=Crash%20Landing%20on%20You",
+      "started_utc": "2026-11-25T09:56:26.180588+00:00",
+      "finished_utc": "2026-11-25T09:56:26.966907+00:00",
+      "status": 200,
+      "bytes": 1315,
+      "body_file": "asian-drama-evidence-2026-11-25/tvmaze-crash-landing-on-you.body",
+      "body_sha256": "67f1cb0346c3bb43e1af53c1f816c43c14c4999528cba951edc492786c3ed64f"
+    },
+    {
+      "name": "tvmaze-itaewon-class",
+      "url": "https://api.tvmaze.com/singlesearch/shows?q=Itaewon%20Class",
+      "started_utc": "2026-11-25T09:56:27.972097+00:00",
+      "finished_utc": "2026-11-25T09:56:28.791806+00:00",
+      "status": 200,
+      "bytes": 1425,
+      "body_file": "asian-drama-evidence-2026-11-25/tvmaze-itaewon-class.body",
+      "body_sha256": "28eafeeeb9b1e3992bcd126224005a4bed1db0d2d0567090b7ef1648ca41be73"
+    },
+    {
+      "name": "tvmaze-alice-in-borderland",
+      "url": "https://api.tvmaze.com/singlesearch/shows?q=Alice%20in%20Borderland",
+      "started_utc": "2026-11-25T09:56:29.796172+00:00",
+      "finished_utc": "2026-11-25T09:56:30.639057+00:00",
+      "status": 200,
+      "bytes": 1278,
+      "body_file": "asian-drama-evidence-2026-11-25/tvmaze-alice-in-borderland.body",
+      "body_sha256": "6119af29b5ad3d3f40d2957db4a7b68fc45a48e74ad9951adfce6ee006e63332"
+    },
+    {
+      "name": "tvmaze-the-untamed",
+      "url": "https://api.tvmaze.com/singlesearch/shows?q=The%20Untamed",
+      "started_utc": "2026-11-25T09:56:31.643803+00:00",
+      "finished_utc": "2026-11-25T09:56:32.501094+00:00",
+      "status": 200,
+      "bytes": 1730,
+      "body_file": "asian-drama-evidence-2026-11-25/tvmaze-the-untamed.body",
+      "body_sha256": "bb2de56f2615b09f4ea152a0a7d989e9d5e1c5d0dd747941c8dac695a32d10cb"
+    },
+    {
+      "name": "tvmaze-the-gifted",
+      "url": "https://api.tvmaze.com/singlesearch/shows?q=The%20Gifted",
+      "started_utc": "2026-11-25T09:56:33.503806+00:00",
+      "finished_utc": "2026-11-25T09:56:34.287805+00:00",
+      "status": 200,
+      "bytes": 1308,
+      "body_file": "asian-drama-evidence-2026-11-25/tvmaze-the-gifted.body",
+      "body_sha256": "2c48e68c3d66462b9c08428d05b1c2eda3173a04d8b4f07be4b4e5fcb399eeb1"
+    },
+    {
+      "name": "knaben-api-docs",
+      "url": "https://knaben.org/api/v2",
+      "started_utc": "2026-11-25T09:56:35.293015+00:00",
+      "finished_utc": "2026-11-25T09:56:35.452117+00:00",
+      "status": 503,
+      "bytes": 6873
+    },
+    {
+      "name": "zilean-readme",
+      "url": "https://raw.githubusercontent.com/iPromKnight/zilean/main/README.md",
+      "started_utc": "2026-11-25T09:56:36.457465+00:00",
+      "finished_utc": "2026-11-25T09:56:37.159349+00:00",
+      "status": 200,
+      "bytes": 822
+    },
+    {
+      "name": "torrentio-addon-readme",
+      "url": "https://raw.githubusercontent.com/TheBeastLT/torrentio-scraper/master/addon/README.md",
+      "started_utc": "2026-11-25T09:56:38.163841+00:00",
+      "finished_utc": "2026-11-25T09:56:38.710896+00:00",
+      "status": 200,
+      "bytes": 3964
+    },
+    {
+      "name": "snowfl-wrapper-readme",
+      "url": "https://raw.githubusercontent.com/ChocoTonic/snowfl/master/README.md",
+      "started_utc": "2026-11-25T09:56:39.711256+00:00",
+      "finished_utc": "2026-11-25T09:56:40.426344+00:00",
+      "status": 200,
+      "bytes": 7916
+    },
+    {
+      "name": "snowfl-core",
+      "url": "https://raw.githubusercontent.com/ChocoTonic/snowfl/master/src/snowfl/core.py",
+      "started_utc": "2026-11-25T09:56:41.431282+00:00",
+      "finished_utc": "2026-11-25T09:56:41.982125+00:00",
+      "status": 200,
+      "bytes": 5024
+    },
+    {
+      "name": "bitsearch-api-docs",
+      "url": "https://bitsearch.to/api",
+      "started_utc": "2026-11-25T09:56:42.986209+00:00",
+      "finished_utc": "2026-11-25T09:56:50.453114+00:00",
+      "status": 200,
+      "bytes": 70454
+    },
+    {
+      "name": "torrentsdb-manifest",
+      "url": "https://torrentsdb.com/manifest.json",
+      "started_utc": "2026-11-25T09:56:51.453913+00:00",
+      "finished_utc": "2026-11-25T09:56:52.348547+00:00",
+      "status": 200,
+      "bytes": 894
+    },
+    {
+      "name": "official-tvn-cloy",
+      "url": "https://tvn.cjenm.com/ko/cloy",
+      "started_utc": "2026-11-25T09:59:29.847385+00:00",
+      "finished_utc": "2026-11-25T09:59:33.410144+00:00",
+      "status": 200,
+      "bytes": 2051073
+    },
+    {
+      "name": "official-jtbc-itaewon-class",
+      "url": "https://tv.jtbc.co.kr/cast/pr10011148",
+      "started_utc": "2026-11-25T09:59:34.411751+00:00",
+      "finished_utc": "2026-11-25T09:59:35.818668+00:00",
+      "status": 200,
+      "bytes": 49311
+    },
+    {
+      "name": "official-netflix-jp-alice",
+      "url": "https://www.netflix.com/jp/title/80200575",
+      "started_utc": "2026-11-25T09:59:36.823827+00:00",
+      "finished_utc": "2026-11-25T09:59:42.199958+00:00",
+      "status": 200,
+      "bytes": 2423339
+    },
+    {
+      "name": "official-tencent-untamed",
+      "url": "https://v.qq.com/x/cover/vbb35hm6m6da1wc.html",
+      "started_utc": "2026-11-25T09:59:43.203160+00:00",
+      "finished_utc": "2026-11-25T09:59:45.167989+00:00",
+      "status": 200,
+      "bytes": 190309
+    },
+    {
+      "name": "official-gmmtv-gifted",
+      "url": "https://www.gmm-tv.com/contents/episode/L68vZ",
+      "started_utc": "2026-11-25T09:59:46.173073+00:00",
+      "finished_utc": "2026-11-25T09:59:47.219616+00:00",
+      "status": 200,
+      "bytes": 51723
+    },
+    {
+      "name": "probe-knaben-cloy",
+      "url": "https://api.knaben.org/v2/search?q=Crash%20Landing%20on%20You&sf=title&c=2000000&o=seeders&d=desc&s=50&f=0",
+      "started_utc": "2026-11-25T09:58:36.401005+00:00",
+      "finished_utc": "2026-11-25T09:58:36.681672+00:00",
+      "status": 503,
+      "bytes": 6966
+    },
+    {
+      "name": "probe-bitsearch-cloy",
+      "url": "https://bitsearch.eu/api/v1/search?q=Crash%20Landing%20on%20You&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T09:58:38.685582+00:00",
+      "finished_utc": "2026-11-25T09:58:39.415616+00:00",
+      "status": 200,
+      "bytes": 1568
+    },
+    {
+      "name": "probe-zilean-cloy",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt10850932&Season=1&Episode=1",
+      "started_utc": "2026-11-25T09:58:41.419169+00:00",
+      "finished_utc": "2026-11-25T09:58:42.386165+00:00",
+      "status": 200,
+      "bytes": 22006
+    },
+    {
+      "name": "probe-torrentio-cloy",
+      "url": "https://torrentio.strem.fun/stream/series/tt10850932:1:1.json",
+      "started_utc": "2026-11-25T09:58:44.391122+00:00",
+      "finished_utc": "2026-11-25T09:58:44.620577+00:00",
+      "status": 503,
+      "bytes": 6909
+    },
+    {
+      "name": "probe-torrentsdb-cloy",
+      "url": "https://torrentsdb.com/stream/series/tt10850932:1:1.json",
+      "started_utc": "2026-11-25T09:58:46.621518+00:00",
+      "finished_utc": "2026-11-25T09:58:47.496048+00:00",
+      "status": 200,
+      "bytes": 2144
+    },
+    {
+      "name": "probe-snowfl-home",
+      "url": "https://snowfl.com/",
+      "started_utc": "2026-11-25T09:58:49.499414+00:00",
+      "finished_utc": "2026-11-25T09:58:49.886250+00:00",
+      "status": 503,
+      "bytes": 6867
+    },
+    {
+      "name": "bitsearch-cloy-en",
+      "url": "https://bitsearch.eu/api/v1/search?q=Crash+Landing+on+You&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:15.507244+00:00",
+      "finished_utc": "2026-11-25T10:03:16.171015+00:00",
+      "status": 200,
+      "bytes": 1568,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-cloy-en.body",
+      "body_sha256": "f0cc3427de80a21027ee1142b8f7de71c57cfa3ff2c12ea6dd59e41b18a367b9"
+    },
+    {
+      "name": "bitsearch-cloy-native",
+      "url": "https://bitsearch.eu/api/v1/search?q=%EC%82%AC%EB%9E%91%EC%9D%98+%EB%B6%88%EC%8B%9C%EC%B0%A9&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:17.371916+00:00",
+      "finished_utc": "2026-11-25T10:03:17.956104+00:00",
+      "status": 200,
+      "bytes": 502,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-cloy-native.body",
+      "body_sha256": "8074ff467f71e7905ac82a1a74a69f1542ebefc76cfe742476de7e22d8872fbf"
+    },
+    {
+      "name": "bitsearch-itaewon-en",
+      "url": "https://bitsearch.eu/api/v1/search?q=Itaewon+Class&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:19.160040+00:00",
+      "finished_utc": "2026-11-25T10:03:19.927342+00:00",
+      "status": 200,
+      "bytes": 490,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-itaewon-en.body",
+      "body_sha256": "badee1989d9f9574d24543d1ba39d11abcd5d3024b478c640ec00d67cf3287e3"
+    },
+    {
+      "name": "bitsearch-itaewon-native",
+      "url": "https://bitsearch.eu/api/v1/search?q=%EC%9D%B4%ED%83%9C%EC%9B%90+%ED%81%B4%EB%9D%BC%EC%93%B0&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:21.130949+00:00",
+      "finished_utc": "2026-11-25T10:03:21.934268+00:00",
+      "status": 200,
+      "bytes": 163,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-itaewon-native.body",
+      "body_sha256": "7156b33bfdef98919b7829ebd5451b0d332911e6c71681da9cf075559a9c354f"
+    },
+    {
+      "name": "bitsearch-alice-en",
+      "url": "https://bitsearch.eu/api/v1/search?q=Alice+in+Borderland&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:23.137557+00:00",
+      "finished_utc": "2026-11-25T10:03:23.799397+00:00",
+      "status": 200,
+      "bytes": 36550,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-alice-en.body",
+      "body_sha256": "07ced5148e83d2a5870f8e3ab910489b6ea8e44e38043ff01380659b4af67afd"
+    },
+    {
+      "name": "bitsearch-alice-native",
+      "url": "https://bitsearch.eu/api/v1/search?q=%E4%BB%8A%E9%9A%9B%E3%81%AE%E5%9B%BD%E3%81%AE%E3%82%A2%E3%83%AA%E3%82%B9&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:25.001225+00:00",
+      "finished_utc": "2026-11-25T10:03:25.582163+00:00",
+      "status": 200,
+      "bytes": 168,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-alice-native.body",
+      "body_sha256": "1bec45bf14ddc61148ea7ec2d317222e3ea62df4961c722a45e0138a3fe2e5a0"
+    },
+    {
+      "name": "bitsearch-untamed-en",
+      "url": "https://bitsearch.eu/api/v1/search?q=The+Untamed&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:26.786905+00:00",
+      "finished_utc": "2026-11-25T10:03:27.549742+00:00",
+      "status": 200,
+      "bytes": 5380,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-untamed-en.body",
+      "body_sha256": "af38b92b2e360126ca156d0846006528f735d108e1cbf78c6b103c688f4eee09"
+    },
+    {
+      "name": "bitsearch-untamed-native",
+      "url": "https://bitsearch.eu/api/v1/search?q=%E9%99%88%E6%83%85%E4%BB%A4&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:28.751198+00:00",
+      "finished_utc": "2026-11-25T10:03:29.562910+00:00",
+      "status": 200,
+      "bytes": 153,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-untamed-native.body",
+      "body_sha256": "11249a5adf6bcf8b53156d8ee73dffbfad2d16e2683d2d79f15b10ac81dd6da0"
+    },
+    {
+      "name": "bitsearch-gifted-en",
+      "url": "https://bitsearch.eu/api/v1/search?q=The+Gifted&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:30.764646+00:00",
+      "finished_utc": "2026-11-25T10:03:31.562828+00:00",
+      "status": 200,
+      "bytes": 32217,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-gifted-en.body",
+      "body_sha256": "789131393cf00f7f64d28ddcd11ac16609287a5fd7563f207473a0dfb92b6b33"
+    },
+    {
+      "name": "bitsearch-gifted-native",
+      "url": "https://bitsearch.eu/api/v1/search?q=%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%B4%E0%B8%9F%E0%B8%95%E0%B9%8C&category=3&sort=seeders&order=desc&page=1&limit=100",
+      "started_utc": "2026-11-25T10:03:32.766835+00:00",
+      "finished_utc": "2026-11-25T10:03:33.403800+00:00",
+      "status": 200,
+      "bytes": 195,
+      "body_file": "asian-drama-evidence-2026-11-25/bitsearch-gifted-native.body",
+      "body_sha256": "a79e536ed817a6f9a7ffb691bbf2dad26f1799248671fefaed23b47b3d963dd8"
+    },
+    {
+      "name": "zilean-cloy-s1e1",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt10850932&Season=1&Episode=1",
+      "started_utc": "2026-11-25T10:03:34.605938+00:00",
+      "finished_utc": "2026-11-25T10:03:35.031003+00:00",
+      "status": 200,
+      "bytes": 22006,
+      "body_file": "asian-drama-evidence-2026-11-25/zilean-cloy-s1e1.body",
+      "body_sha256": "ead5dbae5066a82c7f0ceb7ece431fb8c041fa4ae687890807a03b97054788be"
+    },
+    {
+      "name": "zilean-itaewon-s1e1",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt11239552&Season=1&Episode=1",
+      "started_utc": "2026-11-25T10:03:36.236149+00:00",
+      "finished_utc": "2026-11-25T10:03:36.528746+00:00",
+      "status": 200,
+      "bytes": 5422,
+      "body_file": "asian-drama-evidence-2026-11-25/zilean-itaewon-s1e1.body",
+      "body_sha256": "aa27c863a1df4ad111bd78057bbfa9b80c6da3a4156582957dfb894b18b4a55f"
+    },
+    {
+      "name": "zilean-alice-s1e1",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt10795658&Season=1&Episode=1",
+      "started_utc": "2026-11-25T10:03:37.732210+00:00",
+      "finished_utc": "2026-11-25T10:03:38.345501+00:00",
+      "status": 200,
+      "bytes": 56395,
+      "body_file": "asian-drama-evidence-2026-11-25/zilean-alice-s1e1.body",
+      "body_sha256": "f0637ad162e28dbeb761ef4e5cb49b878aae753fc0f0890b3dd6727c9ed579e4"
+    },
+    {
+      "name": "zilean-untamed-s1e1",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt10554898&Season=1&Episode=1",
+      "started_utc": "2026-11-25T10:03:39.550718+00:00",
+      "finished_utc": "2026-11-25T10:03:39.846953+00:00",
+      "status": 200,
+      "bytes": 3257,
+      "body_file": "asian-drama-evidence-2026-11-25/zilean-untamed-s1e1.body",
+      "body_sha256": "c4b8bfc89ff1fdb64b154bfc0ec64e26a5f4e45416f22ad0504ae670e4a7ae1f"
+    },
+    {
+      "name": "zilean-gifted-s1e1",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?ImdbId=tt9136312&Season=1&Episode=1",
+      "started_utc": "2026-11-25T10:03:41.049600+00:00",
+      "finished_utc": "2026-11-25T10:03:41.776158+00:00",
+      "status": 200,
+      "bytes": 19988,
+      "body_file": "asian-drama-evidence-2026-11-25/zilean-gifted-s1e1.body",
+      "body_sha256": "a33a7206709ed83fa575de0b4fb4bd9edb1180b848ed74b4198fc71a3b36b4f8"
+    },
+    {
+      "name": "zilean-gifted-native",
+      "url": "https://zileanfortheweebs.midnightignite.me/dmm/filtered?Query=%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%B4%E0%B8%9F%E0%B8%95%E0%B9%8C",
+      "started_utc": "2026-11-25T10:03:42.980114+00:00",
+      "finished_utc": "2026-11-25T10:03:43.257010+00:00",
+      "status": 200,
+      "bytes": 22
+    },
+    {
+      "name": "torrentsdb-cloy-s1e1",
+      "url": "https://torrentsdb.com/stream/series/tt10850932:1:1.json",
+      "started_utc": "2026-11-25T10:03:44.462258+00:00",
+      "finished_utc": "2026-11-25T10:03:44.903710+00:00",
+      "status": 200,
+      "bytes": 2144,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsdb-cloy-s1e1.body",
+      "body_sha256": "9f8109c503ebc60f9a101adc03a2a6874d39593c67b591073ea37ff998038f3d"
+    },
+    {
+      "name": "torrentsdb-itaewon-s1e1",
+      "url": "https://torrentsdb.com/stream/series/tt11239552:1:1.json",
+      "started_utc": "2026-11-25T10:03:46.105662+00:00",
+      "finished_utc": "2026-11-25T10:03:46.518898+00:00",
+      "status": 200,
+      "bytes": 1580,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsdb-itaewon-s1e1.body",
+      "body_sha256": "7e859d2ea1c943755b9738b082dc6e9ea0403f14c88eec08eb4cc9cbeab4a958"
+    },
+    {
+      "name": "torrentsdb-alice-s1e1",
+      "url": "https://torrentsdb.com/stream/series/tt10795658:1:1.json",
+      "started_utc": "2026-11-25T10:03:47.724114+00:00",
+      "finished_utc": "2026-11-25T10:03:48.358513+00:00",
+      "status": 200,
+      "bytes": 23071,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsdb-alice-s1e1.body",
+      "body_sha256": "767471b8f4244555c4b114eb420d4e83fa280ecb5a61d83690f3b51e07de56b4"
+    },
+    {
+      "name": "torrentsdb-untamed-s1e1",
+      "url": "https://torrentsdb.com/stream/series/tt10554898:1:1.json",
+      "started_utc": "2026-11-25T10:03:49.561821+00:00",
+      "finished_utc": "2026-11-25T10:03:49.985887+00:00",
+      "status": 200,
+      "bytes": 10796,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsdb-untamed-s1e1.body",
+      "body_sha256": "46cdbf6cdf696e76018aae7b81c0813d888e2e9abda188c5b49a957481640760"
+    },
+    {
+      "name": "torrentsdb-gifted-s1e1",
+      "url": "https://torrentsdb.com/stream/series/tt9136312:1:1.json",
+      "started_utc": "2026-11-25T10:03:51.189027+00:00",
+      "finished_utc": "2026-11-25T10:03:52.088250+00:00",
+      "status": 200,
+      "bytes": 1251,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsdb-gifted-s1e1.body",
+      "body_sha256": "a694d5a5328140c7cf06620cd8bd5b4cde9c3f6f5c442ea7f415e141bb2d8b88"
+    },
+    {
+      "name": "nyaa-cloy-en",
+      "url": "https://nyaa.si/?page=rss&q=Crash+Landing+on+You&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:03:53.293465+00:00",
+      "finished_utc": "2026-11-25T10:03:53.777313+00:00",
+      "status": 503,
+      "bytes": 6912
+    },
+    {
+      "name": "nyaa-itaewon-en",
+      "url": "https://nyaa.si/?page=rss&q=Itaewon+Class&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:03:54.979244+00:00",
+      "finished_utc": "2026-11-25T10:03:55.403257+00:00",
+      "status": 503,
+      "bytes": 6905
+    },
+    {
+      "name": "nyaa-alice-en",
+      "url": "https://nyaa.si/?page=rss&q=Alice+in+Borderland&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:03:56.608413+00:00",
+      "finished_utc": "2026-11-25T10:03:57.067748+00:00",
+      "status": 503,
+      "bytes": 6911
+    },
+    {
+      "name": "nyaa-untamed-en",
+      "url": "https://nyaa.si/?page=rss&q=The+Untamed&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:03:58.270870+00:00",
+      "finished_utc": "2026-11-25T10:03:58.684199+00:00",
+      "status": 503,
+      "bytes": 6903
+    },
+    {
+      "name": "nyaa-gifted-en",
+      "url": "https://nyaa.si/?page=rss&q=The+Gifted&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:03:59.886861+00:00",
+      "finished_utc": "2026-11-25T10:04:00.314148+00:00",
+      "status": 503,
+      "bytes": 6902
+    },
+    {
+      "name": "nyaa-alice-native",
+      "url": "https://nyaa.si/?page=rss&q=%E4%BB%8A%E9%9A%9B%E3%81%AE%E5%9B%BD%E3%81%AE%E3%82%A2%E3%83%AA%E3%82%B9&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:04:01.518751+00:00",
+      "finished_utc": "2026-11-25T10:04:01.959152+00:00",
+      "status": 503,
+      "bytes": 6964
+    },
+    {
+      "name": "nyaa-untamed-native",
+      "url": "https://nyaa.si/?page=rss&q=%E9%99%88%E6%83%85%E4%BB%A4&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:04:03.159284+00:00",
+      "finished_utc": "2026-11-25T10:04:03.593112+00:00",
+      "status": 503,
+      "bytes": 6919
+    },
+    {
+      "name": "nyaa-gifted-native",
+      "url": "https://nyaa.si/?page=rss&q=%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%B4%E0%B8%9F%E0%B8%95%E0%B9%8C&c=1_0&f=0",
+      "started_utc": "2026-11-25T10:04:04.793662+00:00",
+      "finished_utc": "2026-11-25T10:04:05.196530+00:00",
+      "status": 503,
+      "bytes": 7045
+    },
+    {
+      "name": "torrentsome-verified",
+      "url": "https://torrentsome274.com/search/index?keywords=%EC%82%AC%EB%9E%91%EC%9D%98+%EB%B6%88%EC%8B%9C%EC%B0%A9&search_type=2&order=score",
+      "started_utc": "2026-11-25T10:49:11.416797+00:00",
+      "finished_utc": "2026-11-25T10:49:11.416797+00:00",
+      "status": 200,
+      "bytes": 74176,
+      "body_file": "asian-drama-evidence-2026-11-25/torrentsome-verified.html",
+      "body_sha256": "53bc30b2ee929071a64feb94df98505e51854c5ed4517a5eca850f77110538cc"
+    },
+    {
+      "name": "torrenttip-verified",
+      "url": "https://torrenttip254.top/search?q=%EC%82%AC%EB%9E%91%EC%9D%98+%EB%B6%88%EC%8B%9C%EC%B0%A9&cate=2&sort=score",
+      "started_utc": "2026-11-25T10:49:11.417562+00:00",
+      "finished_utc": "2026-11-25T10:49:11.417562+00:00",
+      "status": 200,
+      "bytes": 61393,
+      "body_file": "asian-drama-evidence-2026-11-25/torrenttip-verified.html",
+      "body_sha256": "e95c146a082507a027a47483da4747ed2064b906880f57410b05d05b4b0f11a3"
+    }
+  ],
+  "blocked_in_public_source_test": [
+    {
+      "name": "probe-knaben-cloy",
+      "url": "https://api.knaben.org/v2/search?q=Crash%20Landing%20on%20You&sf=title&c=2000000&o=seeders&d=desc&s=50&f=0",
+      "status": 503,
+      "note": "Web Page Blocked from the research host."
+    },
+    {
+      "name": "probe-torrentio-cloy",
+      "url": "https://torrentio.strem.fun/stream/series/tt10850932:1:1.json",
+      "status": 503,
+      "note": "Web Page Blocked from the research host."
+    },
+    {
+      "name": "probe-snowfl-home",
+      "url": "https://snowfl.com/",
+      "status": 503,
+      "note": "Web Page Blocked from the research host."
+    },
+    {
+      "name": "nyaa-cloy-en",
+      "url": "https://nyaa.si/?page=rss&q=Crash+Landing+on+You&c=1_0&f=0",
+      "status": 503,
+      "note": "The later nyaa.net live-action test returned HTTP 200."
+    }
+  ],
+  "public_source_matrix": {
+    "date_utc": "2026-11-25",
+    "titles": {
+      "Crash Landing on You": {
+        "imdb": "tt10850932",
+        "native": "사랑의 불시착",
+        "bitsearch_en": 4,
+        "bitsearch_native": 1,
+        "zilean_rows": 20,
+        "zilean_episode1_rows": 0,
+        "torrentsdb_rows": 4,
+        "torrentsdb_relevant_rows": 4,
+        "torrentsome_exact_first_page": 18,
+        "torrenttip_exact_first_page": 18
+      },
+      "Itaewon Class": {
+        "imdb": "tt11239552",
+        "native": "이태원 클라쓰",
+        "bitsearch_en": 1,
+        "bitsearch_native": 0,
+        "zilean_rows": 5,
+        "zilean_episode1_rows": 0,
+        "torrentsdb_rows": 4,
+        "torrentsdb_relevant_rows": 4,
+        "torrentsome_exact_first_page": 19,
+        "torrenttip_exact_first_page": 19
+      },
+      "Alice in Borderland": {
+        "imdb": "tt10795658",
+        "native": "今際の国のアリス",
+        "bitsearch_en": 100,
+        "bitsearch_reported_total": 138,
+        "bitsearch_native": 0,
+        "zilean_rows": 51,
+        "zilean_episode1_rows": 9,
+        "torrentsdb_rows": 36,
+        "torrentsdb_relevant_rows": 31
+      },
+      "The Untamed": {
+        "imdb": "tt10554898",
+        "native": "陈情令",
+        "bitsearch_en": 15,
+        "bitsearch_relevant_rows": 1,
+        "bitsearch_native": 0,
+        "zilean_rows": 3,
+        "zilean_episode1_rows": 1,
+        "torrentsdb_rows": 11,
+        "torrentsdb_relevant_rows": 11
+      },
+      "The Gifted": {
+        "imdb": "tt9136312",
+        "native": "นักเรียนพลังกิฟต์",
+        "bitsearch_en": 100,
+        "bitsearch_reported_total": 1953,
+        "bitsearch_relevant_rows": 0,
+        "bitsearch_native": 0,
+        "zilean_rows": 19,
+        "zilean_relevant_rows": 0,
+        "torrentsdb_rows": 3,
+        "torrentsdb_relevant_rows": 0
+      }
+    },
+    "notes": [
+      "Counts are unique rows with info hashes of 40 hexadecimal characters unless stated otherwise.",
+      "Bitsearch English counts are raw rows. Manual review separates relevant rows.",
+      "Korean indexer counts cover the first 50 score-sorted drama results.",
+      "The Gifted results from Zilean and TorrentsDB name the US series, not the Thai series."
+    ]
+  },
+  "cinemeta_detail_checks": [
+    {
+      "title": "Crash Landing on You",
+      "id": "tt10850932",
+      "imdb_id": "tt10850932",
+      "alternate_title_fields_present": [],
+      "video_count": 22,
+      "body_file": "asian-drama-evidence-2026-11-25/crash-landing-meta.json",
+      "body_bytes": 14386,
+      "body_sha256": "06790c1f95d5636a6702af8dbf69f978aa24acb350d1248b21a484377d93ba94"
+    },
+    {
+      "title": "Itaewon Class",
+      "id": "tt11239552",
+      "imdb_id": "tt11239552",
+      "alternate_title_fields_present": [],
+      "video_count": 16,
+      "body_file": "asian-drama-evidence-2026-11-25/itaewon-meta.json",
+      "body_bytes": 10970,
+      "body_sha256": "59725fb7d13d53055d558309ce7c9bf9ee9bf022215357285cbe351a2b081a42"
+    },
+    {
+      "title": "Alice in Borderland",
+      "id": "tt10795658",
+      "imdb_id": "tt10795658",
+      "alternate_title_fields_present": [],
+      "video_count": 22,
+      "body_file": "asian-drama-evidence-2026-11-25/alice-meta.json",
+      "body_bytes": 15130,
+      "body_sha256": "2ee2ee0f3097b1b387e7031244e57bc27afdfa1f6b540d65674bee3546fc6ad3"
+    },
+    {
+      "title": "The Untamed",
+      "id": "tt10554898",
+      "imdb_id": "tt10554898",
+      "alternate_title_fields_present": [],
+      "video_count": 52,
+      "body_file": "asian-drama-evidence-2026-11-25/untamed-meta.json",
+      "body_bytes": 24771,
+      "body_sha256": "0c06065b50c620e7905bed2c6c94f49832d35918212d3e6af7330c6db52eae8b"
+    },
+    {
+      "title": "The Gifted",
+      "id": "tt9136312",
+      "imdb_id": "tt9136312",
+      "alternate_title_fields_present": [],
+      "video_count": 26,
+      "body_file": "asian-drama-evidence-2026-11-25/gifted-meta.json",
+      "body_bytes": 9246,
+      "body_sha256": "96e49b1be139d215c4584ca2e5d285ba33a00c875e82634421e69702febeeec5"
+    }
+  ],
+  "production_playback_checks": [
+    {
+      "title": "Crash Landing on You",
+      "available": true,
+      "source": "debrid",
+      "stream_type": "hls",
+      "release": "[Ex-torrenty org]Crash Landing on You S01 PL 1080p WEB-DL x264-SnOoP",
+      "release_id": "d88779396d8c095fb62126d3b1dcb0365355bcf1",
+      "initial_duration": 4306.72,
+      "url_present": true
+    },
+    {
+      "title": "Itaewon Class",
+      "available": true,
+      "source": "debrid",
+      "stream_type": "hls",
+      "release": "Itaewon.Class.S01.KOREAN.1080p.NF.WEBRip.DDP2.0.x264-ExREN[rartv] Itaewon.Class.S01E01.1080p.NF.WEB-DL.DDP2.0.x264-ExREN.mkv",
+      "release_id": "8450a4f449c513e60d3a962c5ab979a2266a4d99:0",
+      "initial_duration": 4413.984,
+      "url_present": true
+    },
+    {
+      "title": "The Gifted",
+      "available": true,
+      "source": "debrid",
+      "stream_type": "hls",
+      "release": "The Gifted S01 1080p AMZN WEBRip DDP5 1 x264-AJP69[rartv]",
+      "release_id": "dba076d3ba8849a1c17eef9b3ef693e04b232630",
+      "initial_duration": 8.091,
+      "url_present": true
+    }
+  ],
+  "public_candidate_checks": {
+    "bangumi_moe": {
+      "latest_url": "https://bangumi.moe/api/torrent/latest",
+      "latest_status": 200,
+      "dorama_search_rows": 0,
+      "definition_issue": "The official Prowlarr definition maps Dorama to Console.",
+      "definition_url": "https://github.com/Prowlarr/Indexers/blob/56b20b19c18fee53869fca2bca72ba59101da2f9/definitions/v11/bangumi-moe.yml",
+      "body_files": [
+        {
+          "file": "asian-drama-evidence-2026-11-25/bangumi-latest.json",
+          "bytes": 149391,
+          "sha256": "95017c0c0e5dea07f9dfbce547fdb4dcdad098d86ff36dd2cbbe7504b33a66e8"
+        },
+        {
+          "file": "asian-drama-evidence-2026-11-25/bangumi-search.json",
+          "bytes": 55,
+          "sha256": "ae370f3fdb439cd2286a6245e46888e6be26ec4bd86e6f7b825b77324a49126b"
+        },
+        {
+          "file": "asian-drama-evidence-2026-11-25/bangumi-dorama.json",
+          "bytes": 2,
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      ]
+    },
+    "tokyo_toshokan": {
+      "main_status": 503,
+      "mirror_url": "https://www.tokyotosho.se/",
+      "mirror_status": 200,
+      "drama_rows_with_magnets": true,
+      "rss_filter_worked": false,
+      "definition_issue": "The live form uses type and searchName. The definition sends cat and omits searchName.",
+      "definition_url": "https://github.com/Prowlarr/Indexers/blob/56b20b19c18fee53869fca2bca72ba59101da2f9/definitions/v11/tokyotosho.yml",
+      "body_files": [
+        {
+          "file": "asian-drama-evidence-2026-11-25/tokyotosho-searchname.html",
+          "bytes": 59324,
+          "sha256": "690f076b950ee2096d9ed734045b73d22e349f441af6a1a03946c1b4854bad37"
+        },
+        {
+          "file": "asian-drama-evidence-2026-11-25/tokyotosho-rss.xml",
+          "bytes": 125217,
+          "sha256": "1c911b32c00b1dc24d93f36f4436dc60874766485b1193a6ed3e73b3add84dc6"
+        }
+      ]
+    },
+    "torrentsome_and_torrenttip": {
+      "main_home_status_first_test": 403,
+      "current_mirror_search_status_later_test": 200,
+      "crash_landing_exact_rows_each": 18,
+      "itaewon_exact_rows_each": 19,
+      "note": "Access varied by host, domain, and test window."
+    }
+  },
+  "prowlarr_definition_comparison": {
+    "prowlarr_commit": "56b20b19c18fee53869fca2bca72ba59101da2f9",
+    "jackett_commit": "272019ebe9b0287fc1adaa868015831b57902e91",
+    "selected_definitions": 27,
+    "byte_for_byte_identical": true,
+    "private_index_groups": {
+      "japanese_and_pan_asian": [
+        "AsianCinema",
+        "AsianDVDClub",
+        "JPTV4us"
+      ],
+      "chinese": [
+        "HDChina",
+        "OurBits",
+        "CHDBits",
+        "HDHome",
+        "HDCiTY",
+        "TJUPT",
+        "PuTao",
+        "Audiences",
+        "PlayletPT"
+      ],
+      "thai": [
+        "SiamBIT",
+        "TorrentDD",
+        "Bitded",
+        "Unlimitz"
+      ],
+      "vietnamese": [
+        "NetHD",
+        "VietMediaF"
+      ]
+    },
+    "files": [
+      {
+        "name": "nyaasi",
+        "prowlarr_path": "definitions/v11/nyaasi.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/nyaasi.yml",
+        "prowlarr_sha256": "6783c5025746c1ecc2043ec5702afdd02f133b59d60665da76b39617043fd549",
+        "jackett_sha256": "6783c5025746c1ecc2043ec5702afdd02f133b59d60665da76b39617043fd549",
+        "identical": true
+      },
+      {
+        "name": "tokyotosho",
+        "prowlarr_path": "definitions/v11/tokyotosho.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/tokyotosho.yml",
+        "prowlarr_sha256": "4a33ed637454594a00ba78a645dace8ce71e53383689a320da9ce2ec8d839e2b",
+        "jackett_sha256": "4a33ed637454594a00ba78a645dace8ce71e53383689a320da9ce2ec8d839e2b",
+        "identical": true
+      },
+      {
+        "name": "bangumi-moe",
+        "prowlarr_path": "definitions/v11/bangumi-moe.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/bangumi-moe.yml",
+        "prowlarr_sha256": "f30a3c2e9043d98fca156061b02039f9cb3cec0b75d34d4a6b4da45513760e93",
+        "jackett_sha256": "f30a3c2e9043d98fca156061b02039f9cb3cec0b75d34d4a6b4da45513760e93",
+        "identical": true
+      },
+      {
+        "name": "torrenttip",
+        "prowlarr_path": "definitions/v11/torrenttip.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/torrenttip.yml",
+        "prowlarr_sha256": "36c0452ee0dbcf8d9ed02c420fa61f3ca4813fd37a43dd3b5c9fbbd9c35e1852",
+        "jackett_sha256": "36c0452ee0dbcf8d9ed02c420fa61f3ca4813fd37a43dd3b5c9fbbd9c35e1852",
+        "identical": true
+      },
+      {
+        "name": "torrentsome",
+        "prowlarr_path": "definitions/v11/torrentsome.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/torrentsome.yml",
+        "prowlarr_sha256": "0142ac04d1dc5ef7832eed9f8195bee98b8e29d3a3813af1df610998c491259b",
+        "jackett_sha256": "0142ac04d1dc5ef7832eed9f8195bee98b8e29d3a3813af1df610998c491259b",
+        "identical": true
+      },
+      {
+        "name": "asiancinema",
+        "prowlarr_path": "definitions/v11/asiancinema.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/asiancinema.yml",
+        "prowlarr_sha256": "e4ad234d88a63e70b58cd08a902563ddcecf08475a8f18123ed8776c311681f1",
+        "jackett_sha256": "e4ad234d88a63e70b58cd08a902563ddcecf08475a8f18123ed8776c311681f1",
+        "identical": true
+      },
+      {
+        "name": "asiandvdclub",
+        "prowlarr_path": "definitions/v11/asiandvdclub.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/asiandvdclub.yml",
+        "prowlarr_sha256": "8f6c021000f7f6d5fdcfa99c3d4596776efc2e09d724da134663a6b07c9eb3a2",
+        "jackett_sha256": "8f6c021000f7f6d5fdcfa99c3d4596776efc2e09d724da134663a6b07c9eb3a2",
+        "identical": true
+      },
+      {
+        "name": "jptv4us-api",
+        "prowlarr_path": "definitions/v11/jptv4us-api.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/jptv4us-api.yml",
+        "prowlarr_sha256": "d811f998b90b4b42f612c4c02b80f2f2486d2c791a52d01fd91e48ec3dbaf444",
+        "jackett_sha256": "d811f998b90b4b42f612c4c02b80f2f2486d2c791a52d01fd91e48ec3dbaf444",
+        "identical": true
+      },
+      {
+        "name": "hdchina",
+        "prowlarr_path": "definitions/v11/hdchina.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/hdchina.yml",
+        "prowlarr_sha256": "b3db3a83c5dd3f7cea4880d9a9b81f274e586333ae5fff15c027168db6d7573a",
+        "jackett_sha256": "b3db3a83c5dd3f7cea4880d9a9b81f274e586333ae5fff15c027168db6d7573a",
+        "identical": true
+      },
+      {
+        "name": "ourbits",
+        "prowlarr_path": "definitions/v11/ourbits.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/ourbits.yml",
+        "prowlarr_sha256": "6bfe529612feecd0ecd504fc3ade47bb428a2b1e2e4e83848adb336c35e5dd2f",
+        "jackett_sha256": "6bfe529612feecd0ecd504fc3ade47bb428a2b1e2e4e83848adb336c35e5dd2f",
+        "identical": true
+      },
+      {
+        "name": "chdbits",
+        "prowlarr_path": "definitions/v11/chdbits.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/chdbits.yml",
+        "prowlarr_sha256": "2624a42c84bf912190bb659a724d4419d4730020fd9f6d9f77012716053f6667",
+        "jackett_sha256": "2624a42c84bf912190bb659a724d4419d4730020fd9f6d9f77012716053f6667",
+        "identical": true
+      },
+      {
+        "name": "hdhome",
+        "prowlarr_path": "definitions/v11/hdhome.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/hdhome.yml",
+        "prowlarr_sha256": "abb5e2a34c2c06e014d88e25cb169d5bbaa4d5143cf3f1c2f45ac8151979aa2e",
+        "jackett_sha256": "abb5e2a34c2c06e014d88e25cb169d5bbaa4d5143cf3f1c2f45ac8151979aa2e",
+        "identical": true
+      },
+      {
+        "name": "hdc",
+        "prowlarr_path": "definitions/v11/hdc.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/hdc.yml",
+        "prowlarr_sha256": "bf0398be99e3b98528a23caab2e492fb8e5d1577d0176ef6b3d67e896842e20c",
+        "jackett_sha256": "bf0398be99e3b98528a23caab2e492fb8e5d1577d0176ef6b3d67e896842e20c",
+        "identical": true
+      },
+      {
+        "name": "tjupt",
+        "prowlarr_path": "definitions/v11/tjupt.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/tjupt.yml",
+        "prowlarr_sha256": "83891e855529b9a993735e5e12c45542f33fbf22075378366cc8b5de573da580",
+        "jackett_sha256": "83891e855529b9a993735e5e12c45542f33fbf22075378366cc8b5de573da580",
+        "identical": true
+      },
+      {
+        "name": "putao",
+        "prowlarr_path": "definitions/v11/putao.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/putao.yml",
+        "prowlarr_sha256": "f3425dee06cbe086d61c12ebfdec97d090dbe336e54a09035a7cdf4479cfe7c5",
+        "jackett_sha256": "f3425dee06cbe086d61c12ebfdec97d090dbe336e54a09035a7cdf4479cfe7c5",
+        "identical": true
+      },
+      {
+        "name": "audiences",
+        "prowlarr_path": "definitions/v11/audiences.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/audiences.yml",
+        "prowlarr_sha256": "227d7b4693647414b341ac35efc5bd584fc428e76b882fe11079e80e37182149",
+        "jackett_sha256": "227d7b4693647414b341ac35efc5bd584fc428e76b882fe11079e80e37182149",
+        "identical": true
+      },
+      {
+        "name": "playletpt",
+        "prowlarr_path": "definitions/v11/playletpt.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/playletpt.yml",
+        "prowlarr_sha256": "76bf029e753ce50692394c47d61b2161df3a2a8861df180b3634ba007c5fb411",
+        "jackett_sha256": "76bf029e753ce50692394c47d61b2161df3a2a8861df180b3634ba007c5fb411",
+        "identical": true
+      },
+      {
+        "name": "siambit",
+        "prowlarr_path": "definitions/v11/siambit.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/siambit.yml",
+        "prowlarr_sha256": "4dde7f46b6f15e48c4b4a4253d5b0b161ab86c1de49f7e0bbe51d47e45fcd17a",
+        "jackett_sha256": "4dde7f46b6f15e48c4b4a4253d5b0b161ab86c1de49f7e0bbe51d47e45fcd17a",
+        "identical": true
+      },
+      {
+        "name": "torrentdd",
+        "prowlarr_path": "definitions/v11/torrentdd.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/torrentdd.yml",
+        "prowlarr_sha256": "b17f19b855e52a474fa41f9c207c278ca8fa880b361cdf42a2aa864ddf0cc362",
+        "jackett_sha256": "b17f19b855e52a474fa41f9c207c278ca8fa880b361cdf42a2aa864ddf0cc362",
+        "identical": true
+      },
+      {
+        "name": "bitded",
+        "prowlarr_path": "definitions/v11/bitded.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/bitded.yml",
+        "prowlarr_sha256": "c939ad8fabd19b66e75a844c5d92018f5128c53c629be6790d45242e0b8bcbbc",
+        "jackett_sha256": "c939ad8fabd19b66e75a844c5d92018f5128c53c629be6790d45242e0b8bcbbc",
+        "identical": true
+      },
+      {
+        "name": "unlimitz",
+        "prowlarr_path": "definitions/v11/unlimitz.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/unlimitz.yml",
+        "prowlarr_sha256": "ca4916c351feb323ac4936730e61f2a84d613f9e56d702d0a900760777eebe9a",
+        "jackett_sha256": "ca4916c351feb323ac4936730e61f2a84d613f9e56d702d0a900760777eebe9a",
+        "identical": true
+      },
+      {
+        "name": "nethd",
+        "prowlarr_path": "definitions/v11/nethd.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/nethd.yml",
+        "prowlarr_sha256": "c7c2925041892834dfbc33ecb02a0a80e4d9742eed64a7452fadb38523b1dbb3",
+        "jackett_sha256": "c7c2925041892834dfbc33ecb02a0a80e4d9742eed64a7452fadb38523b1dbb3",
+        "identical": true
+      },
+      {
+        "name": "vietmediaf",
+        "prowlarr_path": "definitions/v11/vietmediaf.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/vietmediaf.yml",
+        "prowlarr_sha256": "eeb451cc096347a4231e7a0ecdc65b699b7e097d72e570bf86d705746046ee45",
+        "jackett_sha256": "eeb451cc096347a4231e7a0ecdc65b699b7e097d72e570bf86d705746046ee45",
+        "identical": true
+      },
+      {
+        "name": "mikan",
+        "prowlarr_path": "definitions/v11/mikan.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/mikan.yml",
+        "prowlarr_sha256": "1fceab650a2449cc4962fb883fa6b416ba8e9d556943f1fd7f890177c12b01ce",
+        "jackett_sha256": "1fceab650a2449cc4962fb883fa6b416ba8e9d556943f1fd7f890177c12b01ce",
+        "identical": true
+      },
+      {
+        "name": "dmhy",
+        "prowlarr_path": "definitions/v11/dmhy.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/dmhy.yml",
+        "prowlarr_sha256": "7b8236111c9dfbaab548e3d362c3cc2c154dc9997f7343fc2e44d349a8dead9f",
+        "jackett_sha256": "7b8236111c9dfbaab548e3d362c3cc2c154dc9997f7343fc2e44d349a8dead9f",
+        "identical": true
+      },
+      {
+        "name": "snowpt",
+        "prowlarr_path": "definitions/v11/snowpt.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/snowpt.yml",
+        "prowlarr_sha256": "5df8556dc8c173d89caee0d4d402d6bc83217eb78e170d26e02d924be0feb570",
+        "jackett_sha256": "5df8556dc8c173d89caee0d4d402d6bc83217eb78e170d26e02d924be0feb570",
+        "identical": true
+      },
+      {
+        "name": "u2",
+        "prowlarr_path": "definitions/v11/u2.yml",
+        "jackett_path": "src/Jackett.Common/Definitions/u2.yml",
+        "prowlarr_sha256": "16b44202786fd6e3b8bff204e0ef9470a9a3d0c5df124d3943d3d9331a6ca43f",
+        "jackett_sha256": "16b44202786fd6e3b8bff204e0ef9470a9a3d0c5df124d3943d3d9331a6ca43f",
+        "identical": true
+      }
+    ]
+  },
+  "tmdb_keyless_check": {
+    "url": "https://api.themoviedb.org/3/search/tv?query=Crash%20Landing%20on%20You",
+    "http_status": 401,
+    "error": "Invalid API key: You must be granted a valid key."
+  },
+  "catalog_aliases": [
+    {
+      "title": "Crash Landing on You",
+      "native": "사랑의 불시착",
+      "romanized": "Sa-rang-eui bul-shi-chak",
+      "alternate": [],
+      "tvmaze_id": 42756,
+      "wikidata_id": "Q65258113"
+    },
+    {
+      "title": "Itaewon Class",
+      "native": "이태원 클라쓰",
+      "romanized": "Itaewon Keullasseu",
+      "alternate": [],
+      "tvmaze_id": 45540,
+      "wikidata_id": "Q65283099"
+    },
+    {
+      "title": "Alice in Borderland",
+      "native": "今際の国のアリス",
+      "romanized": "Imawa no Kuni no Arisu",
+      "alternate": [],
+      "tvmaze_id": 50036,
+      "wikidata_id": "Q103967305"
+    },
+    {
+      "title": "The Untamed",
+      "native": "陈情令",
+      "romanized": "Chén Qíng Lìng",
+      "alternate": [],
+      "tvmaze_id": 42806,
+      "wikidata_id": "Q64982669"
+    },
+    {
+      "title": "The Gifted",
+      "native": "นักเรียนพลังกิฟต์",
+      "romanized": "Nakrian phalang gift",
+      "alternate": [],
+      "tvmaze_id": 39022,
+      "wikidata_id": "Q54742913"
+    }
+  ],
+  "evidence_notes": {
+    "playback_urls": "Playback URLs are capability tokens. The evidence stores response fields but omits the URLs.",
+    "raw_responses": "Selected public response bodies are included under asian-drama-evidence-2026-11-25/."
+  }
+}

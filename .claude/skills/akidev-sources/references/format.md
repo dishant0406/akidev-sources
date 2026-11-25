@@ -246,7 +246,7 @@ Every request `url` must be `{base}` or start with `{base}/`. Provider holes: `{
 
 ### detail
 
-`request` required. Optional: `id_pattern` (regex of ids the service has), `check`, `root`, `missing` (conditions), `description`, `count_episodes`, `imdb_id`, `studios`, `trailer` (`{site, id}`), `episodes`, `cast`, `related`, `recommended`.
+`request` required. Optional: `id_pattern` (regex of ids the service has), `check`, `root`, `missing` (conditions), `description`, `count_episodes`, `imdb_id`, `tvdb_id`, `country`, `language`, `studios`, `trailer` (`{site, id}`), `episodes`, `cast`, `related`, `recommended`.
 
 - `episodes`: `rows`, `id`, `season`, `number` required; `name`, `airdate`, `drop` optional.
 - `cast`: `{"sources": [{"rows", "name", "role", "image"}], "limit": 12}`; first source with anyone wins.

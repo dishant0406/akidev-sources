@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 48,
+  "version": 49,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -90,6 +90,74 @@
           "q": "{term}",
           "c": "1_0",
           "f": "0"
+        }
+      },
+      "response": {
+        "format": "rss",
+        "fields": {
+          "title": "title",
+          "hash": "nyaa:infoHash",
+          "size": "nyaa:size",
+          "seeders": "nyaa:seeders"
+        }
+      }
+    },
+    {
+      "id": "nyaa-live-action",
+      "name": "Nyaa Live Action",
+      "kinds": [
+        "series"
+      ],
+      "fanout": "per-title",
+      "fallback": true,
+      "min_interval_secs": 5,
+      "hosts": [
+        "https://nyaa.net"
+      ],
+      "request": {
+        "path": "/",
+        "query": {
+          "page": "rss",
+          "q": "{term}",
+          "c": "4_1",
+          "f": "0"
+        },
+        "headers": {
+          "user-agent": "Mozilla/5.0"
+        }
+      },
+      "response": {
+        "format": "rss",
+        "fields": {
+          "title": "title",
+          "hash": "nyaa:infoHash",
+          "size": "nyaa:size",
+          "seeders": "nyaa:seeders"
+        }
+      }
+    },
+    {
+      "id": "nyaa-live-action-raw",
+      "name": "Nyaa Live Action Raw",
+      "kinds": [
+        "series"
+      ],
+      "fanout": "per-title",
+      "fallback": true,
+      "min_interval_secs": 5,
+      "hosts": [
+        "https://nyaa.net"
+      ],
+      "request": {
+        "path": "/",
+        "query": {
+          "page": "rss",
+          "q": "{term}",
+          "c": "4_4",
+          "f": "0"
+        },
+        "headers": {
+          "user-agent": "Mozilla/5.0"
         }
       },
       "response": {
@@ -1447,6 +1515,8 @@
             "id"
           ]
         },
+        "tvdb_id": "tvdb_id",
+        "country": "country",
         "trailer": {
           "site": {
             "const": "YouTube"
@@ -1518,6 +1588,10 @@
       "card": {
         "id": "id",
         "title": "name",
+        "title_variants": [
+          "name",
+          "_embedded.akas.*.name"
+        ],
         "poster": {
           "coalesce": [
             "image.original",
@@ -1657,7 +1731,7 @@
       },
       "detail": {
         "request": {
-          "url": "{base}/shows/{id}?embed%5B%5D=episodes&embed%5B%5D=cast"
+          "url": "{base}/shows/{id}?embed%5B%5D=episodes&embed%5B%5D=cast&embed%5B%5D=akas"
         },
         "id_pattern": "^[0-9]+$",
         "root": "",
@@ -1671,6 +1745,14 @@
             "pattern": "^(tt[0-9]+)$"
           }
         },
+        "tvdb_id": "externals.thetvdb",
+        "country": {
+          "coalesce": [
+            "network.country.name",
+            "webChannel.country.name"
+          ]
+        },
+        "language": "language",
         "studios": "network.name",
         "episodes": {
           "rows": "_embedded.episodes",
@@ -2181,7 +2263,7 @@
       }
     ],
     "about": {
-      "attribution": "Metadata from AniList, Cinemeta and TVMaze (CC BY-SA). Akidev stores no media: playback links are resolved from public sources when you press play.",
+      "attribution": "Metadata from AniList, Cinemeta and TVMaze (CC BY-SA). Playback links come from public sources, including Nyaa. Akidev stores no media.",
       "catalogues": [
         "AniList",
         "Cinemeta",

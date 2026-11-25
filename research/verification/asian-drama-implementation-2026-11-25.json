@@ -1,0 +1,44 @@
+{
+  "measured_at": "2026-11-25",
+  "method": "Local akidev-server with sources version 49, season 1 episode 1, torrent source only.",
+  "checks": {
+    "series-tt11239552-s1e1": {
+      "status": 200,
+      "elapsed_ms": 7605.4,
+      "releases": 5,
+      "sources": {
+        "torrents-csv": 2,
+        "torrentsdb": 2,
+        "zilean": 1
+      },
+      "top_titles": [
+        "Itaewon Class",
+        "Itaewon Class S01 KOREAN WEBRip x264-ION10",
+        "Itaewon Class (2020) English subtitles 720p Itaewon Class 01.mp4",
+        "Itaewon Class (2020), English subtitles 720p",
+        "Itaewon.Class.S01.(2020).1080p.WEBRIP.HEVC.AAC2.0 Itaewon.Class.S01E01.(2020).1080p.WEBRIP.HEVC.AAC2.0.mkv"
+      ],
+      "error": null
+    },
+    "series-tt2942950-s1e1": {
+      "status": 200,
+      "elapsed_ms": 12956.3,
+      "releases": 1,
+      "sources": {
+        "nyaa-live-action": 1
+      },
+      "top_titles": [
+        "Shut Up Flower Boy Band (2012) (WEB-DL 1080p h264 AAC-AppleTor)"
+      ],
+      "error": null
+    },
+    "series-tt9136312-s1e1": {
+      "status": 404,
+      "elapsed_ms": 20464.2,
+      "releases": 0,
+      "sources": {},
+      "top_titles": [],
+      "error": "{\"error\":\"No matching source found in the providers that answered. Some providers are unavailable; try again shortly.\"}"
+    }
+  }
+}

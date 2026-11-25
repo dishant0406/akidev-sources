@@ -603,7 +603,7 @@ You do not need this to write an indexer, but it explains the numbers.
 
 - The engine allows at most **96 new request producers** and **24 HTTP exchanges** at once, hedged mirrors included. One search's planned request list is also capped at 96.
 - A cache hit, or a caller joining the same request that is already running, does not start another one.
-- Waiting for a permit counts against a host's timeout. Being busy locally is **not** evidence that a mirror is down, and a mirror that was never contacted is not put to rest for losing a hedge.
+- Rate-limit waits and local permit waits use the admission limit. The HTTP exchange then gets its full time limit. Being busy locally is **not** evidence that a mirror is down, and a mirror that was never contacted is not put to rest for losing a hedge.
 - A successfully read answer is cached **ten minutes** when it has rows and **sixty seconds** when it is empty. The cache key includes the definition version, the endpoints and the filled request. HTTP errors, malformed or blocked answers, timeouts and busy failures are **not** cached as healthy empty answers.
 - Releases from different requests that share `(hash, file_idx)` are merged before ranking. The `sources` list follows the planned order, not the arrival order. Seeder counts use the **maximum**, never a sum. Trackers are limited to the signed list (at most 32).
 - Having a hash in two places is not proof of the right title or episode. Matching happens in code, after reading: title, aliases, season, episode and a film's year, again on the actual filenames. The server also probes the media and budgets preparation per stream source. You cannot change those rules by publishing data.
@@ -661,7 +661,7 @@ Here is a small real one, TVMaze:
   },
   "detail": {
     "request": {
-      "url": "{base}/shows/{id}?embed%5B%5D=episodes&embed%5B%5D=cast"
+      "url": "{base}/shows/{id}?embed%5B%5D=episodes&embed%5B%5D=cast&embed%5B%5D=akas"
     },
     "id_pattern": "^[0-9]+$",
     "root": "",
@@ -670,6 +670,11 @@ Here is a small real one, TVMaze:
     "imdb_id": {
       "regex": { "from": "externals.imdb", "pattern": "^(tt[0-9]+)$" }
     },
+    "tvdb_id": "externals.thetvdb",
+    "country": {
+      "coalesce": ["network.country.name", "webChannel.country.name"]
+    },
+    "language": "language",
     "studios": "network.name",
     "episodes": {
       "rows": "_embedded.episodes",
@@ -848,6 +853,9 @@ An `order` is a list of keys. Rows are compared by the first key, then by the ne
 | `description` | no | Where the synopsis is. |
 | `count_episodes` | no | `true`: the number of episodes is the number listed. |
 | `imdb_id` | no | Where the IMDb id is. Releases are searched with it. |
+| `tvdb_id` | no | Where the TV database id is. It confirms a title match when IMDb is missing. |
+| `country` | no | Country of origin. It helps reject a same-name show from another country. |
+| `language` | no | Original language. It is a backup for `country`. |
 | `studios` | no | Studio or network names. |
 | `trailer` | no | `{"site": ..., "id": ...}`. |
 | `episodes` | no | The episode list (below). |

@@ -1,0 +1,26 @@
+{
+  "Crash Landing on You|4_1": {
+    "http_status": 200,
+    "items": 2
+  },
+  "Crash Landing on You|4_3": {
+    "http_status": 200,
+    "items": 0
+  },
+  "Crash Landing on You|4_4": {
+    "http_status": 200,
+    "items": 1
+  },
+  "Itaewon Class|4_1": {
+    "http_status": 200,
+    "items": 2
+  },
+  "Itaewon Class|4_3": {
+    "http_status": 200,
+    "items": 0
+  },
+  "Itaewon Class|4_4": {
+    "http_status": 200,
+    "items": 17
+  }
+}
