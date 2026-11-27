@@ -79,7 +79,7 @@ Never in a signed document: `code` on an indexer or provider, `services`. Those 
 | `{"join": [EXPR, ...]}` | Parts, space separated, leaving out a part another contains. |
 | `{"magnet_hash": EXPR}`, `{"magnet_name": EXPR}`, `{"magnet_size": EXPR}` | What a magnet link carries. |
 | `{"year": EXPR}` | First four digits ("2008–2013" is 2008). |
-| `{"date": {"year": EXPR, "month": EXPR, "day": EXPR}}` | The most exact date the parts give: `YYYY-MM-DD`, or `YYYY-MM` when the day is absent, or `YYYY` when the month is absent. Each part can be an expression. The result is empty if the year is absent or a part is invalid. The engine pads month and day to two digits. |
+| `{"date": {"year": EXPR, "month": EXPR, "day": EXPR}}` | The most exact date the parts give: `YYYY-MM-DD`, or `YYYY-MM` when the day is absent, or `YYYY` when the month is absent. Each part can be an expression. An absent or invalid day gives `YYYY-MM`. An absent or invalid month gives `YYYY`. An absent year gives nothing. The engine pads month and day to two digits. |
 | `{"minutes": EXPR}` | First number ("143 min" is 143). |
 | `{"scale": {"from": EXPR, "by": 10}}` | Number times `by`, rounded. |
 | `{"add": {"from": EXPR, "n": 1}}` | Number plus `n`. |

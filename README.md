@@ -245,7 +245,7 @@ Wherever a field wants a value, you give an **expression**. It is one of these:
 | `join` | `{"join": ["a", "b"]}` | The parts, space separated, leaving out a part that another contains. |
 | `magnet_hash`, `magnet_name`, `magnet_size` | `{"magnet_hash": "link"}` | What a magnet link carries: its info hash, its display name, its size in bytes. |
 | `year` | `{"year": "premiered"}` | The first four digits in a text ("2008–2013" is 2008). |
-| `date` | `{"date": {"year": "startDate.year", "month": "startDate.month", "day": "startDate.day"}}` | The most exact date the parts give: `YYYY-MM-DD`, `YYYY-MM` with no day, or `YYYY` with no month. The engine pads month and day. A missing year or an invalid part gives no value. |
+| `date` | `{"date": {"year": "startDate.year", "month": "startDate.month", "day": "startDate.day"}}` | The most exact date the parts give: `YYYY-MM-DD`, `YYYY-MM` with no day, or `YYYY` with no month. The engine pads month and day. A missing year gives no value. |
 | `minutes` | `{"minutes": "runtime"}` | The first number in a text ("143 min" is 143). |
 | `scale` | `{"scale": {"from": "rating.average", "by": 10}}` | A number times `by`, rounded (a rating out of 10 as a score out of 100). |
 | `add` | `{"add": {"from": "n", "n": 1}}` | A number plus `n`. |
@@ -769,6 +769,7 @@ AniList, for example, is asked in GraphQL:
 | `release_date` | no | The first public release date. Use `YYYY-MM-DD`, `YYYY-MM` or `YYYY`. Do not send a timestamp or a year range. Do not use an upload date, DVD date, end date, or episode date. Only provider cards and mapper provider cards use this field. |
 | `year` | no | The year. |
 | `episodes` | no | The number of episodes. |
+| `next_episode` | no | The number of the next episode to air, for a show still airing. The app treats that episode and the ones after it as not out yet. |
 | `runtime_minutes` | no | Minutes. |
 | `score` | no | **Out of 100.** Use `scale` to convert (`by: 10` for a score out of 10). |
 | `popularity` | no | A number the provider ranks by. |

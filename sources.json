@@ -1236,7 +1236,8 @@
         },
         "popularity": "popularity",
         "genres": "genres",
-        "adult": "isAdult"
+        "adult": "isAdult",
+        "next_episode": "nextAiringEpisode.episode"
       },
       "list": {
         "request": {

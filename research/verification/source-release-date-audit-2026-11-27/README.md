@@ -12,7 +12,7 @@ Indexers return release files. Their response fields do not carry title release 
 
 ## Akidev field contract
 
-The current Akidev checkout does not accept `release_date` in `MediaMap`. It also has no `date` expression. The source file now sends both keys for the Akidev work that the owner handles.
+The Akidev releases up to `desktop-mac-v0.1.36` and `tv-android-v1.0.0` do not read `release_date` and have no `date` expression. Their validators accept this document (checked on 2026-11-28 with `desktop-mac-v0.1.27`, `desktop-mac-v0.1.36` and `tv-android-v1.0.0`). The next Akidev release reads both.
 
 The source checker ignores unknown fields. Its pass proves the document shape, not support for the new field or expression.
 
