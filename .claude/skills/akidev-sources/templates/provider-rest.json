@@ -6,6 +6,7 @@
     "id": "id",
     "title": "name",
     "poster": "image",
+    "release_date": "premiered",
     "year": { "year": "premiered" },
     "score": { "scale": { "from": "rating", "by": 10 } },
     "genres": "genres"

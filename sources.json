@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": 51,
+  "version": 52,
   "trackers": [
     "udp://tracker.opentrackr.org:1337/announce",
     "http://tracker.opentrackr.org:1337/announce",
@@ -1193,6 +1193,19 @@
         "banner": "bannerImage",
         "format": "format",
         "status": "status",
+        "release_date": {
+          "coalesce": [
+            {
+              "date": {
+                "year": "startDate.year",
+                "month": "startDate.month",
+                "day": "startDate.day"
+              }
+            },
+            "startDate.year",
+            "seasonYear"
+          ]
+        },
         "year": {
           "coalesce": [
             "seasonYear",
@@ -1231,7 +1244,7 @@
           "url": "{base}",
           "json": {
             "query": {
-              "$text": "query ($page: Int, $perPage: Int, $sort: [MediaSort], $genre: String, $year: Int, $search: String, $statusNot: MediaStatus, $startDateGreater: FuzzyDateInt) { Page(page: $page, perPage: $perPage) { pageInfo { hasNextPage } media(type: ANIME, sort: $sort, isAdult: false, genre: $genre, seasonYear: $year, search: $search, status_not: $statusNot, startDate_greater: $startDateGreater) { id title { romaji english native } coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year } } } }"
+              "$text": "query ($page: Int, $perPage: Int, $sort: [MediaSort], $genre: String, $year: Int, $search: String, $statusNot: MediaStatus, $startDateGreater: FuzzyDateInt) { Page(page: $page, perPage: $perPage) { pageInfo { hasNextPage } media(type: ANIME, sort: $sort, isAdult: false, genre: $genre, seasonYear: $year, search: $search, status_not: $statusNot, startDate_greater: $startDateGreater) { id title { romaji english native } coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year month day } } } }"
             },
             "variables": {
               "page": {
@@ -1286,7 +1299,7 @@
           "url": "{base}",
           "json": {
             "query": {
-              "$text": "query ($page: Int, $perPage: Int, $sort: [MediaSort], $genre: String, $year: Int, $search: String, $statusNot: MediaStatus, $startDateGreater: FuzzyDateInt) { Page(page: $page, perPage: $perPage) { pageInfo { hasNextPage } media(type: ANIME, sort: $sort, isAdult: false, genre: $genre, seasonYear: $year, search: $search, status_not: $statusNot, startDate_greater: $startDateGreater) { id title { romaji english native } coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year } } } }"
+              "$text": "query ($page: Int, $perPage: Int, $sort: [MediaSort], $genre: String, $year: Int, $search: String, $statusNot: MediaStatus, $startDateGreater: FuzzyDateInt) { Page(page: $page, perPage: $perPage) { pageInfo { hasNextPage } media(type: ANIME, sort: $sort, isAdult: false, genre: $genre, seasonYear: $year, search: $search, status_not: $statusNot, startDate_greater: $startDateGreater) { id title { romaji english native } coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year month day } } } }"
             },
             "variables": {
               "page": {
@@ -1322,7 +1335,7 @@
           "url": "{base}",
           "json": {
             "query": {
-              "$text": "query ($id: Int) { Media(id: $id, type: ANIME) { id title { romaji english native } synonyms coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year } description(asHtml: false) trailer { id site } relations { edges { relationType node { id type format status episodes meanScore title { romaji english native } coverImage { extraLarge large } startDate { year } } } } recommendations(sort: RATING_DESC, perPage: 12) { nodes { mediaRecommendation { id format status episodes meanScore averageScore popularity genres title { romaji english native } coverImage { extraLarge large } startDate { year } } } } characters(sort: [ROLE, RELEVANCE], perPage: 12) { edges { role node { name { full } image { large } } } } } }"
+              "$text": "query ($id: Int) { Media(id: $id, type: ANIME) { id title { romaji english native } synonyms coverImage { extraLarge large } bannerImage format season seasonYear episodes duration status averageScore meanScore popularity genres isAdult studios(isMain: true) { nodes { name } } nextAiringEpisode { episode } startDate { year month day } description(asHtml: false) trailer { id site } relations { edges { relationType node { id type format status episodes meanScore season seasonYear title { romaji english native } coverImage { extraLarge large } startDate { year month day } } } } recommendations(sort: RATING_DESC, perPage: 12) { nodes { mediaRecommendation { id format status episodes meanScore averageScore popularity genres season seasonYear title { romaji english native } coverImage { extraLarge large } startDate { year month day } } } } characters(sort: [ROLE, RELEVANCE], perPage: 12) { edges { role node { name { full } image { large } } } } } }"
             },
             "variables": {
               "id": {
@@ -1435,6 +1448,19 @@
               }
             }
           }
+        },
+        "release_date": {
+          "coalesce": [
+            {
+              "regex": {
+                "from": "released",
+                "pattern": "^(\\d{4}-\\d{2}-\\d{2})"
+              }
+            },
+            {
+              "year": "releaseInfo"
+            }
+          ]
         },
         "year": {
           "year": "releaseInfo"
@@ -1628,6 +1654,7 @@
           ]
         },
         "status": "status",
+        "release_date": "premiered",
         "year": {
           "year": "premiered"
         },
@@ -1846,6 +1873,7 @@
           "const": "FINISHED"
         },
         "year": "year",
+        "release_date": "year",
         "episodes": {
           "const": "1"
         },
@@ -2023,6 +2051,19 @@
           "id": "kitsu_id",
           "title": "name",
           "format": "type",
+          "release_date": {
+            "coalesce": [
+              {
+                "regex": {
+                  "from": "videos.0.released",
+                  "pattern": "^(\\d{4}-\\d{2}-\\d{2})"
+                }
+              },
+              {
+                "year": "releaseInfo"
+              }
+            ]
+          },
           "year": {
             "year": "releaseInfo"
           }

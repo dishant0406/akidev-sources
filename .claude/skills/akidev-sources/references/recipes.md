@@ -19,16 +19,17 @@ cargo test -p akidev-core
 2. Add a mirror to an indexer
 3. Fix an indexer that reads wrong
 4. Add a catalogue (provider)
-5. Add a subtitle source
-6. Add a mapper
-7. Add a tab, a sort, a genre or a home row
-8. Change the credits
-9. Remove a source
-10. Make a source server-only
-11. Add a fallback indexer
-12. Lock out old apps
-13. Add a test fixture for a new source
-14. A source needs a key, a login or HTML scraping
+5. Add or fix a release date
+6. Add a subtitle source
+7. Add a mapper
+8. Add a tab, a sort, a genre or a home row
+9. Change the credits
+10. Remove a source
+11. Make a source server-only
+12. Add a fallback indexer
+13. Lock out old apps
+14. Add a test fixture for a new source
+15. A source needs a key, a login or HTML scraping
 
 ---
 
@@ -55,7 +56,7 @@ cargo test -p akidev-core
 7. **Handle empties.** If a successful empty answer leaves the list out, add `empty_when` (see `yts`).
 8. **Clean the rows.** `drop` removes unwanted categories. `must_contain_term: true` helps for an index with no category filter. `dedupe.avoid` keeps a bonus clip from standing for a season pack.
 9. **Do not set a default for `seeders`** when the site omits health.
-10. Raise `version`, validate, add a test (recipe 13), test against the real site, show the diff.
+10. Raise `version`, validate, add a test (recipe 14), test against the real site, show the diff.
 
 ## 2. Add a mirror to an indexer
 
@@ -67,7 +68,7 @@ Append the address to the indexer's `hosts`. The first host is tried first, so k
 2. Compare it with the paths in the definition: the `rows` path, each field path.
 3. Common causes: the site renamed a key; the rows moved one level; a hash is in a magnet link (use `magnet_hash`); the size is text (`1.3 GB` is fine); seeders is text with other words (use `regex`).
 4. If rows come back but are the wrong kind of thing, check `drop` and the category in the request.
-5. Update the test fixture (recipe 13) with the new answer so it cannot regress.
+5. Update the test fixture (recipe 14) with the new answer so it cannot regress.
 
 ## 4. Add a catalogue (provider)
 
@@ -85,9 +86,22 @@ Append the address to the indexer's `hosts`. The first host is tried first, so k
 9. **Put it in a chain.** Add its id to the right `chains` list. Decide whether it goes first or is a backup. It must serve the kind it is listed for.
 10. **Credits.** Add its name to `screens.about.catalogues`. If its genre spelling differs, update `screens.genres`.
 11. `image_hosts`: add every host its pictures live on (bare names).
-12. Raise `version`, validate, add a provider test (recipe 13), test in the real app or a local server, show the diff.
+12. Raise `version`, validate, add a provider test (recipe 14), test in the real app or a local server, show the diff.
 
-## 5. Add a subtitle source
+## 5. Add or fix a release date
+
+1. Get a real title answer from the provider. Save it as a test fixture.
+2. Find the first public release date. Do not use an upload date, DVD date, end date, or episode date.
+3. Add `release_date` to `card`. Use `YYYY-MM-DD` for a full date. Use `YYYY-MM` for a year and month. Use `YYYY` for a year only.
+4. Use `coalesce` for a full date with a year fallback. Use `date` for separate year, month, and day fields. Use `regex` with `^(\d{4}-\d{2}-\d{2})` to cut the date from a timestamp. Use `year` to cut the first year from a range.
+5. For GraphQL, request all date fields in list, search, detail, related, and recommended selections.
+6. Add the same mapping to a mapper's provider card.
+7. Raise `version`. Validate the file. Add a provider test that reads the saved answer.
+8. Check list, search, and detail rows separately. A search row can have less than a detail row (Cinemeta search rows have the year only).
+9. Check a page of upcoming titles. They are the titles with partial dates.
+10. State any limit. YTS has a year only, so it cannot send a full date.
+
+## 6. Add a subtitle source
 
 1. Start from `opensubtitles`.
 2. Set `hosts`, the request per kind (`$kind` in the path), the `response.rows` and fields (`id`, `url`, `lang` required).
@@ -95,7 +109,7 @@ Append the address to the indexer's `hosts`. The first host is tried first, so k
 4. Only add `lookup` if the source is keyed by IMDb id and anime has none.
 5. Add its name to `screens.about.subtitles`.
 
-## 6. Add a mapper
+## 7. Add a mapper
 
 1. A mapper needs a provider that, for our own id (AniList's), lists the other service's id of each episode.
 2. Copy `kitsu`. The mapper's `id` is lower case letters, not `term`, `imdb`, `imdb_digits`, `imdb_or_term`, `season`, `episode`.
@@ -103,18 +117,18 @@ Append the address to the indexer's `hosts`. The first host is tried first, so k
 4. Make the episode ids look like `<id>:<title>:<episode>` (or `<id>:<title>` for a film). Anything else is no mapping.
 5. In an indexer, add `"map": "<id>"` and use `{<id>}` and `{<id>_kind}` in its request.
 
-## 7. Add a tab, a sort, a genre or a home row
+## 8. Add a tab, a sort, a genre or a home row
 
 - **Tab:** add to `screens.tabs`: `kind`, `slug`, `label`, `tag`. The slug is lower case letters and dashes and not `search`, `title`, `watch`, `download`, `privacy`, `manga`, `info`. The kind must exist.
 - **Sort:** the known sorts are `popularity`, `trending`, `score`, `recent`, `title`. Add a label in `screens.sorts`. A provider needs a `sorts` mapping for it (or a `default`).
 - **Genre:** add to `screens.genres[kind]` in the provider's own spelling. A genre a provider lacks only returns nothing.
 - **Home row:** add to `screens.home`. Its `kind` must have a tab. `provider` is optional but must serve the kind.
 
-## 8. Change the credits
+## 9. Change the credits
 
 Edit `screens.about`: `attribution` (1 to 1000 characters), `catalogues` and `subtitles` (names). The website footer and the privacy page read it.
 
-## 9. Remove a source
+## 10. Remove a source
 
 1. Delete the entry from `indexers` or `providers`.
 2. Remove its id from every `chains` list (a chain needs at least one provider).
@@ -122,19 +136,19 @@ Edit `screens.about`: `attribution` (1 to 1000 characters), `catalogues` and `su
 4. Remove its name from `screens.about`.
 5. Raise `version`. The source leaves users' apps when they get the new copy.
 
-## 10. Make a source server-only
+## 11. Make a source server-only
 
 Add `"server_only": true` to the indexer. The server (the website's backend) asks it. The desktop app skips it and never calls your server for it. Use it for a source that needs a key only the server has (the `prowlarr` entry).
 
-## 11. Add a fallback indexer
+## 12. Add a fallback indexer
 
 Add `"fallback": true`. It is asked only when the others found nothing worth opening, and it gets a longer time (the `fallback_timeout_ms` setting). Use it for slow services.
 
-## 12. Lock out old apps
+## 13. Lock out old apps
 
 Add `min_version` (`major.minor.patch`) and optionally `min_version_message` (up to 300 characters). **Publish the release that version points to first**, so the Update button has something to find. To lift it, publish a document without the field (or a lower one) and a higher `version`.
 
-## 13. Add a test fixture for a new source
+## 14. Add a test fixture for a new source
 
 A passing check does not prove the definition reads real answers. Capture one and test it, in the code repo:
 
@@ -142,7 +156,7 @@ A passing check does not prove the definition reads real answers. Capture one an
 - **Provider:** in `desktop/core/src/providers/read_tests.rs`, tests feed saved answers to the provider and assert the cards, the episodes, the cast.
 - Run `cargo test -p akidev-core`.
 
-## 14. A source needs a key, a login or HTML scraping
+## 15. A source needs a key, a login or HTML scraping
 
 Data cannot say that. Options:
 

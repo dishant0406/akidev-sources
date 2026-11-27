@@ -245,6 +245,7 @@ Wherever a field wants a value, you give an **expression**. It is one of these:
 | `join` | `{"join": ["a", "b"]}` | The parts, space separated, leaving out a part that another contains. |
 | `magnet_hash`, `magnet_name`, `magnet_size` | `{"magnet_hash": "link"}` | What a magnet link carries: its info hash, its display name, its size in bytes. |
 | `year` | `{"year": "premiered"}` | The first four digits in a text ("2008–2013" is 2008). |
+| `date` | `{"date": {"year": "startDate.year", "month": "startDate.month", "day": "startDate.day"}}` | The most exact date the parts give: `YYYY-MM-DD`, `YYYY-MM` with no day, or `YYYY` with no month. The engine pads month and day. A missing year or an invalid part gives no value. |
 | `minutes` | `{"minutes": "runtime"}` | The first number in a text ("143 min" is 143). |
 | `scale` | `{"scale": {"from": "rating.average", "by": 10}}` | A number times `by`, rounded (a rating out of 10 as a score out of 100). |
 | `add` | `{"add": {"from": "n", "n": 1}}` | A number plus `n`. |
@@ -632,6 +633,7 @@ Here is a small real one, TVMaze:
     "poster": { "coalesce": ["image.original", "image.medium"] },
     "format": { "coalesce": ["type", { "const": "TV" }] },
     "status": "status",
+    "release_date": "premiered",
     "year": { "year": "premiered" },
     "runtime_minutes": { "coalesce": ["averageRuntime", "runtime"] },
     "score": { "scale": { "from": "rating.average", "by": 10 } },
@@ -764,6 +766,7 @@ AniList, for example, is asked in GraphQL:
 | `description` | no | The synopsis. (A page of titles often has none; use `detail.description`.) |
 | `format` | no | `TV`, `MOVIE` and so on. |
 | `status` | no | Airing, ended and so on. |
+| `release_date` | no | The first public release date. Use `YYYY-MM-DD`, `YYYY-MM` or `YYYY`. Do not send a timestamp or a year range. Do not use an upload date, DVD date, end date, or episode date. Only provider cards and mapper provider cards use this field. |
 | `year` | no | The year. |
 | `episodes` | no | The number of episodes. |
 | `runtime_minutes` | no | Minutes. |
@@ -771,6 +774,12 @@ AniList, for example, is asked in GraphQL:
 | `popularity` | no | A number the provider ranks by. |
 | `genres` | no | A list of genre names. |
 | `adult` | no | Whether the title is adult. |
+
+Every provider card supplies `release_date` when its API has a release date. Use the full date when available. Use the year when the API has no full date. YTS only supplies a year. Do not invent a month or day.
+
+For split date fields, use `{"date": {"year": ..., "month": ..., "day": ...}}`. The engine validates the date and pads month and day. A missing day gives `YYYY-MM`. A missing month gives `YYYY`. For a timestamp, cut the date part with `regex`. For a year range, cut the first year with `year`.
+
+The date is the first release anywhere. It is not a home release date. A film that is only in cinemas has a past date and no source yet.
 
 ### `list`: a page of titles
 

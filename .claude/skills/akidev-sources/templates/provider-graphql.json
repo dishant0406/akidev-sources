@@ -7,14 +7,31 @@
     "popularity": "POPULARITY_DESC",
     "recent": "START_DATE_DESC"
   },
-  "card": { "id": "id", "title": "title", "poster": "cover" },
+  "card": {
+    "id": "id",
+    "title": "title",
+    "poster": "cover",
+    "release_date": {
+      "coalesce": [
+        {
+          "date": {
+            "year": "startDate.year",
+            "month": "startDate.month",
+            "day": "startDate.day"
+          }
+        },
+        "startDate.year"
+      ]
+    },
+    "year": "startDate.year"
+  },
   "list": {
     "request": {
       "method": "POST",
       "url": "{base}",
       "json": {
         "query": {
-          "$text": "query ($page: Int, $perPage: Int, $sort: String) { shows(page: $page, perPage: $perPage, sort: $sort) { id title cover } }"
+          "$text": "query ($page: Int, $perPage: Int, $sort: String) { shows(page: $page, perPage: $perPage, sort: $sort) { id title cover startDate { year month day } } }"
         },
         "variables": {
           "page": { "$number": "{page}" },
@@ -37,7 +54,7 @@
       "url": "{base}",
       "json": {
         "query": {
-          "$text": "query ($search: String) { shows(search: $search) { id title cover } }"
+          "$text": "query ($search: String) { shows(search: $search) { id title cover startDate { year month day } } }"
         },
         "variables": { "search": "{term}" }
       }
@@ -50,7 +67,7 @@
       "url": "{base}",
       "json": {
         "query": {
-          "$text": "query ($id: Int) { show(id: $id) { id title cover description episodes { number title } } }"
+          "$text": "query ($id: Int) { show(id: $id) { id title cover startDate { year month day } description episodes { number title } } }"
         },
         "variables": { "id": { "$number": "{id}" } }
       }

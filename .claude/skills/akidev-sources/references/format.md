@@ -79,6 +79,7 @@ Never in a signed document: `code` on an indexer or provider, `services`. Those 
 | `{"join": [EXPR, ...]}` | Parts, space separated, leaving out a part another contains. |
 | `{"magnet_hash": EXPR}`, `{"magnet_name": EXPR}`, `{"magnet_size": EXPR}` | What a magnet link carries. |
 | `{"year": EXPR}` | First four digits ("2008–2013" is 2008). |
+| `{"date": {"year": EXPR, "month": EXPR, "day": EXPR}}` | The most exact date the parts give: `YYYY-MM-DD`, or `YYYY-MM` when the day is absent, or `YYYY` when the month is absent. Each part can be an expression. The result is empty if the year is absent or a part is invalid. The engine pads month and day to two digits. |
 | `{"minutes": EXPR}` | First number ("143 min" is 143). |
 | `{"scale": {"from": EXPR, "by": 10}}` | Number times `by`, rounded. |
 | `{"add": {"from": EXPR, "n": 1}}` | Number plus `n`. |
@@ -224,7 +225,40 @@ Every request `url` must be `{base}` or start with `{base}/`. Provider holes: `{
 
 ### card
 
-`id` and `title` required. Optional: `title_variants`, `poster`, `banner`, `description`, `format`, `status`, `year`, `episodes`, `runtime_minutes`, `score` (out of 100, use `scale`), `popularity`, `genres`, `adult`.
+`id` and `title` required. Optional: `title_variants`, `poster`, `banner`, `description`, `format`, `status`, `release_date`, `year`, `episodes`, `next_episode`, `runtime_minutes`, `score` (out of 100, use `scale`), `popularity`, `genres`, `adult`.
+
+`release_date` is the first public release date of the title. Use `YYYY-MM-DD` when the provider gives a full date. Use `YYYY-MM` when it gives a year and a month. Use `YYYY` when it gives only a year. Do not send a timestamp or a year range: cut the date part with `regex` and the first year with `year`. Do not use an upload date, DVD date, end date, or episode date as the title date. Leave the field out when the provider gives no date.
+
+Only provider cards and mapper provider cards carry `release_date`. Indexers, subtitle sources, and stream services do not carry it. Their response contracts do not contain title dates.
+
+AniList stores the date in three fields. Use the `date` expression:
+
+```json
+"release_date": {
+  "coalesce": [
+    { "date": { "year": "startDate.year", "month": "startDate.month", "day": "startDate.day" } },
+    "startDate.year",
+    "seasonYear"
+  ]
+}
+```
+
+Many upcoming AniList titles have no day, or no month. The two fallbacks keep the year for those titles.
+
+Cinemeta gives `released` as a timestamp (`2008-01-20T00:00:00.000Z`) and `releaseInfo` as a year or a range (`2008–2013`). Cut both to the contract:
+
+```json
+"release_date": {
+  "coalesce": [
+    { "regex": { "from": "released", "pattern": "^(\\d{4}-\\d{2}-\\d{2})" } },
+    { "year": "releaseInfo" }
+  ]
+}
+```
+
+Cinemeta search rows have no `released`, so they give the year only. The Kitsu mapper uses the same mapping over `videos.0.released`. TVMaze uses `premiered`. YTS uses `year` because its API has no full release date.
+
+The date is the first release anywhere. It is not a home release date. A film that is only in cinemas has a past date and no source.
 
 ### list
 

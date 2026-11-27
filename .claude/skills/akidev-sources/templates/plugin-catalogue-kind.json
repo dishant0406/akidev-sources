@@ -11,7 +11,7 @@
       "id": "mycatalogue",
       "kinds": ["documentary"],
       "base_url": "https://api.example.com",
-      "card": { "id": "id", "title": "name", "poster": "image" },
+      "card": { "id": "id", "title": "name", "poster": "image", "release_date": "released" },
       "list": {
         "request": { "url": "{base}/list" },
         "rows": "items",

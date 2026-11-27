@@ -26,6 +26,43 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 8. **When you add or drop a source, update the credits.** `screens.about.catalogues` and `screens.about.subtitles` feed the footer and the privacy page. The website has no list of its own.
 9. **Keep the file formatted** (2-space JSON) and keep ids unique and lower case.
 10. **Do not mention AI** in commit messages or anywhere else in this repo.
+11. **Every provider card sends its release date.** Use `release_date`. Send `YYYY-MM-DD` when the API has a full date. Send `YYYY-MM` when it has a year and a month. Send `YYYY` when it has only a year. Never invent a month or day. Never send a timestamp or a year range.
+
+## Release dates
+
+A release date tells when a movie or series first became public. It is not the upload date, DVD date, end date, or episode date.
+
+Every provider must send `release_date` in its `card`. The mapper provider must also send it. Add the field to list, search, detail, related, and recommended rows because the same card reads all of them.
+
+Indexers, subtitle sources, and stream services do not send title release dates. Do not add a date field to their response mappings. Do not use torrent upload times or RSS `pubDate` values as title dates.
+
+Run this coverage check after a source change:
+
+```bash
+jq -e '
+  (.providers | length > 0)
+  and ([.providers[].card | has("release_date")] | all)
+  and ([.mappers[]?.provider.card | has("release_date")] | all)
+' sources.json
+```
+
+Use `coalesce` when a provider has a full date and a year fallback. Use the `date` expression when a provider splits the date into fields. Use `regex` to cut the date part from a timestamp. Use `year` to cut the first year from a range such as `2008–2013`. A provider with only a year sends that year.
+
+A release date in the past does not mean that a source exists. A film can be in cinemas for months before a home release. No current provider sends a home release date or a release date for one country.
+
+Current sources:
+
+| Provider | Mapping | Full date? |
+| --- | --- | --- |
+| AniList | `date` over `startDate.year`, `startDate.month`, `startDate.day`, then `startDate.year`, then `seasonYear` | often. Of 200 upcoming titles on 2026-11-28, 28 had a full date, 32 a year and month, 44 a year, 96 no date |
+| Cinemeta | `regex` over `released` for the `YYYY-MM-DD` part, then `year` over `releaseInfo` | list and detail rows often. Search rows have the year only |
+| TVMaze | `premiered` | yes, when known |
+| YTS | `year` | no, year only |
+| Kitsu mapper | `regex` over `videos.0.released` for the `YYYY-MM-DD` part, then `year` over `releaseInfo` | often, with a year fallback |
+
+For AniList, request `startDate { year month day }` in every query. Include it in related and recommended rows too. Never use `nextAiringEpisode.airingAt` as the title date.
+
+See `research/verification/release-date-fields-2026-11-27/README.md` for provider field research. See `research/verification/source-release-date-audit-2026-11-27/README.md` for the full source inventory and live audit.
 
 ## Decide what kind of change it is
 
@@ -34,6 +71,7 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 | **"Add this website / API / feed"**, or "write me a plugin for X" | The whole job: investigate, write, test, deliver | **`references/from-a-website.md`** (start here) |
 | A new torrent site, a new mirror, a fix to how releases are read | An **indexer** change | `references/format.md` (indexers), `references/recipes.md` |
 | A new catalogue, a catalogue that stopped working, new genres or sorts | A **provider** change (and maybe `chains`, `screens`) | `references/format.md` (providers, chains), `references/recipes.md` |
+| A release date is missing, wrong, or only a year | A **provider** change | `references/format.md` (`release_date`), `references/recipes.md` (release dates) |
 | Anime episodes found by another service's id | A **mapper** | `references/format.md` (mappers) |
 | Subtitles from another site | A **subtitle source** | `references/format.md` (subtitles) |
 | A new tab, home row, label, genre list or credits | **Screens** | `references/format.md` (screens) |
