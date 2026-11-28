@@ -343,7 +343,7 @@ Fields: `id`, `url`, `lang` (2 or 3 letters) required; `label`, `format` (`srt`,
   "tabs": [{ "kind": "anime", "slug": "anime", "label": "Anime", "tag": "ANIME" }],
   "sorts": [{ "sort": "popularity", "label": "Popular" }],
   "genres": { "anime": ["Action"], "all": [] },
-  "home": [{ "title": "Trending Anime", "kind": "anime", "sort": "trending", "genre": "Action", "provider": "anilist" }],
+  "home": [{ "title": "Trending Anime", "kind": "anime", "sort": "trending", "genre": "Action", "provider": "anilist" }, { "title": "Top 10 series", "kind": "series", "sort": "popularity", "style": "ranked" }],
   "about": { "attribution": "Metadata from AniList (CC BY-SA).", "catalogues": ["AniList"], "subtitles": ["OpenSubtitles"] }
 }
 ```
@@ -351,7 +351,7 @@ Fields: `id`, `url`, `lang` (2 or 3 letters) required; `label`, `format` (`srt`,
 - `tabs`: 1 to 16. `slug` lower case letters and dashes, not `search`, `title`, `watch`, `download`, `privacy`, `manga`, `info`. `tag` and `label` not empty. Slug, kind and label unique.
 - `sorts`: 1 to 16. The first is the default. Known sorts: `popularity`, `trending`, `score`, `recent`, `title`.
 - `genres`: key is `all` or a real kind; up to 64 each. Use each provider's own spelling.
-- `home`: 1 to 32 rows. A row's `kind` must have a tab. `provider` (optional) must exist and serve the kind. `genre` optional.
+- `home`: 1 to 32 rows. A row's `kind` must have a tab. `provider` (optional) must exist and serve the kind. `genre` optional. `style` optional: `ranked` shows ten titles with a big number beside each; a plain row has no `style`. A value other than `ranked` is refused. An older app ignores the key and draws a plain row.
 - `about`: `attribution` 1 to 1000 characters; `catalogues` and `subtitles` up to 32 names each, 1 to 64 characters per name.
 
 ---

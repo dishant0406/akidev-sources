@@ -122,7 +122,7 @@ Append the address to the indexer's `hosts`. The first host is tried first, so k
 - **Tab:** add to `screens.tabs`: `kind`, `slug`, `label`, `tag`. The slug is lower case letters and dashes and not `search`, `title`, `watch`, `download`, `privacy`, `manga`, `info`. The kind must exist.
 - **Sort:** the known sorts are `popularity`, `trending`, `score`, `recent`, `title`. Add a label in `screens.sorts`. A provider needs a `sorts` mapping for it (or a `default`).
 - **Genre:** add to `screens.genres[kind]` in the provider's own spelling. A genre a provider lacks only returns nothing.
-- **Home row:** add to `screens.home`. Its `kind` must have a tab. `provider` is optional but must serve the kind.
+- **Home row:** add to `screens.home`. Its `kind` must have a tab. `provider` is optional but must serve the kind. `"style": "ranked"` makes it a "Top 10" (ten titles, a big number beside each). Never give a row a `sort` value an older app does not know: it refuses the whole document.
 
 ## 9. Change the credits
 

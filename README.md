@@ -1097,8 +1097,8 @@ A subtitle is converted to WebVTT, which both the web player and mpv read.
     "all": ["Action", "Drama"]
   },
   "home": [
-    { "title": "Trending Anime", "kind": "anime", "sort": "trending" },
-    { "title": "New Releases", "kind": "movie", "sort": "recent" },
+    { "title": "Top 10 anime now", "kind": "anime", "sort": "trending", "style": "ranked" },
+    { "title": "New films", "kind": "movie", "sort": "recent" },
     { "title": "Action Anime", "kind": "anime", "sort": "popularity", "genre": "Action" }
   ],
   "about": {
@@ -1117,7 +1117,7 @@ A subtitle is converted to WebVTT, which both the web player and mpv read.
   - 1 to 16 tabs. Every slug, kind and label must be unique.
 - **`sorts`** are the ways a catalogue can be ordered. The first one is the one it opens on. 1 to 16.
 - **`genres`** are offered for one catalogue, by kind name, in the providers' **own spellings** (AniList and Cinemeta spell some differently, and a genre one of them lacks only ever returns nothing). `all` is for the page that shows every catalogue. Up to 64 per kind. A key must be `all` or a real kind.
-- **`home`** are the rows of the home page, in order (1 to 32). `genre` is optional. A row's `kind` must have a tab. A row can name a `provider` to draw from that one alone.
+- **`home`** are the rows of the home page, in order (1 to 32). `genre` is optional. A row's `kind` must have a tab. A row can name a `provider` to draw from that one alone. A row can set `style` to `ranked`: a "Top 10" with the first ten titles and a big number beside each. A plain row has no `style`. An app that does not know `style` draws a ranked row as a plain one. One row holds one kind. Spread the ranked rows out between plain rows, so two ranked rows do not sit next to each other. The personal "Continue watching" row comes before all of them (the apps add it).
 - **`about`** is the credit text:
   - `attribution` is the footer line (1 to 1000 characters).
   - `catalogues` and `subtitles` are the names the privacy page lists (up to 32 each, 1 to 64 characters per name).
@@ -1392,7 +1392,7 @@ Copy the [OpenSubtitles](#subtitles) entry, change the hosts, the request and th
 
 ### Add a tab or a home row
 
-Edit `screens.tabs` or `screens.home`. A row's `kind` must have a tab. A new tab slug must not be a reserved page.
+Edit `screens.tabs` or `screens.home`. A row's `kind` must have a tab. Name a row for what it holds ("New films", "Top 10 series") and give a "Top 10" row `"style": "ranked"`. A new tab slug must not be a reserved page.
 
 ### Change the credits
 
