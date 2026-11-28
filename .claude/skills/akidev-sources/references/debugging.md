@@ -78,7 +78,7 @@ The server's `GET /health` shows slots in use, open video sessions, active torre
 ## 4. Run the server locally
 
 ```bash
-cd <code repo>/desktop
+cd <code repo>
 cp "$SOURCES_DIR/sources.json" sources/sources.json
 PORT=9187 CACHE_DIR="$(mktemp -d)" STREAM_SOURCES=torrent LISTEN_PORT=6991 \
   RUST_LOG=akidev_core=debug,akidev_server=debug cargo run -p akidev-server

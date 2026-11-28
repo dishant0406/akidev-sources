@@ -17,26 +17,26 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 sources_repo="$(cd "$here/../../../.." && pwd)"
 code="${CODE_REPO:-$sources_repo/../akidev}"
-[ -d "$code/desktop/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
+[ -d "$code/crates/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
 [ $# -ge 2 ] || { echo "usage: try-local.sh <sources.json> <title id> [more ids]" >&2; exit 2; }
 
 doc="$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"; shift
 port="${PORT:-9187}"
 work="$(mktemp -d)"
-cd "$code/desktop"
+cd "$code"
 mkdir -p sources
 saved=""
-[ -f sources/sources.json ] && { saved="$work/saved-sources.json"; cp sources/sources.json "$saved"; }
+[ -f crates/core/sources.json ] && { saved="$work/saved-sources.json"; cp crates/core/sources.json "$saved"; }
 server_pid=""
 
 cleanup() {
   [ -n "$server_pid" ] && kill "$server_pid" 2> /dev/null || true
-  if [ -n "$saved" ]; then cp "$saved" sources/sources.json; else rm -f sources/sources.json; fi
+  if [ -n "$saved" ]; then cp "$saved" crates/core/sources.json; else rm -f crates/core/sources.json; fi
   rm -rf "$work"
 }
 trap cleanup EXIT
 
-jq '.version = 1000000000' "$doc" > sources/sources.json
+jq '.version = 1000000000' "$doc" > crates/core/sources.json
 echo "Building the server with your document ..."
 cargo build -q -p akidev-server
 echo "Starting it on port $port ..."

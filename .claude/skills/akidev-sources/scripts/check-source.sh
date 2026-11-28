@@ -18,16 +18,16 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 sources_repo="$(cd "$here/../../../.." && pwd)"
 code="${CODE_REPO:-$sources_repo/../akidev}"
-[ -d "$code/desktop/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
+[ -d "$code/crates/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
 [ $# -ge 1 ] || { echo "usage: check-source.sh <file> [module.wasm]" >&2; exit 2; }
 
 file="$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
 module=""
 [ $# -ge 2 ] && module="$(cd "$(dirname "$2")" && pwd)/$(basename "$2")"
-cd "$code/desktop"
+cd "$code"
 
 if jq -e 'has("plugin")' "$file" > /dev/null 2>&1; then
-  test_file="core/tests/zz_plugin_check_tmp.rs"
+  test_file="crates/core/tests/zz_plugin_check_tmp.rs"
   trap 'rm -f "$test_file"' EXIT
   cat > "$test_file" <<'RS'
 #[test]

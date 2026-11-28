@@ -1,6 +1,6 @@
 # Recipes
 
-Each recipe says what to do, in order, with the commands. Run commands from `<code repo>/desktop` unless it says otherwise. `SOURCES_DIR` is the checkout of the sources repo.
+Each recipe says what to do, in order, with the commands. Run commands from `<code repo>` unless it says otherwise. `SOURCES_DIR` is the checkout of the sources repo.
 
 Common to every recipe: **raise `version`**, keep the JSON formatted, validate, test, and only publish when the user asks. The common commands:
 
@@ -152,8 +152,8 @@ Add `min_version` (`major.minor.patch`) and optionally `min_version_message` (up
 
 A passing check does not prove the definition reads real answers. Capture one and test it, in the code repo:
 
-- **Indexer:** in `desktop/core/src/indexers/extract.rs`, tests call `run("<id>", &body, "term")` with a saved real body and assert the rows. Copy one of the existing tests and replace the body and the assertions.
-- **Provider:** in `desktop/core/src/providers/read_tests.rs`, tests feed saved answers to the provider and assert the cards, the episodes, the cast.
+- **Indexer:** in `crates/core/src/indexers/extract.rs`, tests call `run("<id>", &body, "term")` with a saved real body and assert the rows. Copy one of the existing tests and replace the body and the assertions.
+- **Provider:** in `crates/core/src/providers/read_tests.rs`, tests feed saved answers to the provider and assert the cards, the episodes, the cast.
 - Run `cargo test -p akidev-core`.
 
 ## 15. A source needs a key, a login or HTML scraping

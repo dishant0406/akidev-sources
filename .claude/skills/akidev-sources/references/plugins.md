@@ -2,7 +2,7 @@
 
 A plugin is how a **user** adds sources of their own without touching `sources.json`. It is one JSON file, plus an optional `.wasm` file. Only the desktop app loads plugins. The server and the website never do. Nobody signs a plugin, so it is shown as "unverified" and is held to stricter rules than the signed document.
 
-Code: `<code repo>/desktop/core/src/plugin.rs` (rules, install), `code.rs` (the WebAssembly sandbox), `services.rs` (stream services). Notes: `<code repo>/pipeline/WASM_PLUGINS.md`.
+Code: `<code repo>/crates/core/src/plugin.rs` (rules, install), `code.rs` (the WebAssembly sandbox), `services.rs` (stream services). Notes: `<code repo>/pipeline/WASM_PLUGINS.md`.
 
 ## Contents
 
@@ -145,7 +145,7 @@ JSON in, JSON out, over the module's memory.
 
 An indexer's job is called with `{ "host", "kind", "path", "query", "json" }` (the filled request, as hints). A provider's job is called with `{ "method", "url", "query", "json" }`.
 
-A working example is `desktop/plugins/code-indexer` in the code repo (it signs a request with a hash of a shared secret and reads an HTML page into rows).
+A working example is `content/plugins/code-indexer` in the code repo's git history (`git show 5779987^:content/plugins/code-indexer/...`; the folder was removed from the tree) (it signs a request with a hash of a shared secret and reads an HTML page into rows).
 
 ## 8. Stream services
 
@@ -199,7 +199,7 @@ The link must be https, on a public host, and on one of `media_hosts`. It is han
 
 The key: typed in Settings, **Stream services**. Kept in `config.toml` (owner-only). Given only to that service's module.
 
-A working example is `desktop/plugins/torbox`.
+A working example is `content/plugins/torbox` in the code repo's git history (`git show 5779987^:content/plugins/torbox/...`); the built `plugins/torbox.json` and `.wasm` are in this repo.
 
 ## 9. Write, build and hash a module
 
@@ -207,7 +207,8 @@ The examples are Rust crates that build to WebAssembly, each its own workspace:
 
 ```bash
 rustup target add wasm32-unknown-unknown
-cd <code repo>/desktop/plugins/code-indexer      # or torbox
+git -C <code repo> worktree add /tmp/plugin-src 5779987^   # the sources were removed from the tree
+cd /tmp/plugin-src/content/plugins/code-indexer      # or torbox
 cargo build --release --target wasm32-unknown-unknown
 shasum -a 256 target/wasm32-unknown-unknown/release/code_indexer.wasm
 ```
@@ -223,11 +224,11 @@ Authoring tips:
 
 ## 10. Test a plugin
 
-- **Rules:** put the JSON through the engine's checker. In the code repo, `plugin::parse` runs every rule. The tests in `desktop/core/src/plugin.rs` show how.
+- **Rules:** put the JSON through the engine's checker. In the code repo, `plugin::parse` runs every rule. The tests in `crates/core/src/plugin.rs` show how.
 - **A code plugin end to end:** the code repo's test `an_indexer_whose_requests_are_made_by_a_plugins_code_finds_releases` runs the example module against a signing server. Run it with:
 
   ```bash
-  cd <code repo>/desktop
+  cd <code repo>
   cargo test -p akidev-core --features code-plugins an_indexer_whose_requests
   ```
 

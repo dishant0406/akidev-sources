@@ -10,9 +10,9 @@ You are working in the `akidev-sources` repo, or on something that reads it. Thi
 ## What this repo is
 
 - It holds `sources.json`, `README.md`, optional plugins, and research tools. It contains no secrets.
-- The code that reads, checks, signs and publishes the file is in the other repo, `dishant0406/akidev`, under `desktop/`. In this skill `<code repo>` means a checkout of it and `SOURCES_DIR` means a checkout of this repo. The usual layout is two folders side by side: `.../akidev` and `.../akidev-sources`.
+- The code that reads, checks, signs and publishes the file is in the other repo, `dishant0406/akidev`, in the Cargo workspace (`crates/` and `apps/`). In this skill `<code repo>` means a checkout of it and `SOURCES_DIR` means a checkout of this repo. The usual layout is two folders side by side: `.../akidev` and `.../akidev-sources`.
 - The document says where Akidev looks for titles, releases and subtitles, and what the screens show. Nothing in it is code. It says which requests to make and which fields to read.
-- Every build of the app and the server has a built-in copy (`desktop/core/build.rs` downloads it from this repo's `main` branch when `desktop/sources/sources.json` is missing). Running apps also fetch newer signed copies from `sources.akidev.live` about every 6 hours.
+- Every build of the app and the server has a built-in copy (`crates/core/build.rs` downloads it from this repo's `main` branch when `crates/core/sources.json` is missing). Running apps also fetch newer signed copies from `sources.akidev.live` about every 6 hours.
 
 ## The golden rules
 
@@ -64,6 +64,17 @@ For AniList, request `startDate { year month day }` in every query. Include it i
 
 See `research/verification/release-date-fields-2026-11-27/README.md` for provider field research. See `research/verification/source-release-date-audit-2026-11-27/README.md` for the full source inventory and live audit.
 
+## Home rows and "Top 10" rows
+
+The home page is a list in `screens.home`: each row has a `title`, a `kind`, a `sort`, an optional `genre`, an optional `provider` and an optional `style`.
+
+- `"style": "ranked"` makes a "Top 10": the first ten titles, each with a big number beside the poster. A plain row has no `style` key. The server, the TV bridge and the desktop app cut a ranked row to ten (`RowStyle::trim`). Every app draws the number the same way. An older app ignores the key and shows a plain row of up to 24 titles.
+- A row holds **one kind**. Keep the order the same: ranked rows spread out between plain rows (so two ranked rows are never next to each other), then the genre rows, then "Top rated". The apps add "Continue watching" in front by themselves.
+- Name a row for what it holds, in one pattern: "Top 10 anime now", "New films", "Action films". Only anime is "now" (AniList has a real trending sort). "Top 10 films" and "Top 10 series" are "popular", not daily, and the names must say so.
+- **Never give a row a `sort` value an older app does not know** (the known ones are `popularity`, `trending`, `score`, `recent`, `title`). An older app refuses the whole document for a value it does not know, and ignores a key it does not know. That is why `style` is a key and not a new sort.
+- A row for upcoming titles ("Coming soon") is **not possible with data alone**. The catalogues drop upcoming titles on purpose (`drop` rules with `after_today`, and the AniList `recent` sort). It needs a new sort, which needs code first.
+- Publish order: the server first, then the document (see `references/publishing.md`), so the website never shows "Top 10" over 24 tiles.
+
 ## Decide what kind of change it is
 
 | The user wants | It is | Read |
@@ -74,7 +85,7 @@ See `research/verification/release-date-fields-2026-11-27/README.md` for provide
 | A release date is missing, wrong, or only a year | A **provider** change | `references/format.md` (`release_date`), `references/recipes.md` (release dates) |
 | Anime episodes found by another service's id | A **mapper** | `references/format.md` (mappers) |
 | Subtitles from another site | A **subtitle source** | `references/format.md` (subtitles) |
-| A new tab, home row, label, genre list or credits | **Screens** | `references/format.md` (screens) |
+| A new tab, home row (plain, or a ranked "Top 10"), label, genre list or credits | **Screens** | `references/format.md` (screens) |
 | Lock out old apps | `min_version` | `references/publishing.md` |
 | A user wants their own source, without changing this file | A **plugin** | `references/plugins.md` |
 | A source that needs signing, a login or scraping HTML | A **code plugin** (WebAssembly) | `references/plugins.md` |
@@ -83,7 +94,7 @@ See `research/verification/release-date-fields-2026-11-27/README.md` for provide
 | It is broken | Debugging | `references/debugging.md` |
 | Ship it | Publishing | `references/publishing.md` |
 
-If the request needs something data cannot say, tell the user plainly that it needs a code change in `<code repo>/desktop/core`, and say which module (see `references/engine.md`). Do not bend the JSON to fake it.
+If the request needs something data cannot say, tell the user plainly that it needs a code change in `<code repo>/crates/core`, and say which module (see `references/engine.md`). Do not bend the JSON to fake it.
 
 ## When the user gives you a website, an API or an idea
 
@@ -110,18 +121,18 @@ Never put a key in `sources.json`, never ask for a password in chat, and never e
 4. **Validate the file on its own:**
 
    ```bash
-   cd <code repo>/desktop
+   cd <code repo>
    cargo run -p akidev-core --bin akidev-sources -- check "$SOURCES_DIR/sources.json"
    ```
 
-5. **Run the engine's tests with your copy.** The build only downloads `sources.json` when `desktop/sources/sources.json` is missing, so copy your edit there first:
+5. **Run the engine's tests with your copy.** The build only downloads `sources.json` when `crates/core/sources.json` is missing, so copy your edit there first:
 
    ```bash
-   cp "$SOURCES_DIR/sources.json" <code repo>/desktop/sources/sources.json
-   cd <code repo>/desktop && cargo test -p akidev-core
+   cp "$SOURCES_DIR/sources.json" <code repo>/crates/core/sources.json
+   cd <code repo> && cargo test -p akidev-core
    ```
 
-6. **Add a test for a new indexer or provider** in the code repo, using the real answer you saved. Indexers: `desktop/core/src/indexers/extract.rs` tests (they call `run("<id>", &body, "term")`). Providers: `desktop/core/src/providers/read_tests.rs`. A definition that passes the check does not prove it reads real answers.
+6. **Add a test for a new indexer or provider** in the code repo, using the real answer you saved. Indexers: `crates/core/src/indexers/extract.rs` tests (they call `run("<id>", &body, "term")`). Providers: `crates/core/src/providers/read_tests.rs`. A definition that passes the check does not prove it reads real answers.
 7. **Update the credits** in `screens.about` if you added or dropped a source, and the genres in `screens.genres` if a catalogue spells them differently.
 8. **Show the user the diff** and say what changes for users.
 9. **Only if asked, publish** (see `references/publishing.md`).
@@ -137,7 +148,7 @@ Never put a key in `sources.json`, never ask for a password in chat, and never e
 - Release fields: `title` and `hash` are required; `magnet`, `size`, `file_idx`, `seeders` are optional. A row without a valid 40-hex (or 32 base32) info hash is dropped.
 - Cache: parsed answers are cached 10 minutes (60 seconds when empty). Errors are never cached as healthy empty answers.
 - Where the live copy is: `https://sources.akidev.live/sources.json` (schema 1) and `https://sources.akidev.live/v2/sources.json` (schema 2).
-- Where the code is: `desktop/core/src/definition.rs` (the format), `sources.rs` (the document and its checks), `screens.rs`, `plugin.rs`, `code.rs` (WebAssembly sandbox), `services.rs` (stream services), `indexers/`, `providers/`.
+- Where the code is: `crates/core/src/definition.rs` (the format), `sources.rs` (the document and its checks), `screens.rs`, `plugin.rs`, `code.rs` (WebAssembly sandbox), `services.rs` (stream services), `indexers/`, `providers/`.
 
 ## Files in this skill
 

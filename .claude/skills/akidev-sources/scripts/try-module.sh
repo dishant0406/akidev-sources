@@ -20,7 +20,7 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 sources_repo="$(cd "$here/../../../.." && pwd)"
 code="${CODE_REPO:-$sources_repo/../akidev}"
-[ -d "$code/desktop/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
+[ -d "$code/crates/core" ] || { echo "Set CODE_REPO to a checkout of dishant0406/akidev (not found: $code)" >&2; exit 2; }
 [ $# -eq 4 ] || { echo "usage: try-module.sh <module.wasm> <export> '<input json>' <host[,host]>" >&2; exit 2; }
 
 module="$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
@@ -29,8 +29,8 @@ input="$3"
 hosts="$4"
 echo "$input" | jq -e . > /dev/null || { echo "The input is not valid JSON." >&2; exit 2; }
 
-cd "$code/desktop"
-test_file="core/tests/zz_try_module_tmp.rs"
+cd "$code"
+test_file="crates/core/tests/zz_try_module_tmp.rs"
 trap 'rm -f "$test_file"' EXIT
 cat > "$test_file" <<'RS'
 #[tokio::test(flavor = "multi_thread")]

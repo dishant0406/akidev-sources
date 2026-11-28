@@ -253,7 +253,7 @@ Do all of these. A definition that passes the checker can still read nothing.
 
    It starts a local server with your document (nothing is published), asks for the releases of those titles, and prints how many releases each source found. Your indexer's `id` should appear with a number above zero for titles it should know. `anime-16498-ep1` is an anime episode. The first run compiles the server and takes a few minutes. It restores everything when it ends.
 4. **A code plugin's module against the real site:** `scripts/try-module.sh` (section 7).
-5. **Keep a fixture test** if the entry goes into `sources.json`: in the code repo, `desktop/core/src/indexers/extract.rs` tests call `run("<id>", &body, "term")` with a saved real body (providers: `desktop/core/src/providers/read_tests.rs`). Copy one and use your saved answer.
+5. **Keep a fixture test** if the entry goes into `sources.json`: in the code repo, `crates/core/src/indexers/extract.rs` tests call `run("<id>", &body, "term")` with a saved real body (providers: `crates/core/src/providers/read_tests.rs`). Copy one and use your saved answer.
 
 If a site is down, blocks you, or answers differently from a browser, say so. Do not fake a result.
 

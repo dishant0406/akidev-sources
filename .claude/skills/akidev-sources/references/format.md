@@ -1,6 +1,6 @@
 # The format of sources.json, field by field
 
-Everything here is read from the code in `<code repo>/desktop/core/src/` (`definition.rs`, `sources.rs`, `screens.rs`). When this file and the code disagree, the code is right: read it and fix this file.
+Everything here is read from the code in `<code repo>/crates/core/src/` (`definition.rs`, `sources.rs`, `screens.rs`). When this file and the code disagree, the code is right: read it and fix this file.
 
 ## Contents
 
